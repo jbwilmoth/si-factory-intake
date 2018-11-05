@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <annotation/>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>This Flow runs the Solution Innovation Factory Intake Request process.</description>
+        <internal_name>si_factory_-_intake_flow</internal_name>
+        <label_cache>[{"name":"Service Catalog_1.request_item.assigned_to.manager","label":"Trigger➛Requested Item Record➛Assigned to➛Manager","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sys_user","column_name":"manager"},{"name":"Service Catalog_1.request_item.request.requested_for.manager","label":"Trigger➛Requested Item Record➛Request➛Requested for➛Manager","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"sys_user","column_name":"manager"},{"name":"Service Catalog_1.request_item.request","label":"Trigger➛Requested Item Record➛Request","reference":"sc_request","reference_display":"Request","type":"reference","base_type":"reference","parent_table_name":"sc_req_item","column_name":"request"},{"name":"Service Catalog_1.request_item","label":"Trigger➛Requested Item Record","reference":"sc_req_item","reference_display":"Requested Item","type":"reference","base_type":"reference"},{"name":"99369330-11c8-4e1b-8687-531f051b62ae.approval_state","label":"1➛Approval State","reference_display":"Approval State","type":"choice","base_type":"choice"}]</label_cache>
+        <latest_snapshot>e1327a1213ad27004b063192e144b0be</latest_snapshot>
+        <master_snapshot>9022f61213ad27004b063192e144b0f4</master_snapshot>
+        <name>SI Factory - Intake Flow</name>
+        <outputs/>
+        <remote_trigger_id>a4223a1213ad27004b063192e144b064</remote_trigger_id>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2018-11-05 20:51:31</sys_created_on>
+        <sys_id>ae51b6de136d27004b063192e144b0c6</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>SI Factory - Intake Flow</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sys_hub_flow_ae51b6de136d27004b063192e144b0c6</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2018-11-05 20:55:18</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_variable_value action="delete_multiple" query="document_key=ae51b6de136d27004b063192e144b0c6"/>
+</record_update>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_flow_stage">
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <component_indexes/>
+        <duration>1970-01-02 00:00:00</duration>
+        <flow display_value="SI Factory - Intake Flow">9022f61213ad27004b063192e144b0f4</flow>
+        <label>Fulfillment</label>
+        <order>4</order>
+        <stage_id>0273fb8e-a69d-4d29-a637-c8dd03c9ec2d</stage_id>
+        <states>{"pending":"Pending - has not started","inprogress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_class_name>sys_hub_flow_stage</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2018-11-05 20:54:56</sys_created_on>
+        <sys_id>64223a1213ad27004b063192e144b039</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Fulfillment</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sys_hub_flow_stage_64223a1213ad27004b063192e144b039</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2018-11-05 20:54:56</sys_updated_on>
+        <type>standard</type>
+        <value>fulfillment</value>
+    </sys_hub_flow_stage>
+</record_update>

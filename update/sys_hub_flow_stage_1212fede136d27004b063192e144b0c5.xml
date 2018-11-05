@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_flow_stage">
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <component_indexes/>
+        <duration>1970-01-01 00:00:00</duration>
+        <flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow>
+        <label>Request Cancelled</label>
+        <order>0</order>
+        <stage_id>810d9043-5662-4a38-a5e8-f7391dd57a6d</stage_id>
+        <states>{"pending":"Pending - has not started","inprogress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_class_name>sys_hub_flow_stage</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2018-11-05 20:54:47</sys_created_on>
+        <sys_id>1212fede136d27004b063192e144b0c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Request Cancelled</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sys_hub_flow_stage_1212fede136d27004b063192e144b0c5</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2018-11-05 20:54:47</sys_updated_on>
+        <type>standard</type>
+        <value>Request Cancelled</value>
+    </sys_hub_flow_stage>
+</record_update>
