@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="f9f57a9213ad27004b063192e144b009" sys_domain="global" table="x_snc_intake_si_factory_template" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>0</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-05 21:11:41</sys_created_on>
+            <sys_id>f5f57a9213ad27004b063192e144b00f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_intake_si_factory_template" sys_domain="global" view="Default view">f9f57a9213ad27004b063192e144b009</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-05 21:11:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>1</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-05 21:11:41</sys_created_on>
+            <sys_id>79f57a9213ad27004b063192e144b00f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_intake_si_factory_template" sys_domain="global" view="Default view">f9f57a9213ad27004b063192e144b009</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-05 21:11:41</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>template_preview</element>
+            <position>2</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-05 21:11:41</sys_created_on>
+            <sys_id>f9f57a9213ad27004b063192e144b00f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_intake_si_factory_template" sys_domain="global" view="Default view">f9f57a9213ad27004b063192e144b009</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-05 21:11:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-05 21:11:41</sys_created_on>
+            <sys_id>4ef57a9213ad27004b063192e144b00f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_intake_si_factory_template" sys_domain="global" view="Default view">f9f57a9213ad27004b063192e144b009</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-05 21:11:41</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>product_line</element>
+            <position>4</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-05 21:11:41</sys_created_on>
+            <sys_id>cef57a9213ad27004b063192e144b00f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_intake_si_factory_template" sys_domain="global" view="Default view">f9f57a9213ad27004b063192e144b009</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-05 21:11:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>5</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-05 21:11:41</sys_created_on>
+            <sys_id>42f57a9213ad27004b063192e144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_intake_si_factory_template" sys_domain="global" view="Default view">f9f57a9213ad27004b063192e144b009</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-05 21:11:41</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_intake_si_factory_template</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-05 21:11:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f9f57a9213ad27004b063192e144b009</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_intake_si_factory_template</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+            <sys_update_name>sys_ui_section_f9f57a9213ad27004b063192e144b009</sys_update_name>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-05 21:11:41</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>
