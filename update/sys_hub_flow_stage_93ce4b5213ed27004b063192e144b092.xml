@@ -3,26 +3,26 @@
         <always_show>true</always_show>
         <ancestor_component_id/>
         <ancestor_stage_id/>
-        <component_indexes/>
+        <component_indexes>8</component_indexes>
         <duration>1970-01-01 00:00:00</duration>
-        <flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow>
-        <label>Fulfillment</label>
-        <order>4</order>
-        <stage_id>0273fb8e-a69d-4d29-a637-c8dd03c9ec2d</stage_id>
+        <flow display_value="SI Factory - Intake Flow">9022f61213ad27004b063192e144b0f4</flow>
+        <label>Peer Review</label>
+        <order>8</order>
+        <stage_id>a83e0011-6b3c-4b20-8924-4789fe9a1422</stage_id>
         <states>{"pending":"Pending - has not started","inprogress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
         <sys_class_name>sys_hub_flow_stage</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 20:54:47</sys_created_on>
-        <sys_id>9e12b61213ad27004b063192e144b0f8</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Fulfillment</sys_name>
+        <sys_created_on>2018-11-05 23:00:11</sys_created_on>
+        <sys_id>93ce4b5213ed27004b063192e144b092</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Peer Review</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
-        <sys_update_name>sys_hub_flow_stage_9e12b61213ad27004b063192e144b0f8</sys_update_name>
+        <sys_update_name>sys_hub_flow_stage_93ce4b5213ed27004b063192e144b092</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 22:59:41</sys_updated_on>
+        <sys_updated_on>2018-11-05 23:00:11</sys_updated_on>
         <type>standard</type>
-        <value>fulfillment</value>
+        <value>review</value>
     </sys_hub_flow_stage>
 </record_update>

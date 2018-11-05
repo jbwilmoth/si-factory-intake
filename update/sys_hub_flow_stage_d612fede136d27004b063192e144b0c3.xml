@@ -3,7 +3,7 @@
         <always_show>true</always_show>
         <ancestor_component_id/>
         <ancestor_stage_id/>
-        <component_indexes/>
+        <component_indexes>1</component_indexes>
         <duration>1970-01-01 00:00:00</duration>
         <flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow>
         <label>Request Approved</label>
@@ -14,14 +14,14 @@
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-05 20:54:47</sys_created_on>
         <sys_id>d612fede136d27004b063192e144b0c3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Request Approved</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_hub_flow_stage_d612fede136d27004b063192e144b0c3</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 20:54:47</sys_updated_on>
+        <sys_updated_on>2018-11-05 22:59:41</sys_updated_on>
         <type>standard</type>
         <value>request_approved</value>
     </sys_hub_flow_stage>
