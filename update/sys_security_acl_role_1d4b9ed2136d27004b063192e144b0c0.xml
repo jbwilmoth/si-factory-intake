@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2018-11-05 19:15:02</sys_created_on>
+        <sys_id>1d4b9ed2136d27004b063192e144b0c0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_intake_product_line.x_snc_intake.product_line_user</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_security_acl display_value="x_snc_intake_product_line">9d4b9ed2136d27004b063192e144b098</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_1d4b9ed2136d27004b063192e144b0c0</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2018-11-05 19:15:02</sys_updated_on>
+        <sys_user_role display_value="x_snc_intake.product_line_user" name="x_snc_intake.product_line_user">854b96d2136d27004b063192e144b01d</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>
