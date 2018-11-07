@@ -37,7 +37,7 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>formatter</name>
-        <order>31</order>
+        <order>23</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <question_text/>
@@ -57,16 +57,16 @@
         <summary_macro/>
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-07 20:43:31</sys_created_on>
-        <sys_id>3a82458313e1a7004b063192e144b09c</sys_id>
+        <sys_created_on>2018-11-07 21:33:49</sys_created_on>
+        <sys_id>e62e45cb13e1a7004b063192e144b0e7</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>formatter</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
-        <sys_update_name>item_option_new_3a82458313e1a7004b063192e144b09c</sys_update_name>
+        <sys_update_name>item_option_new_e62e45cb13e1a7004b063192e144b0e7</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-07 20:43:31</sys_updated_on>
+        <sys_updated_on>2018-11-07 21:33:49</sys_updated_on>
         <table/>
         <tooltip/>
         <type>24</type>
@@ -83,22 +83,22 @@
         <visible_summary>true</visible_summary>
         <write_roles/>
     </item_option_new>
-    <sys_translated_text action="delete_multiple" query="documentkey=3a82458313e1a7004b063192e144b09c"/>
-    <fx_price action="delete_multiple" query="id=3a82458313e1a7004b063192e144b09c"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=e62e45cb13e1a7004b063192e144b0e7"/>
+    <fx_price action="delete_multiple" query="id=e62e45cb13e1a7004b063192e144b0e7"/>
     <fx_price action="INSERT_OR_UPDATE">
         <amount>0</amount>
         <currency display_value="USD">USD</currency>
         <field>price_if_checked</field>
-        <id>3a82458313e1a7004b063192e144b09c</id>
+        <id>e62e45cb13e1a7004b063192e144b0e7</id>
         <parent/>
         <reference_amount>0</reference_amount>
         <reference_currency display_value="USD">USD</reference_currency>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-07 20:43:31</sys_created_on>
-        <sys_id>b4b2c18313e1a7004b063192e144b008</sys_id>
+        <sys_created_on>2018-11-07 21:33:49</sys_created_on>
+        <sys_id>b53e85cb13e1a7004b063192e144b04d</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-07 20:43:31</sys_updated_on>
+        <sys_updated_on>2018-11-07 21:33:49</sys_updated_on>
         <table>item_option_new</table>
         <type>calculated</type>
     </fx_price>
@@ -106,16 +106,16 @@
         <amount>0</amount>
         <currency display_value="USD">USD</currency>
         <field>rec_price_if_checked</field>
-        <id>3a82458313e1a7004b063192e144b09c</id>
+        <id>e62e45cb13e1a7004b063192e144b0e7</id>
         <parent/>
         <reference_amount>0</reference_amount>
         <reference_currency display_value="USD">USD</reference_currency>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-07 20:43:31</sys_created_on>
-        <sys_id>7cb2c18313e1a7004b063192e144b006</sys_id>
+        <sys_created_on>2018-11-07 21:33:49</sys_created_on>
+        <sys_id>b53e85cb13e1a7004b063192e144b04b</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-07 20:43:31</sys_updated_on>
+        <sys_updated_on>2018-11-07 21:33:49</sys_updated_on>
         <table>item_option_new</table>
         <type>calculated</type>
     </fx_price>
