@@ -14,14 +14,14 @@
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-05 22:59:50</sys_created_on>
         <sys_id>cabe475213ed27004b063192e144b0bf</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name/>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_hub_action_instance_cabe475213ed27004b063192e144b0bf</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2018-11-06 21:24:39</sys_updated_on>
+        <sys_updated_on>2018-11-16 20:57:13</sys_updated_on>
         <ui_id>c1c9cd59-3cc5-4f13-bec7-c425b30b96f7</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=cabe475213ed27004b063192e144b0bf"/>
@@ -33,10 +33,10 @@
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-05 23:00:02</sys_created_on>
         <sys_id>11cec75213ed27004b063192e144b0be</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:02</sys_updated_on>
-        <value>state=2</value>
+        <sys_updated_on>2018-11-16 20:11:07</sys_updated_on>
+        <value>state=2^approval=approved</value>
         <variable display_value="">02d01916c31332002841b63b12d3aeee</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
