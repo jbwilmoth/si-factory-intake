@@ -11,11 +11,13 @@
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>joe.wilmoth</sys_created_by>
             <sys_created_on>2018-11-06 21:18:04</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
             <sys_id>9901807e132967004b063192e144b0b5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>Table Name</sys_name>
             <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
             <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
             <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_0901807e132967004b063192e144b0ac_table_name_en</sys_update_name>
             <sys_updated_by>joe.wilmoth</sys_updated_by>

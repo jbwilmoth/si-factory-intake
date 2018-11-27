@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>body{&#13;
+  background: $gray-lighter;&#13;
+  .padding-top{&#13;
+    padding: 0 !important;&#13;
+  }&#13;
+}&#13;
+&#13;
+&#13;
+</css>
+        <draft>false</draft>
+        <dynamic_title_structure>SI Factory</dynamic_title_structure>
+        <id>si_factory</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description>SI Factory Home</short_description>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>chris.stoll</sys_created_by>
+        <sys_created_on>2018-11-27 13:07:16</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>241a9ed5134e6f00ca3db1676144b0ce</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>si_factory</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sp_page_241a9ed5134e6f00ca3db1676144b0ce</sys_update_name>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2018-11-27 14:33:43</sys_updated_on>
+        <title>SI Factory</title>
+    </sp_page>
+</record_update>

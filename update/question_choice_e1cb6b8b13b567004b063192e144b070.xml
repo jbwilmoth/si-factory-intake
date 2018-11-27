@@ -7,11 +7,13 @@
         <sys_class_name>question_choice</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-20 19:17:55</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>e1cb6b8b13b567004b063192e144b070</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Template</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>question_choice_e1cb6b8b13b567004b063192e144b070</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>

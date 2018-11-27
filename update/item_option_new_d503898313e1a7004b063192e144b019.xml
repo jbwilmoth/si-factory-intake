@@ -40,7 +40,7 @@
         <order>110</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
-        <question_text>Do you have any additional information? Any missing information?</question_text>
+        <question_text>Give a brief description of what you need help with</question_text>
         <read_roles/>
         <rec_lookup_price/>
         <rec_price_if_checked>0</rec_price_if_checked>
@@ -58,15 +58,17 @@
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-07 20:46:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>d503898313e1a7004b063192e144b019</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Do you have any additional information? Any missing information?</sys_name>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Give a brief description of what you need help with</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>item_option_new_d503898313e1a7004b063192e144b019</sys_update_name>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-07 20:46:39</sys_updated_on>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-11-27 16:29:39</sys_updated_on>
         <table/>
         <tooltip/>
         <type>2</type>
@@ -82,6 +84,9 @@
         <visible_standalone>true</visible_standalone>
         <visible_summary>true</visible_summary>
         <write_roles/>
+        <x_yala_yds_additional_display_fields/>
+        <x_yala_yds_additional_display_fields_list/>
+        <x_yala_yds_search_all_display_fields>false</x_yala_yds_search_all_display_fields>
     </item_option_new>
     <sys_translated_text action="delete_multiple" query="documentkey=d503898313e1a7004b063192e144b019"/>
     <fx_price action="delete_multiple" query="id=d503898313e1a7004b063192e144b019"/>

@@ -25,13 +25,13 @@
         <mobile_picture_type>use_desktop_picture</mobile_picture_type>
         <model/>
         <name>SI Factory - Intake</name>
-        <no_cart>false</no_cart>
+        <no_cart>true</no_cart>
         <no_order>false</no_order>
         <no_order_now>false</no_order_now>
-        <no_proceed_checkout>false</no_proceed_checkout>
+        <no_proceed_checkout>true</no_proceed_checkout>
         <no_quantity>false</no_quantity>
         <no_search>false</no_search>
-        <omit_price>false</omit_price>
+        <omit_price>true</omit_price>
         <order>0</order>
         <ordered_item_link/>
         <picture/>
@@ -49,23 +49,31 @@
         <sys_class_name>sc_cat_item</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-05 20:48:58</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>74a076de136d27004b063192e144b00c</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>SI Factory - Intake</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sc_cat_item_74a076de136d27004b063192e144b00c</sys_update_name>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 22:30:20</sys_updated_on>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-11-27 16:11:13</sys_updated_on>
         <template/>
         <type>item</type>
-        <use_sc_layout>true</use_sc_layout>
+        <u_bootstrap_order/>
+        <u_update_set/>
+        <use_sc_layout>false</use_sc_layout>
         <vendor/>
         <visible_bundle>true</visible_bundle>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>
         <workflow/>
+        <x_yala_yds_allow_large_quantities>false</x_yala_yds_allow_large_quantities>
+        <x_yala_yds_failsafe_sizing>false</x_yala_yds_failsafe_sizing>
+        <x_yala_yds_render_in_iframe>false</x_yala_yds_render_in_iframe>
+        <x_yala_yds_resize_width>false</x_yala_yds_resize_width>
     </sc_cat_item>
     <sys_translated_text action="delete_multiple" query="documentkey=74a076de136d27004b063192e144b00c"/>
     <fx_price action="delete_multiple" query="id=74a076de136d27004b063192e144b00c"/>

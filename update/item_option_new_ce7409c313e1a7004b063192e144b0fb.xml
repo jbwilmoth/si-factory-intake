@@ -58,11 +58,13 @@
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-07 20:51:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>ce7409c313e1a7004b063192e144b0fb</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Additional Information</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>item_option_new_ce7409c313e1a7004b063192e144b0fb</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
@@ -82,6 +84,9 @@
         <visible_standalone>true</visible_standalone>
         <visible_summary>true</visible_summary>
         <write_roles/>
+        <x_yala_yds_additional_display_fields/>
+        <x_yala_yds_additional_display_fields_list/>
+        <x_yala_yds_search_all_display_fields>false</x_yala_yds_search_all_display_fields>
     </item_option_new>
     <sys_translated_text action="delete_multiple" query="documentkey=ce7409c313e1a7004b063192e144b0fb"/>
     <fx_price action="delete_multiple" query="id=ce7409c313e1a7004b063192e144b0fb"/>

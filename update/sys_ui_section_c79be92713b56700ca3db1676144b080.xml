@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="c79be92713b56700ca3db1676144b080" sys_domain="global" table="sc_cat_item" version="3" view="innovation_factory">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>0</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>019ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sc_catalogs</element>
+            <position>1</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>819ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>category</element>
+            <position>2</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>059ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>vendor</element>
+            <position>3</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>859ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>icon</element>
+            <position>4</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>099ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>5</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>899ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sys_scope</element>
+            <position>6</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>0d9ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <position>7</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>8d9ca1e713b56700ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>no_cart</element>
+            <position>8</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>019ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>9</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>819ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>no_proceed_checkout</element>
+            <position>10</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>059ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>11</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>859ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>roles</element>
+            <position>12</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>099ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>13</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>899ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>ordered_item_link</element>
+            <position>14</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>0d9ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>15</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>8d9ca1e713b56700ca3db1676144b011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>picture</element>
+            <position>16</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:19:09</sys_created_on>
+            <sys_id>019ca1e713b56700ca3db1676144b012</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sc_cat_item" sys_domain="global" view="039bade313b56700ca3db1676144b003">c79be92713b56700ca3db1676144b080</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:19:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>sc_cat_item</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:14:55</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>c79be92713b56700ca3db1676144b080</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sc_cat_item</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+            <sys_update_name>sys_ui_section_c79be92713b56700ca3db1676144b080</sys_update_name>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:14:55</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Innovation Factory" name="innovation_factory">039bade313b56700ca3db1676144b003</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

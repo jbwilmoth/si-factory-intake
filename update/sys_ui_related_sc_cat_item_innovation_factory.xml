@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="sc_cat_item" version="2" view="innovation_factory">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Catalog Item - Innovation Factory" name="sc_cat_item" related_list="NULL" sys_domain="global" view="039bade313b56700ca3db1676144b003">1f7cada713b56700ca3db1676144b038</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>item_option_new.cat_item</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:18:45</sys_created_on>
+            <sys_id>9f7cada713b56700ca3db1676144b039</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:18:45</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Catalog Item - Innovation Factory" name="sc_cat_item" related_list="NULL" sys_domain="global" view="039bade313b56700ca3db1676144b003">1f7cada713b56700ca3db1676144b038</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>io_set_item.sc_cat_item</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:18:45</sys_created_on>
+            <sys_id>9b7cada713b56700ca3db1676144b03a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:18:45</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Catalog Item - Innovation Factory" name="sc_cat_item" related_list="NULL" sys_domain="global" view="039bade313b56700ca3db1676144b003">1f7cada713b56700ca3db1676144b038</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>sc_cat_item_category.sc_cat_item</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:18:45</sys_created_on>
+            <sys_id>137cada713b56700ca3db1676144b03b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:18:45</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Catalog Item - Innovation Factory" name="sc_cat_item" related_list="NULL" sys_domain="global" view="039bade313b56700ca3db1676144b003">1f7cada713b56700ca3db1676144b038</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>sc_cat_item_catalog.sc_cat_item</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:18:45</sys_created_on>
+            <sys_id>977cada713b56700ca3db1676144b03b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:18:45</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Catalog Item - Innovation Factory" name="sc_cat_item" related_list="NULL" sys_domain="global" view="039bade313b56700ca3db1676144b003">1f7cada713b56700ca3db1676144b038</list_id>
+            <order_by/>
+            <position>4</position>
+            <related_list>catalog_ui_policy.catalog_item</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:18:45</sys_created_on>
+            <sys_id>1f7cada713b56700ca3db1676144b03b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:18:45</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Catalog Item - Innovation Factory" name="sc_cat_item" related_list="NULL" sys_domain="global" view="039bade313b56700ca3db1676144b003">1f7cada713b56700ca3db1676144b038</list_id>
+            <order_by/>
+            <position>5</position>
+            <related_list>catalog_script_client.cat_item</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:18:45</sys_created_on>
+            <sys_id>937cada713b56700ca3db1676144b03c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:18:45</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Catalog Item - Innovation Factory</calculated_name>
+            <filter/>
+            <name>sc_cat_item</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-11-21 23:18:45</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>1f7cada713b56700ca3db1676144b038</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Catalog Item - Innovation Factory</sys_name>
+            <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+            <sys_update_name>sys_ui_related_sc_cat_item_innovation_factory</sys_update_name>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-11-21 23:18:45</sys_updated_on>
+            <sys_user/>
+            <view display_value="Innovation Factory" name="innovation_factory">039bade313b56700ca3db1676144b003</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

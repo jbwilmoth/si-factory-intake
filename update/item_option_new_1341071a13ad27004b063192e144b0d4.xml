@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new">
     <item_option_new action="INSERT_OR_UPDATE">
-        <active>true</active>
+        <active>false</active>
         <attributes/>
         <cat_item display_value="SI Factory - Intake">74a076de136d27004b063192e144b00c</cat_item>
         <category/>
@@ -58,15 +58,17 @@
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-05 22:01:12</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>1341071a13ad27004b063192e144b0d4</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Choose a Template</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>item_option_new_1341071a13ad27004b063192e144b0d4</sys_update_name>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-07 21:34:39</sys_updated_on>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-11-27 16:25:45</sys_updated_on>
         <table/>
         <tooltip/>
         <type>17</type>
@@ -82,6 +84,9 @@
         <visible_standalone>true</visible_standalone>
         <visible_summary>true</visible_summary>
         <write_roles/>
+        <x_yala_yds_additional_display_fields/>
+        <x_yala_yds_additional_display_fields_list/>
+        <x_yala_yds_search_all_display_fields>false</x_yala_yds_search_all_display_fields>
     </item_option_new>
     <sys_translated_text action="delete_multiple" query="documentkey=1341071a13ad27004b063192e144b0d4"/>
     <fx_price action="delete_multiple" query="id=1341071a13ad27004b063192e144b0d4"/>

@@ -13,15 +13,17 @@
         <sys_class_name>sys_hub_action_instance</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-05 22:59:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>dabe475213ed27004b063192e144b0e7</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name/>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_hub_action_instance_dabe475213ed27004b063192e144b0e7</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2018-11-16 20:57:14</sys_updated_on>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-11-27 16:11:21</sys_updated_on>
         <ui_id>f91d76e0-56a1-4415-83f6-716d741662c1</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=dabe475213ed27004b063192e144b0e7"/>
