@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function($scope, $rootScope) {
-	
+        <client_script><![CDATA[function($scope, $rootScope, spUtil) {
+
 	var g_form = $scope.page.g_form;
-	var field = $scope.page.field;
 	var c = this;
-	
-	$scope.getValue = function(field) {
-		var field_obj = g_form.getField(field);
-		var value = g_form.getValue(field);
-		c.data.preview = value;
-		return c.data.preview;
+
+	$scope.getValue = function() {
+		var field_obj = g_form.getField('request_purpose');
+		var value = g_form.getValue(field_obj.value);
+		
+		c.server.get({ solution: value }).then(function(response){
+			c.data.preview = response.data.preview;	
+		});
+		
 	}
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -30,27 +32,49 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
- 
-})();]]></script>
+	
+	if (input && Object.keys(input).length > 0) {
+		
+		var solutionArtifact = new GlideRecord('solution_artifacts');
+		solutionArtifact.addQuery('type', 'Primary Icon');
+		solutionArtifact.addQuery('solution', input.solution);
+		solutionArtifact.query();
+		
+		if (solutionArtifact.next()){
+			data.artifactID = solutionArtifact.getUniqueValue();
+			data.preview = solutionArtifact.getValue('screenshot');	
+		}else{
+			data.preview = 'b985b236cb03020000f8d856634c9cba';
+		}
+	}
+}());]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-29 21:10:14</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>6ecb9ac613cea300ca3db1676144b0b0</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>77</sys_mod_count>
         <sys_name>SI Factory - Preview Thumbnail</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_6ecb9ac613cea300ca3db1676144b0b0</sys_update_name>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-29 22:47:11</sys_updated_on>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2018-11-30 19:40:05</sys_updated_on>
         <template><![CDATA[<div>
-<button class="btn btn-primary" ng-click="getValue('widget') || getValue('template')">Preview</button><br> 
+  <button class="btn btn-primary" ng-click="getValue()">Preview</button><br> 
   <div>
-    {{c.data.preview || ""}}
+    {{c.data.solution || ""}}
+  </div>
+</div>
+
+<div>
+  <div style="display:inline-block; padding-left:20px;">
+    <a class="clearfix" target="_blank" href="/sys_attachment.do?view=true&amp;sys_id={{c.data.preview}}">
+      <img class="sn-card-component-image ng-scope" ng-src="{{c.data.preview}}.iix?t=small" src="{{c.data.preview}}.iix?t=small" title="{{c.data.preview}}"/>
+    </a>
   </div>
 </div>]]></template>
     </sp_widget>
