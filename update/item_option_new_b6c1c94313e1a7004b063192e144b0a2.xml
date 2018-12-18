@@ -2,7 +2,7 @@
     <item_option_new action="INSERT_OR_UPDATE">
         <active>true</active>
         <attributes/>
-        <cat_item display_value="SI Factory - Intake">74a076de136d27004b063192e144b00c</cat_item>
+        <cat_item display_value="Template">74a076de136d27004b063192e144b00c</cat_item>
         <category/>
         <choice_direction>down</choice_direction>
         <choice_field/>
@@ -13,7 +13,7 @@
         <delete_roles/>
         <delivery_plan/>
         <description/>
-        <display_title>true</display_title>
+        <display_title>false</display_title>
         <do_not_select_first>false</do_not_select_first>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
@@ -24,7 +24,7 @@
         <help_text/>
         <include_none>false</include_none>
         <instructions/>
-        <layout>normal</layout>
+        <layout>2down</layout>
         <list_table/>
         <lookup_label/>
         <lookup_price/>
@@ -40,7 +40,7 @@
         <order>5</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
-        <question_text>Innovation Factory Request Details</question_text>
+        <question_text>Template Details</question_text>
         <read_roles/>
         <rec_lookup_price/>
         <rec_price_if_checked>0</rec_price_if_checked>
@@ -60,15 +60,15 @@
         <sys_created_on>2018-11-07 20:40:43</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>b6c1c94313e1a7004b063192e144b0a2</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Innovation Factory Request Details</sys_name>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Template Details</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>item_option_new_b6c1c94313e1a7004b063192e144b0a2</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-20 19:22:04</sys_updated_on>
+        <sys_updated_on>2018-12-18 19:41:41</sys_updated_on>
         <table/>
         <tooltip/>
         <type>19</type>

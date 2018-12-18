@@ -2,7 +2,7 @@
     <item_option_new action="INSERT_OR_UPDATE">
         <active>true</active>
         <attributes/>
-        <cat_item display_value="SI Factory - Intake">74a076de136d27004b063192e144b00c</cat_item>
+        <cat_item display_value="Template">74a076de136d27004b063192e144b00c</cat_item>
         <category/>
         <choice_direction>down</choice_direction>
         <choice_field/>
@@ -37,7 +37,7 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>formatter</name>
-        <order>23</order>
+        <order>30</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <question_text/>
@@ -60,15 +60,15 @@
         <sys_created_on>2018-11-07 21:33:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>e62e45cb13e1a7004b063192e144b0e7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>formatter</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>item_option_new_e62e45cb13e1a7004b063192e144b0e7</sys_update_name>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-07 21:33:49</sys_updated_on>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2018-12-09 18:05:50</sys_updated_on>
         <table/>
         <tooltip/>
         <type>24</type>

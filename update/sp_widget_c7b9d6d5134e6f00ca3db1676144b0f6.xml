@@ -4,25 +4,41 @@
         <client_script><![CDATA[function($rootScope, $scope, $location,$sce, $timeout) {
 	/* widget controller */
 	var c = this;
-console.log(c.data);
+
 	
-	//Hero banner content from rootScope
-	$scope.hero = {};
-	
-	var title = "Solution Innovation, Factory".split(',');
-	
-	$scope.hero.title = title[0]+"<br/>"+title[1];
-	$scope.hero.copy = "Solution Innovation Factory is a team of developers specialized in providing innovative solutions.";
-	$scope.hero.img = '36acd50e13e74b802ea1b2566144b0e2.iix';
+	c.params = $location.search();
+
+	c.only_user = true;
+
+	$scope.hero = {
+		img : c.data.site_content[0].hero_image.display_value,
+		title : c.data.site_content[0].hero_header.display_value,
+		copy : c.data.site_content[0].hero_copy.display_value
+	};
 
 	$scope.siteContent =  $rootScope.site_content;
-		
+
 	c.$onInit = function(){
 		$timeout(function(){
+			if($rootScope.feedbackExists){
+				$rootScope.$broadcast('feedbackExists');
+			}
+			if(c.params.section==2 && !c.data.requests){
+				c.getRequests();
+			}
+			if(c.params.section==3 && c.params.sys_id && !c.data.single_req){
+				c.getRequest(c.params.sys_id);
+			}
 		});
 	};
 	
-	c.showRequest = false;
+	
+	c.goSection = function(section){
+		$location.url("/" + c.data.portal.url_suffix + "?id=" + c.data.sp_page + '&section=' + section);
+	}
+	c.goViewItem = function(sysID){
+		$location.url("/" + c.data.portal.url_suffix + "?id=" + c.data.sp_page + '&section=3&sys_id=' + sysID);
+	}
 	
 	c.checkBool = function(val){
 		var rtn;
@@ -53,6 +69,47 @@ console.log(c.data);
 		//$rootScope.$broadcast('openPracticeRequest', '');
 		//ga('send', 'event', "Practice Request", "Open");
 	};
+	
+	c.getRequests = function(){
+		c.server.get({ action: 'getRequests' }).then(function(response) {
+			if (response.data.success) {
+				$timeout(function(){
+					c.data.requests = response.data.requests;
+					c.data.user_has_requests = response.data.user_has_requests;
+					c.only_user = response.data.user_has_requests;
+				});
+			}
+		});
+	}
+	c.getRequest = function(sysID){
+		c.server.get({ action: 'getRequest', sys_id : sysID }).then(function(response) {
+			if (response.data.success) {
+				$timeout(function(){
+					c.data.single_req = response.data.single_req;
+console.log(c.data.single_req);				
+				});
+			}
+		});
+	}
+	
+	$rootScope.$on('feedbackExists', function() {
+		if(!$rootScope.isMobileView){
+			c.fbBtnType = 'right';
+			c.objBtnStyle = {
+				div: {"z-index":"1500", "top":"80%", "background-color":"#81B5A1"},
+				button: { "box-shadow": "0 1px 4px 2px rgba(0, 0, 0, 1)" },
+				label: { "font-size":"18px" }
+			};
+		}else{
+			c.fbBtnType = 'right';
+			c.objBtnStyle = {
+				div: {"z-index":"1500", "top":"70%", "background-color":"#81B5A1"},
+				button: { "box-shadow": "0 1px 4px 2px rgba(0, 0, 0, 1)" },
+				label: { "font-size":"18px" }
+			};
+		}
+		$rootScope.$broadcast('fbStyleButton', c.fbBtnType, c.objBtnStyle);
+	});
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>$btn-bg: $brand-primary;
@@ -61,915 +118,189 @@ $learnmore-text: $brand-primay;
 $brand-dark: #1B1464;
 $soft-blue: #1D66AE;
 
-.pip-container{
-  min-height: 1024px;
+$sn-brand-color: #81B5A1;
+$bg-color: transparent !default;
+$font-color: #4A4A4A !default;
+$text-muted: #9B9B9B;
+
+@media screen and (max-width: 1199px) {
+    //medium
+}
+@media screen and (max-width: 991px) {
+  //small
+}
+@media screen and (max-width: 767px) {
+  //mobile
+}
+
+.si-container{
+  min-height: calc( 100vh - 80px);
+  height: 100%;
   text-align: center;
-  background: $soft-blue;
-	background-color: $soft-blue;
-  .stage-copy{
-    clear: both;
-    max-width: 900px;
-    min-height: 350px;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif !important; 
+  font-weight: 400;
+  
+  .div-hero{
+    position: relative;
+    top: 0;
+    height: 150px;
     overflow: hidden;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
-    margin-top: 20px;
-    width: 100%;
-    width: 100vw;
-    text-align: left;
-    font-weight: normal;
-    display: flex;
-    .col-minWidth{
-      min-width: 300px !important;
-    }
-    .artifact-heading{
-      text-transform: capitalize;
-      font-size: 24px;
-    }
-    .artifact-copy{
-      margin-top: 10px;
-      font-size: 16px;
+    border: 0 transparent;
+    background: $bg-color;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-color: $bg-color;
+    @media screen and (max-width: 767px) {
+      height: 75px;
     }
   }
   .hero-overlay{
     position: absolute;
     top: 0;
-    left: -10px;
-    max-height: 301px;
-    height: 224px;
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
     padding: 0;
     border: 0 transparent;
     z-index: 10;
-    height: 301px;
-    //background: linear-gradient(to right, #191461 45%,#2362a6 55%,#2362a6 55%);
-    @media screen and (max-width: 660px) {
-      left: 0px;
-      max-height: 115px; //180px;
-    }
-    .hero-backdrop{
-      height: 100%;
-      width: 100%;
-    }
-    .hero-icon{
-      margin: 0 auto;
-      max-height: 249px;
-      max-width: 1417px;
-      height: auto;
-      width: auto;
-      position: absolute;
-      bottom: 0px;
-      left: calc( 50% - 705px);
-      z-index: 10;
-      @media screen and (max-width: 768px) {
-        max-width: 1068px;
-        left: -150px;
-        bottom: 5px;
-      }
-      @media screen and (max-width: 660px) {
-        max-height: 172px;
-      }
-      @media screen and (max-width: 540px) {
-        margin: 0 auto;
-        width: 426px;
-        left: calc(50% - 213px);
-        bottom: 7px;
-      }
-    }
-    .hr-hero-icon{
-      bottom: -20px;
-      border-bottom: 9px solid $pi-lightbrown;
-      width: 100%;
-      position: inherit;
-      z-index: 5;
-    }
     .hero-content{
       max-width: 1200px;
       width: 100%;
       position: relative;
       margin: 0 auto;
+      
       color: $white;
       text-align: left;
+      
       .hero-header-wrap{
-        position: relative;
-        padding-left: 70px;
-        max-width: 1200px;
-        width: 100%;
-        top: 50px;
-        @media screen and (max-width: 660px) {
-          top: 8px;
-        }
-        @media screen and (max-width: 540px) {
-        	padding-left: 50px;   
-        }
-        @media screen and (max-width: 475px) {
-        	padding-left: 30px;   
-        }
-        @media screen and (max-width: 435px) {
-        	padding-left: 10px;   
-        }
-        @media screen and (max-width: 375px) {
-        	padding-left: 0px;   
+        display: flex;
+        height: 150px;
+        @media screen and (max-width: 767px) {
+          height: 75px;
         }
         .hero-header{
-          font-size: 52px;
-          line-height: 57px;
           text-align: left;
-          letter-spacing: -0.28px;
+          font-size: 60px;
           font-weight: 300;
-          max-height: 114px;
+          letter-spacing: -1.25px;
           position: relative;
-          @media screen and (max-width: 660px) {
-            font-size: 20px;
-            line-height: 27px;
-            width: 264px;
-            height: 54px;
-            top: 0px;
-            font-weight: 400;
-          }
-          @media screen and (max-width: 540px) {
-            
-          }
-          @media screen and (max-width: 375px) {
-            left: 10px;
-          }
-        }
-        .btnPracticeRequest{
-          margin-top: 20px;
-          text-align: center;
-          //width: 215px;
-          height: 46px;
-          line-height: 28px;
-          text-transform: uppercase;
-          font-size: 16px;
-          font-weight: bold;
-          border-radius: 2px;
-          padding-left: 30px;
-          padding-right: 30px;
-          .fa-play{
-            position: relative;
-            font-size: 14px;
-            padding-left: 3px;
-          }
-          @media screen and (max-width: 660px) {
-            margin-top: 5px;
-            height: 32px;
-            //width: 200px;
-            font-size: 14px;
-            line-height: 14px;
-            .fa-play{
-              font-size: 12px;
-            }
-          }
-          @media screen and (max-width: 375px) {
-            margin-left: 10px;
-          }
+          display: flex;
+          background-color: transparent;
+          -webkit-box-pack: justify;
+          -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -moz-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
           
-        }
-        .ghosted-btn{
-          background: transparent !important;
-          background-color: transparent !important;
-          //border: 2px $gray-light solid !important;
-          border: 2px #1d66ae solid;
-          color: #1d66ae;
-          //width: 175px;
-          padding-left: 30px;
-          padding-right: 30px;
-          height: 46px;
-          margin-top: 20px;
-          text-align: center;
-          line-height: 28px;
-          text-transform: uppercase;
-          font-size: 16px;
-          font-weight: bold;
-          border-radius: 2px;
-          .fa-play{
-            position: relative;
-            font-size: 14px;
-            padding-left: 3px;
-          }
-          @media screen and (max-width: 660px) {
-            margin-top: 5px;
-            height: 32px;
-            //width: 200px;
-            font-size: 14px;
-            line-height: 12px;
-            .fa-play{
-              font-size: 12px;
-            }
-          }
-          @media screen and (max-width: 375px) {
-            margin-left: 10px;
+          @media screen and (max-width: 767px) {
+            font-size: 30px;
+            left: 15px;
           }
         }
-        .ghosted-btn:hover{
-          background: transparent !important;
-          background-color: transparent !important;
-          color: $gray-light;
-          border: 2px $gray-light solid !important;
-        }
       }
-    }
-  }
-  .div-hero{
-    position: relative;
-    top: 0;
-    //left: -10px;
-    height: 224px;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    border: 0 transparent;
-    background: #191461; /* Old browsers */
-    background: -moz-linear-gradient(left, #191461 45%, #2362a6 55%, #2362a6 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #191461 45%,#2362a6 55%,#2362a6 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #191461 45%,#2362a6 55%,#2362a6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#191461', endColorstr='#2362a6',GradientType=1 ); /* IE6-9 */
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
-    background-color: #191461;
-    @media screen and (max-width: 660px) {
-      height: 115px; //180px;
-      left: 0px;
-    }
-  }
-  .top-copy{
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    border: 0 transparent;
-    .cem-stages-top{
-      width: 100%;
-      margin: 20px auto;
-      position: relative;
-      right: 25px;
-      .pi-home{
-        font-size: 36px;
-        max-width: 25px;
-        display: inline-block;
-        margin-right: 15px;
-      }
-    }
-  }
-  .casestudy-wrapper{
-    padding-top: 100px;
-    background: $white;
-    width: 100%;
-    z-index: 40;
-    @media screen and (max-width: 660px) {
-      //padding-top: 40px;
-    }
-    .casestudy{
-      font-size: 34px;
-      width: 100%;
-      margin: 0 auto;
-      @media screen and (max-width: 660px) {
-        margin: 0 auto;
-        font-size: 28px;
-      }
-    }
-  }
-  .cases-show{
-    padding-top: 0px;
-    margin-top: -80px;
-  }
-  .pagefooter{
-    line-height: 32px;
-    font-size: 28px;
-    max-width: 960px;
-    width: 100%;
-    margin: 0 auto;
-    @media screen and (max-width: 768px) {
-      margin: 0;
-      max-width: 768px;
-    }
-    @media screen and (max-width: 660px) {
-      margin: 0 auto;
-      font-size: 18px;
-      max-width: 320px;
-    }
-    .hr-title {
-      width: 100%;
-      max-width: 296px;
-      margin: 0;
-      border: 0px;
-      border-bottom: 1px solid $pi-midbrown;
-      display: inline-block;
-      @media screen and (max-width: 768px) {
-        max-width: 196px;
-      }
-      @media screen and (max-width: 660px) {
-        max-width: 58px;
-      }
-    }
-    .left{
-      margin-right: 20px;
-      margin-bottom: 5px;
-      @media screen and (max-width: 660px) {
-        margin-right: 3px;
-      }
-    }
-    .right{
-      margin-left: 20px;
-      margin-bottom: 5px;
-      @media screen and (max-width: 660px) {
-        margin-left: 3px;
-      }
-    }
-  }
-  .empowerment{
-    max-width: 945px;
-    margin: 0 auto;
-    position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    @media screen and (max-width: 768px) {
-      margin: 0;
-      max-width: 768px;
-      position: inherit;
-      left: inherit;
-    }
-    @media screen and (max-width: 660px) {
-      margin: 0 auto;
-      font-size: 18px;
-      max-width: 320px;
     }
   }
   .primary-copy{
-    background: $white;
-    background-color: $white;
-    overflow: hidden;
-    width: 100%;
-    margin: 0px auto;
-    padding: 0;
-    padding-top: 60px;
-    padding-bottom: 80px;
-    border: 0 transparent;
-    @media (max-width: 1170px){
-      padding-right: 25px;
-    }
-    @media screen and (max-width: 660px) {
-      margin-top: 20px;
-      padding: 0;
-      margin-bottom:40px;
-    }
-    .hero-copy{
+    width: 100vw;
+    .copy-wrapper{
+      max-width: 1200px;
       width: 100%;
-      max-width: 900px;
-      font-size: 28px;
-      line-height: 38px;
-      font-weight: normal;
-      letter-spacing: -0.3px;
-      margin: 0 auto;
-      p{
-        margin: 0 auto;
-      }
-      @media screen and (max-width: 768px) {
-        p{
-          padding-left: 60px;
-          padding-right: 60px;
-        }
-      }
-      @media screen and (max-width: 660px) {
-        width: 100vw;
-        font-size: 20px;
-        line-height: 30px;
-      }
-      @media screen and (max-width: 540px) {
-        font-size: 16px;
-        line-height: 28px;
-        p{
-          padding-left: 40px;
-          padding-right: 40px;
-          //text-align: left;
-        }
-      }
-      @media screen and (max-width: 425px) {
-        p{
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
-      @media screen and (max-width: 375px) {
-        p{
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
-    }
-    .tag-line{
-      font-size: 28px;
-      font-weight: normal;
-      margin: 20px auto;
-      width: 100%;
-      max-width: 776px;
-      @media screen and (max-width: 768px) {
-      }
-      @media screen and (max-width: 660px) {
-        font-size: 20px;
-        max-width: 270px;
-      }
-      @media screen and (max-width: 540px) {
-        font-size: 16px;
-        margin-top: 10px;
-      }
-    }
-    .pi-services-groups{
-      //width: 100vw;
-      margin: 0 auto;
-      display: block;
-      background: $white;
-      @media screen and (max-width: 660px) {
-        margin-bottom: 30px;
-      }
-      .pi-service-group{
-        margin-top: 80px;
-        .btnExamples{
-          text-transform: uppercase;
-          color: $btn-bg;
-          font-size: 16px;
-          cursor: pointer;
-          line-height: 56px;
-          height: 20px;
-          margin: 0 auto;
-          display: inline-block;
-          border: 0 transparent;
-          border-radius: 0px 0px 9px 9px;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-          i{
-            font-size: 12px;
-            font-weight: 100;
-            position: relative;
-            top: -1px;
-          }
-        }
-        .btnExamples-show{
-        }
-        @media screen and (max-width: 660px) {
-          margin-top: 20px;
-        }
-        .false-bg{
-          height: 60px;
-          padding: 0;
-          margin: 0;
-          margin-top: -12px;
-          @media screen and (max-width: 660px) {
-            margin-top: -15px;
-          }
-        }
-        .false-bg-bottom{
-          height: 60px;
-          padding: 0;
-          margin: 0;
-          margin-bottom: -38px;
-          @media screen and (max-width: 660px) {
-            margin-bottom: -15px;
-          }
-        }
-        .group-title{
-          line-height: 32px;
-          font-size: 28px;
-          font-weight: 600;
-          @media screen and (max-width: 768px) {
-            margin: 0;
-            max-width: 768px;
-          }
-          @media screen and (max-width: 660px) {
-            font-size: 18px;
-          }
-          .hr-title {
-            width: 100%;
-            max-width: 305px;
-            margin: 0;
-            border: 0px;
-            border-bottom: 1px solid;
-            display: inline-block;
-            @media screen and (max-width: 768px) {
-              max-width: 196px;
-            }
-            @media screen and (max-width: 660px) {
-              max-width: 75px;
-            }
-          }
-          .left{
-            margin-right: 40px;
-            margin-bottom: 5px;
-            @media screen and (max-width: 660px) {
-              margin-right: 3px;
-            }
-          }
-          .right{
-            margin-left: 40px;
-            margin-bottom: 5px;
-            @media screen and (max-width: 660px) {
-              margin-left: 3px;
-            }
-          }
-        }
-        .group-services{
-          text-align: left;
-          font-size: 18px;
-          line-height: 24px;
-          margin: 0 auto;
-          @media screen and (max-width: 768px) {
-            margin: 0 auto;
-            margin-top: -10px;
-          }
-          @media screen and (max-width: 660px) {
-            margin-top: -20px;
-          }
-          .empowerment{
-            max-width: 945px;
-          }
-          .group-row{
-            margin: 0 auto;
-            max-width: 945px;
-            padding-bottom: 20px;
-            @media screen and (max-width: 768px) {
-              max-width: 728px;
-            }
-            @media screen and (max-width: 660px) {
-              max-width: 309px;
-            }
-          } 
-          .service-title{
-            clear:both;
-            background: inherit;
-            font-weight: 600;
-            .featured-service-blocked{
-              color: #1d66ae;
-              font-style: italic;
-              text-transform: uppercase;
-            }
-          }
-          .service-pr{
-            color: $brand-primary;
-            text-transform: uppercase;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            height: 20px;
-            margin: 0 auto;
-            position: relative;
-            top: -10px;
-          }
-          .service-featured{
-            color: $brand-primary;
-            text-transform: uppercase;
-            font-size: 18px;
-            font-weight: 900;
-            height: 20px;
-            margin: 0 auto;
-            position: relative;
-          }
-          .featured{
-            font-size: 16px;
-            font-weight: 400;
-            height: 24px;
-            margin: 0 auto;
-            max-width: 945px;
-            position: relative;
-            left: 5px;
-            padding-left: 5px;
-            .asterisk{
-              color: $brand-primary;
-              text-transform: uppercase;
-              margin: 0 5px;
-              font-weight: 700;
-            }
-          }
-          .service-copy{
-            clear:both;
-            background: inherit;
-            font-weight: 400;
-            p{
-              font-size: 18px;
-              line-height: 24px;
-              margin: 0px !important;
-            }
-            @media screen and (max-width: 660px) {
-              p{
-                margin-bottom: 20px;
-              }
-            }
-          }
-          .featured-service{
-            background: #edf5f8; /* Old browsers */
-            background: -moz-linear-gradient(top, #edf5f8 0%, #edf5f8 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, #edf5f8 0%,#edf5f8 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, #edf5f8 0%,#edf5f8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f8', endColorstr='#edf5f8',GradientType=0 ); /* IE6-9 */
-            padding: 20px;
-            margin-left: 10px;
-            width: calc(50% - 10px);
-            @media screen and (max-width: 660px) {
-              padding-bottom: 10px;
-              width: 100%;
-              margin-left: 0px;
-            }
-          }
-          .srvLeft{
-            float: left;
-            width: 50%;
-            padding: 10px;
-          }
-          .srvRight{
-            float: right;
-            width: 50%;
-            padding: 10px;
-          }
-        }
-        .group-examples{
-          line-height: 72px;
-          font-size: 28px;
-          @media screen and (max-width: 768px) {
-            margin: 0;
-            max-width: 768px;
-          }
-          .hr-title {
-            width: 100%;
-            max-width: 305px;
-            margin: 0;
-            border: 0px;
-            border-bottom: 1px solid;
-            display: inline-block;
-            @media screen and (max-width: 768px) {
-              max-width: 196px;
-            }
-          }
-          .left{
-            margin-right: 40px;
-            margin-bottom: 5px;
-          }
-          .right{
-            margin-left: 40px;
-            margin-bottom: 5px;
-          }
-        }
-      }
-    }
-    .pi-services-wrapper{
-      width: 100%;
-      background: $white;
-      .pi-services{
-        margin: 0 auto;
-        margin-top: 60px;
-        display: inline-flex;
-        @media screen and (max-width: 660px) {
-          margin-top: 25px;
-          display: block;
-          padding-bottom: 40px;
-        }
-        .pi-service{
-          position: relative;
-          display: inline-block;
-          width: 296px;
-          border: 0px solid transparent;
-          border-radius: 9px 9px 0px 0px;
-          margin: 0 auto;
-          margin-left: 12px;
-          margin-right: 12px;
-          font-size: 24px;
-          font-weight: 600;
-          @media screen and (max-width: 660px) {
-            max-width: 310px;
-            margin-top: 30px;
-          }
-          .pi-icon{
-            width: auto;
-            height: 179px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            z-index: 10;
-            @media screen and (max-width: 660px) {
-              height: 120px;
-            }
-          }
-          .pi-header{
-            text-transform: capitalize;
-            font-size: 28px;
-            margin-bottom: 15px;
-          }
-          p{
-            font-size: 18px;
-            font-weight: normal;
-            width: 248px;
-            margin: 0 auto;
-            text-align: center;
-          }
-          .pi-learnmore{
-            font-size: 16px;
-            font-weight: normal;
-            color: $learnmore-text;
-            width: 250px;
-            margin: 0 auto;
-            text-align: center;
-            text-transform: uppercase;
-          }
-        }
-        .pi-service-show{
-          opacity: 0.6;
-          .pi-icon{
-            opacity: 0.6;
-          }
-          .pi-header{
-            opacity: 0.6;
-          }
-          p{
-            opacity: 0.6;
-          }
-          .pi-learnmore{
-            opacity: 0.6;
-          }
-          .btnExamples{
-            opacity: 0.3;
-          }
-        }
-      }
-    }
-    .btnExamples{
-      text-transform: uppercase;
-      color: $btn-bg;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      height: 20px;
-      margin: 0 auto;
-      display: inline-block;
-      border: 0 transparent;
-      border-radius: 0px 0px 9px 9px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      i{
-        font-size: 12px;
-        font-weight: 100;
-        position: relative;
-        top: -1px;
-      }
-    }
-    .btnExamples-show{
-    }
-    .btnFactory{
-        margin: 0px 15px;
-        text-align: center;
-        min-width: 290px;
-        height: 46px;
-        line-height: 44px;
-        text-transform: uppercase;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 2px;
-        padding: 0px 30px;
-        font-weight: 600;
-				.fa-play{
-          position: relative;
-          bottom: 1px;
-          font-size: 14px;
-          padding-left: 3px;
-        }
-        @media screen and (max-width: 660px) {
-          margin: 20px auto
-          font-size: 16px;
-          min-width: 215px;
-          .fa-play{
-            font-size: 12px;
-          }
-        }
-        @media screen and (max-width: 350px) {
-          margin: 0 auto;
-          height: 38px;
-          font-size: 14px;
-          line-height: 36px;
-          .fa-play{
-            font-size: 12px;
-            bottom: 0px;
-          }
-        }
-      }
-  }
-  .askQuestion-wrapper{
-    width: 100%;
-    background: $brand-dark;
-    z-index: 50;
-    position: relative;
-    @media screen and (max-width: 660px) {
-      top: 40px;
-      height: auto;
-    }
-    .askQuestion{
-      margin: 0 auto;
-      max-width: 900px;
-      padding-top: 60px;
-      padding-bottom: 60px;
-      @media screen and (max-width: 660px) {
-        margin-top: -40px;
-        padding: 40px 40px;
-      }
-      .tag-line{
-        font-size: 34px;
-        line-height: 42px;
-        font-weight: normal;
-        letter-spacing: 0.3px;
-        color: $white;
-        margin: 0 auto;
-        margin-bottom: 30px;
-        max-width: 945px;
-        width: 100%;
-        @media screen and (max-width: 768px) {
-          font-size: 24px;
-        }
-        @media screen and (max-width: 660px) {
-          font-size: 18px;
-          line-height: 20px;
-        }
-      }
-
-      .btnQuestionCommunity{
-        margin: 0px 15px;
-        text-align: center;
-        min-width: 290px;
-        height: 46px;
-        line-height: 44px;
-        text-transform: uppercase;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 2px;
-        padding: 0px 30px;
-        font-weight: 600;
-				.fa-play{
-          position: relative;
-          bottom: 1px;
-          font-size: 14px;
-          padding-left: 3px;
-        }
-        @media screen and (max-width: 660px) {
-          margin: 20px auto
-          font-size: 16px;
-          min-width: 215px;
-          .fa-play{
-            font-size: 12px;
-          }
-        }
-        @media screen and (max-width: 350px) {
-          margin: 0 auto;
-          height: 38px;
-          font-size: 14px;
-          line-height: 36px;
-          .fa-play{
-            font-size: 12px;
-            bottom: 0px;
-          }
-        }
-      }
-    }
-  }
-  .community-mod{
-    color: $gray-dark;
- 		background: $white;
-    .askQuestion{
-      .tag-line{
-        color: $gray-dark;
-      }
-    }
-  }
-  .atBottom{
-    margin-top: 40px;
-  }
-  .arrowNav{
-    position: relative;
-    max-width: 900px;
-    width: 100%;
-    margin: 100px auto;
-    height: 31px;
-    font-size: 24px;
-    text-transform: uppercase;
-    line-height: 31px;
-    .alignText{
       position: relative;
-      top: 1px;
-    }
-    .arrowNav-back{
-      float: left;
-    }
-    .arrowNav-next{
-      float: right;
-    }
-    .arrowSm{
-      font-size: 18px;
+      margin: 0 auto;
+      top: 50px;
+      text-align: left;
+      @media screen and (max-width: 767px) {
+        top: 20px;
+      }
+      .copy-content{
+        .copy-question{
+          color: $font-color;
+          font-size: 32px;
+          font-weight: normal;
+          letter-spacing: -0.53px;
+          padding-bottom: 24px;
+          @media screen and (max-width: 767px) {
+            font-size: 26px;
+            font-weight: 500;
+          }
+        }
+        .copy-text{
+          color: $font-color;
+          font-size: 18px;
+          font-weight: normal;
+          letter-spacing: 0;
+          line-height: 31px;
+        }
+        .btn-wrapper{
+          display: block;
+          width: 290px;
+          margin: 0;
+          margin-left: 50px;
+        }
+        .toggle-view{
+          color: $text-muted;
+          font-size: 14px;
+          font-weight: normal;
+          letter-spacing: -0.53px;
+          position: relative;
+          top: -20px;
+          left: 3px;
+          cursor: pointer;
+        }
+        .toggle-view-active{
+          color: #43727A
+        }
+        .item-requests{
+          margin-top: 45px;
+          margin-bottom: unset;
+          color: $text-muted;
+          .item-number{ font-weight: 600; }
+          .item-what{ text-transform: capitalize; }
+          .item-by{ text-transform: capitalize; }
+          .view-click{ float: right; }
+          hr{
+            margin-top: 14px;
+            margin-bottom: 14px;
+            border-top: 2px solid #ffffff;
+          }
+        }
+        .item-request-none{
+          display: none;
+        }
+        .item-request-user{
+          display: block;
+          color: #43727A
+        }
+      }
+      .requested-items{
+        overflow: auto;
+        min-height: 300px;
+        width: 100%;
+        margin-bottom: 60px;
+      }
     }
   }
 }
-.hidden-display{
-  display:none;
-}</css>
+.btn-factory{
+  width: 290px;
+  background: #FFFFFF;
+  border: 1px solid #68A1AF;
+  padding: 10px 0px;
+  margin: 6px auto;
+  color: #68A1AF;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 43px;
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -986,10 +317,94 @@ $soft-blue: #1D66AE;
         <script><![CDATA[(function() {
   /* populate the 'data' object */
   /* e.g., data.table = $sp.getValue('table'); */
-	//widget-sc-cat-item-v2
-	
 	data.cat_item = $sp.getCatalogItem('74a076de136d27004b063192e144b00c');
-	data.cat_widget = $sp.getWidget('widget-sc-cat-item-v2',data.cat_item);
+	data.user = gs.getUser().getID();
+	data.user_has_requests = false;
+	
+	//data.cat_widget = $sp.getWidget('yds-sc-catalog-item',data.cat_item);
+	//data.cat_widget = $sp.getWidget('widget-sc-cat-item-v2',data.cat_item);
+	data.cat_widget = $sp.getWidget('si-factory-cat-item',data.cat_item);
+
+  data.site_content = [];
+	var portal =  $sp.getPortalRecord();
+	
+	data.portal = {
+		url_suffix : portal.getDisplayValue('url_suffix')
+	}
+	
+	data.sp_page = $sp.getParameter('id');
+	
+  var appCopy = new GlideRecord('x_snc_pip_home');
+	appCopy.addQuery('heading','Factory');
+	appCopy.orderBy('order');
+	appCopy.query();
+	while (appCopy.next()) {
+		var obj = {};
+		$sp.getRecordElements(obj, appCopy, 'sys_id,heading,hero_image,hero_header,hero_copy,page_icon,starting_page,community,order');
+		
+		data.site_content.push(obj);
+	}
+	
+	data.gahj = $sp.getWidget('pip-gahj');
+  
+	if (input && Object.keys(input).length > 0) {
+		if(input.action == 'getRequests'){
+			data.requests = [];
+			var grReq = new GlideRecord('sc_req_item');
+			grReq.addEncodedQuery('active=true^cat_item=74a076de136d27004b063192e144b00c^stateIN-5,1,2^ORDERBYDESCsys_created_on');
+			grReq.query();
+			while(grReq.next()){
+				var obj = {};
+				$sp.getRecordElements(obj, grReq, 'sys_id,number,opended_at,opened_by,stage,state,due_date');
+				if(!data.user_has_requests){
+					data.user_has_requests = (grReq.getValue('opened_by') == data.user);
+				}
+				obj.need_help ='';
+				
+				var grVars = new GlideRecord('sc_item_option_mtom');
+				grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
+				grVars.query();
+				while(grVars.next()){
+					var grVar = new GlideRecord('sc_item_option');
+					grVar.addQuery('sys_id',grVars.getValue('sc_item_option'));
+					grVar.addQuery('item_option_new.sys_id','d21be38b13b567004b063192e144b0f3')
+					grVar.query();
+					while(grVar.next()){
+						obj.need_help = grVar.getDisplayValue('value');
+					}
+				}
+				
+				data.requests.push(obj);
+			}
+			data.success = true;
+		}
+		if(input.action == 'getRequest'){
+			data.single_req = {};
+			var grReq = new GlideRecord('sc_req_item');
+			grReq.addEncodedQuery('sys_id=' + input.sys_id);
+			grReq.query();
+			while(grReq.next()){
+				$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,opended_at,opened_by,stage,state,due_date');
+			  data.single_req.variables = {};
+				var grVars = new GlideRecord('sc_item_option_mtom');
+				grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
+				grVars.query();
+				while(grVars.next()){
+					var grVar = new GlideRecord('sc_item_option');
+					grVar.addQuery('sys_id',grVars.getValue('sc_item_option'));
+					grVar.orderBy('order');
+					grVar.query();
+					while(grVar.next()){
+						var obj = {};
+						$sp.getRecordElements(obj, grVar, 'sys_id,order,item_option_new,value');
+						data.single_req.variables[obj.item_option_new.value] = obj;
+					}
+				}
+			}
+			data.success = true;
+		}
+	}
+	
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
@@ -997,7 +412,7 @@ $soft-blue: #1D66AE;
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>280</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -1005,37 +420,130 @@ $soft-blue: #1D66AE;
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-11-27 16:40:08</sys_updated_on>
-        <template><![CDATA[<div class='pip-container'>
+        <sys_updated_on>2018-12-10 19:45:57</sys_updated_on>
+        <template><![CDATA[<div class='si-container'>
   <div id='divHero' class='div-hero' style='background-image: url({{hero.img}});'></div>
   <div id='heroOverlay' class='hero-overlay'>
     <div class='hero-content'>
       <div class='hero-header-wrap'>
         <div class='hero-header' ng-bind-html="hero.title"></div>
-        <div ng-if='!$root.isLoggedIn' class='btn btn-primary ghosted-btn ' ng-click='c.openLogin()'>
-          Login <span class='fa fa-play'></span>
-        </div>    
       </div>
     </div>
   </div>
-  <div class='primary-copy' ng-if='!c.showRequest'>
-    <div class="hero-copy" ng-bind-html="hero.copy"></div>
-    <div ng-if='$root.isLoggedIn' class='btn btn-primary btnFactory' ng-click='c.openRequest()'>
-      Request Support<span class='fa fa-play'></span>
+  <div class='primary-copy' ng-if='!c.params.section'>
+    <div class='copy-wrapper'>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <div class='copy-question'>
+            What can we help you with?
+          </div>
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-md-5'>
+          <div class='copy-text' ng-bind-html="hero.copy"></div>
+        </div>
+        <div class='col-md-7'>
+          <div class='btn-wrapper'>
+            <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a Request</button>
+            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track a Request</button>  
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class='primary-copy' ng-if='c.showRequest'>
-    <sp-widget widget="c.data.cat_widget"></sp-widget>
+  <div class='primary-copy' ng-if='c.params.section=="1"'>
+    <div class='copy-wrapper'>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <div class='copy-question'>
+            Make a Request
+          </div>
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <sp-widget widget="c.data.cat_widget"></sp-widget>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class='askQuestion-wrapper' ng-if='$root.isLoggedIn'>
-    <div class='askQuestion'>
-      <div class='tag-line'>Have a question? Browse our community discussions.</div>
-      <div role='button' class='btn btn-primary btnQuestionCommunity' ng-click='c.openCommunity()'>EXPLORE COMMUNITY<span class='fa fa-play'></span></div>
+  <div class='primary-copy' ng-if='c.params.section=="2"'>
+    <div class='copy-wrapper'>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <div class='copy-question'>
+            Request Tracking
+          </div>
+          <div class='toggle-view' ng-if='c.data.user_has_requests'>
+            <span ng-class="{ 'toggle-view-active' : !c.only_user }" ng-click='c.only_user=false'>See All</span> | <span ng-class="{ 'toggle-view-active' : c.only_user }" ng-click='c.only_user=true'>My Requests</span>
+          </div>
+        </div>
+      </div>
+      <div class='copy-content requested-items'>
+        <div class='col-md-12'>
+          <div ng-repeat='item in c.data.requests' class='item-requests' ng-class="{  'item-request-none' : c.only_user, 'item-request-user' : (item.opened_by.value===c.data.user) }">
+            <span class='item-number'>{{ item.number.value }}</span>|
+            <span class='item-what'>{{ item.need_help }}</span>|
+            <span class='item-by'>{{ item.opened_by.display_value }}</span>
+            <span class='view-click' ng-if='item.opened_by.value===c.data.user' ng-click='c.goViewItem(item.sys_id.value)'>View</span>
+            <hr/>
+            <div>
+              <sifactorystatus data-sys_id="{{item.sys_id.value}}" 
+                data-stage="{{item.stage.value}}" 
+                data-state="{{item.state.display_value}}"
+                href="siFactoryStatusTemplate"></sifactorystatus>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='primary-copy' ng-if='c.params.section=="3"'>
+    <div class='copy-wrapper'>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <div class='copy-question'>
+            Your Submitted Request
+          </div>
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <sifactorystatus data-sys_id="{{c.data.single_req.sys_id.value}}" 
+                data-stage="{{c.data.single_req.stage.value}}" 
+                data-state="{{c.data.single_req.state.display_value}}"
+                href="siFactoryStatusTemplate"></sifactorystatus>
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-md-6'>
+          {{c.data.single_req.number.display_value}} | {{c.data.single_req.variables["d21be38b13b567004b063192e144b0f3"].value.display_value}}
+        </div>
+        <div class='col-md-6'>
+          {{c.data.single_req.variables["d503898313e1a7004b063192e144b019"].value.display_value}}
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <div class='copy-question'>
+            Progress Log
+          </div>
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          Activity Widget
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
+<!--
 <div ng-if='$root.headerWidgets.footer'>
   <sp-widget widget="$root.headerWidgets.footer"></sp-widget>
-</div>]]></template>
+</div>
+-->]]></template>
     </sp_widget>
 </record_update>

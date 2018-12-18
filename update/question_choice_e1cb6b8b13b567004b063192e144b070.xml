@@ -2,7 +2,7 @@
     <question_choice action="INSERT_OR_UPDATE">
         <misc>0</misc>
         <order>100</order>
-        <question display_value="What do you need help with?">d21be38b13b567004b063192e144b0f3</question>
+        <question/>
         <rec_misc>0</rec_misc>
         <sys_class_name>question_choice</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>

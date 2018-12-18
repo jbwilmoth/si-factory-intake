@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
+        <sp_angular_provider display_value="scToggleData">c045f99a0b67320014ea425663673a25</sp_angular_provider>
+        <sp_widget display_value="SI - Factory Catalog Item">3e05c51913d6a3402ea1b2566144b0dd</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>chris.stoll</sys_created_by>
+        <sys_created_on>2018-12-09 17:11:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f605c51913d6a3402ea1b2566144b0f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>scToggleData.Copy of SC Catalog Item</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_f605c51913d6a3402ea1b2566144b0f5</sys_update_name>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2018-12-09 17:11:30</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+</record_update>
