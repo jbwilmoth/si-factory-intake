@@ -7,7 +7,7 @@
         <applies_target_record>false</applies_target_record>
         <applies_to>item</applies_to>
         <catalog_conditions>IO:6f7b441c13e66f40ca3db1676144b054=Yes^EQ</catalog_conditions>
-        <catalog_item display_value="Widget">d0f4849413e66f40ca3db1676144b0ba</catalog_item>
+        <catalog_item display_value="Portal Widget">d0f4849413e66f40ca3db1676144b0ba</catalog_item>
         <conditions/>
         <description/>
         <global>true</global>

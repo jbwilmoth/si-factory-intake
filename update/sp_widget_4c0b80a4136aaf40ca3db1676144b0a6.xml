@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>sc</category>
+        <client_script><![CDATA[function ($scope, spUtil, $rootScope, $location, $timeout, $window) {
+
+	console.log($scope.data)
+	$scope.ifWidth = function(size){
+		var rtn = false;
+		var el = angular.element(document.getElementById('factory-catalog'));
+		var width = parseInt(el[0].clientWidth);
+		
+		switch(size){
+			case 'xs'	:
+				rtn = (width < 360);
+				break;
+			case 'sm' :
+				rtn = ((width >= 360) && (width < 660));
+				break;
+			case 'md' :
+				rtn = ((width >= 660) && (width < 991));
+				break;
+			case 'lg' :
+				rtn = (width >= 991);
+				break;				
+			default: 
+				rtn = false;
+		}
+
+		return rtn;
+	};
+	
+	$scope.hideItemWidget = !$scope.data.category_id;
+	if ($scope.data.category) {
+		if (!$scope.data.categories)
+			$scope.data.categories = [];
+		$scope.data.categories.unshift({label: $scope.data.sc_catalog || $scope.page.title, url: '?id=' + $scope.data.sc_catalog_page});
+		if ($scope.data.show_popular_item)
+			$scope.data.categories.push({label: $scope.data.all_cat_msg, url: '#'});
+		else
+			$scope.data.categories.push({label: $scope.data.category.title, url: '#'});
+	$timeout(function() {
+			$rootScope.$broadcast('sp.update.breadcrumbs', $scope.data.categories);
+	});
+	spUtil.setSearchPage('sc');
+	}
+
+	$scope.showCategories =  function() {
+		$scope.hideItemWidget = true;
+		$rootScope.$broadcast("$sp.service_catelog.show.categories_widget");
+	}
+	
+	var listenerForCatItems = $scope.$on("$sp.service_catelog.show.items_widget", function() {
+		$scope.hideItemWidget = false;
+	});
+	/*=============== Begin link handling ===============*/
+	
+	$scope.changeView = function (view) {
+		spUtil.setPreference('catalog-item-list-view', view)
+		$scope.view = view;
+	}
+	
+	spUtil.getPreference('catalog-item-list-view', function(value) {
+		$scope.view = value || 'card';
+	});
+	
+	$scope.isTouchDevice = function(){
+		return ('ontouchstart' in $window);
+	}
+	
+	$scope.loadMore = function (){
+		$scope.data.new_limit = $scope.data.limit + ($scope.options.limit_item || 9);
+		$scope.stopLoader =  false;
+		$scope.server.update().then(function (){
+			$scope.data.limit = $scope.data.new_limit;
+			$scope.stopLoader =  true;
+		})
+	}
+	
+	$scope.onClick = function($event, item) {
+		var lp = getLinkParts(item);
+		if (typeof lp == "string")
+			return; // can't intercept/redirect external content item
+
+		$event.stopPropagation();
+		$event.preventDefault();
+		var evt = {item: item, search: lp};
+
+		// This will let a wrapper widget intercept and redirect somewhere else
+		$scope.$emit($scope.options.click_event_name, evt);
+	};
+
+	function getLinkParts(item) {
+		if (item.sys_class_name == 'sc_cat_item_content' && item.content_type == 'external')
+			return item.url;
+		
+		return {id: item.page, section: item.section, sys_id: item.sys_id, sysparm_category: $scope.data.category_id};
+	}
+
+	$scope.getItemHREF = function(item) {
+		var lp = getLinkParts(item);
+		if (typeof lp == "string")
+			return lp;
+
+		return "?id=" + lp.id + "&section=" + lp.section + "&catalog_item=" + lp.sys_id;
+	}
+
+	var unregister = $rootScope.$on($scope.options.click_event_name, function($event, o) {
+		if ("url" in o)
+			$location.href = o.url;
+		else
+			$location.search(o.search);
+	});
+	var mlq;
+	
+	if ($window.matchMedia) {
+		mql = $window.matchMedia('screen and (max-width: 768px)');
+    mql.addListener(handleMatchMedia);
+    handleMatchMedia(mql);
+	}
+	
+	function handleMatchMedia(mlq) {
+			if (!mql.matches) {
+        spUtil.getPreference('catalog-item-list-view', function(value) {
+					$scope.view = value || 'card';
+					$scope.isMobile = false;
+				});
+			}
+			else {
+				$timeout(function() {
+					$scope.view = 'card';
+					$scope.isMobile = true;
+				})
+			}
+	}
+
+	$scope.$on("$destroy", function() {
+		unregister();
+		listenerForCatItems();
+		if (mql)
+			mql.removeListener(handleMatchMedia);
+	});
+	
+	$scope.startItemList = function()  {
+		$scope.stopLoader = true;
+	}
+	/*=============== End link handling ===============*/
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.toggle {
+  	color: $dropdown-fallback-border;
+}
+.fa.active {
+  color: $primary;
+}
+.panel{
+  background-color: #fff;
+  border: 1px solid #A7D4DF;
+  border-radius: 4px;
+  min-height: 200px;
+  max-height: 200px;
+  height: 100%;
+  max-width: 200px;
+  text-align: center;
+  h2{
+    height: 27px;
+    color: #68A1AF;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.18px;
+    line-height: 27px;
+    margin: 0 auto;
+    margin-bottom: 35px;
+  }
+  img{
+    max-height: 88px;
+		min-width: 117px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.panel-nopadding{
+  padding: 0;
+}
+
+.panel-tile{
+  display: inline-block;
+  display: inline-grid;
+  display: inline-flex;
+  flex-flow: column;
+  margin: 8px;
+  width: 100%;
+  max-width: calc(25% - 16px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  @media only screen and (max-width: 991px) {
+    max-width: calc(33% - 16px);
+  }
+  @media only screen and (max-width: 768px) {
+    max-width: calc(50% - 16px);
+  }
+  @media only screen and (max-width: 475px) {
+    max-width: calc(100% - 16px);
+  }
+}
+.panel-tile-md{
+  max-width: calc(33% - 16px);
+  @media only screen and (max-width: 768px) {
+    max-width: calc(50% - 16px);
+  }
+  @media only screen and (max-width: 475px) {
+    max-width: calc(100% - 16px);
+  }
+}
+.panel-tile-sm{
+  max-width: calc(50% - 16px);
+  @media only screen and (max-width: 475px) {
+    max-width: calc(100% - 16px);
+  }
+}
+.panel-tile-xs{
+  max-width: calc(100% - 16px);
+}
+.panel-full{
+  max-width: calc(100% - 16px);
+}
+
+.panel-tile:hover{
+  .panel-body{
+    background-color: #ffffff;
+  }
+
+  -webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.22), 0 10px 10px rgba(0,0,0,0.22);
+  -moz-box-shadow: 0 0px 10px rgba(0,0,0,0.22), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 0px 10px rgba(0,0,0,0.22), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.btn-loadmore {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>si-factory-categories</id>
+        <internal>false</internal>
+        <link/>
+        <name>SI - Factory Categories</name>
+        <option_schema>[{"name":"click_event_name","default_value":"$sp.cat_item_list.click","section":"other","label":"Click event name","type":"string"},{"hint":"Number of items to display per page","name":"limit_item","default_value":"15","section":"other","label":"Number of items per page","type":"integer"},{"hint":"Show items from child categories along with the items of the present category","name":"show_items_from_child","section":"other","default_value":"false","label":"Show items from Child Categories","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles>snc_external,snc_internal</roles>
+        <script><![CDATA[(function() {
+	data.category_id = $sp.getParameter("sys_id");
+	
+	if (options && options.sys_id)
+		data.category_id = options.sys_id;
+
+	data.showPrices = $sp.showCatalogPrices();
+	
+	data.sc_catalog_page = $sp.getDisplayValue("sc_catalog_page") || "sc_home";
+	data.sc_category_page = $sp.getDisplayValue("sc_category_page") || "sc_category";
+	data.sc_catalog = $sp.getDisplayValue("sc_catalog");
+	
+	var not_included = 0;
+	
+	/*if (GlideStringUtil.nil(data.category_id)) {
+		 data.items = getPopularItems();
+		 data.show_popular_item = true;
+		 data.all_cat_msg = gs.getMessage("All Categories");
+		 data.category = {title: gs.getMessage("Popular Items"),
+									 description: ''};
+		return;
+	}*/
+	
+	data.show_popular_item = false;
+
+	// Does user have permission to see this category?
+	var categoryId = '' + data.category_id;
+	var categoryJS = new sn_sc.CatCategory(categoryId);
+	if (!categoryJS.canView()) {
+		data.error = gs.getMessage("You do not have permission to see this category");
+		return;
+	}
+	data.category = {title: categoryJS.getTitle(),
+									 description: categoryJS.getDescription()};
+    
+	var catalog = $sp.getValue('sc_catalog');
+	var scRecord = new sn_sc.CatalogSearch().search(catalog, categoryId, '', false, options.show_items_from_child != 'true');
+	scRecord.addQuery('sys_class_name', 'NOT IN', 'sc_cat_item_wizard');
+	scRecord.addEncodedQuery('hide_sp=false^ORhide_spISEMPTY');
+	scRecord.orderBy('order');
+	scRecord.orderBy('name');
+	scRecord.query();
+
+	var items = data.items = [];
+	var count = 1;
+	
+	data.limit = 9;
+	if (input && input.new_limit)
+		data.limit = input.new_limit;
+	else if (options.limit_item)
+		data.limit = options.limit_item;
+	
+	while (scRecord.next() && count <= data.limit) {
+		var catalogItemJS = new sn_sc.CatItem(scRecord.getUniqueValue());
+		if (!catalogItemJS.canView() || !catalogItemJS.isVisibleServicePortal()) {
+			not_included += 1;
+			continue;
+		}
+		var catItemDetails = catalogItemJS.getItemSummary();
+		
+		var item = {};
+		item.name = catItemDetails.name;
+		item.short_description = catItemDetails.short_description;
+		item.picture = catItemDetails.picture;
+		item.price = catItemDetails.price;
+		item.sys_id = catItemDetails.sys_id;
+		item.hasPrice = catItemDetails.show_price;
+		item.page = 'si_factory';
+		item.section = '1';
+		item.type = catItemDetails.type;
+		item.order = catItemDetails.order;
+		item.sys_class_name = catItemDetails.sys_class_name;
+		if (item.type == 'order_guide') {
+			item.page = 'sc_cat_item_guide';
+		} else if (item.type == 'content_item') {
+			item.content_type = catItemDetails.content_type;
+			item.url = catItemDetails.url;
+			if (item.content_type == 'kb') {
+				item.kb_article = catItemDetails.kb_article;
+				item.page = 'kb_article';
+				item.sys_id = item.kb_article;
+			} else if (item.content_type == 'external') {
+				item.target = '_blank';
+			}
+		}
+		items.push(item);
+		count ++;
+	}
+	data.total_item = scRecord.getRowCount() - not_included;
+	data.more_msg = gs.getMessage("{0} of {1}", [data.limit, data.total_item.toFixed(0)]);
+    
+	data.categories = [];
+	while(categoryJS && categoryJS.getParent()) {
+		var parentId =  categoryJS.getParent();
+		categoryJS = new sn_sc.CatCategory(parentId);
+		var category = {
+			label: categoryJS.getTitle(),
+			url: '?id='+data.sc_category_page+'&sys_id=' + parentId
+		};
+		data.categories.unshift(category);
+	}
+	
+	function getPopularItems () {
+			var catalog = $sp.getValue('sc_catalog');
+			var limit = 6;	
+			var items = [];
+		
+			var count = new GlideAggregate('sc_req_item');
+			count.addAggregate('COUNT','cat_item');
+			count.groupBy('cat_item');
+			count.addQuery('cat_item.sys_class_name', 'NOT IN', 'sc_cat_item_guide,sc_cat_item_wizard,sc_cat_item_content');
+			count.addQuery('cat_item.sc_catalogs', 'IN', catalog);
+			count.addEncodedQuery('cat_item.hide_sp=false^ORcat_item.hide_spISEMPTY');
+			count.orderByAggregate('COUNT', 'cat_item');
+			count.query();
+			while (count.next() && items.length < limit) {
+				var catalogItemJS = new sn_sc.CatItem(count.cat_item.sys_id.getValue());
+					if (!catalogItemJS.canView() || !catalogItemJS.isVisibleServicePortal())
+						continue;
+				var item = {};
+				var catItemDetails = catalogItemJS.getItemSummary();
+				
+				item.order = 0 - count.getAggregate('COUNT', 'cat_item');
+				item.name = catItemDetails.name;
+				item.short_description = catItemDetails.short_description;
+				item.picture = catItemDetails.picture;
+				item.price = catItemDetails.price;
+				item.sys_id = catItemDetails.sys_id;
+				item.hasPrice = item.price != 0;
+				item.page = 'sc_cat_item';
+				items.push(item);
+			}
+
+
+			var producers = 0;
+			count = new GlideAggregate('sc_item_produced_record');
+			count.addQuery('producer.sc_catalogs', 'IN', catalog);
+			count.addEncodedQuery('producer.hide_sp=false^ORproducer.hide_spISEMPTY');
+			count.addAggregate('COUNT', 'producer');
+			count.groupBy('producer');
+			count.orderByAggregate('COUNT', 'producer');
+			count.query();
+			while (count.next() && producers < limit) {
+					var catalogItemJS = new sn_sc.CatItem(count.getValue('producer'));
+					if (!catalogItemJS.canView() || !catalogItemJS.isVisibleServicePortal())
+						continue;
+					var catItemDetails = catalogItemJS.getItemSummary();
+					var item = {};
+
+					item.order = 0 - count.getAggregate('COUNT', 'producer');
+					item.name = catItemDetails.name;
+					item.short_description = catItemDetails.short_description;
+					item.picture = catItemDetails.picture;
+					item.price = catItemDetails.price;
+				  item.hasPrice = item.price != 0;
+					item.sys_id = catItemDetails.sys_id;
+					item.page = 'sc_cat_item';
+					items.push(item);
+					producers++;
+			}
+			return items;
+	}
+	
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>chris.stoll</sys_created_by>
+        <sys_created_on>2018-12-19 15:18:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4c0b80a4136aaf40ca3db1676144b0a6</sys_id>
+        <sys_mod_count>51</sys_mod_count>
+        <sys_name>SI - Factory Categories</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sp_widget_4c0b80a4136aaf40ca3db1676144b0a6</sys_update_name>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2018-12-19 19:06:21</sys_updated_on>
+        <template><![CDATA[<div id='factory-catalog' class="m-t-sm " ng-class="{'hidden-xs' : hideItemWidget, 'm-l-sm': !isMobile}">
+  <h4 ng-if="data.error">{{data.error}}</h4>
+  <div ng-init="spSearch.targetCatalog()">
+    <div style="text-align:center">
+      <div class="panel" ng-if="!data.items.length && !data.error">
+        ${No items in category}
+      </div>
+      <div class="panel panel-nopadding panel-tile" ng-class="{'panel-tile-md':ifWidth('md'),'panel-tile-sm':ifWidth('sm'),'panel-tile-xs':ifWidth('xs'), 'panel-full' : $index==0 && $last }"  ng-repeat="item in data.items | orderBy: 'order' track by item.sys_id" ng-init="startItemList()">
+        <a target="{{::item.target}}" ng-href="{{::getItemHREF(item)}}" class="panel-body block">
+          <h2 title="{{::item.name}}">{{::item.name}}</h2>
+          <img ng-src="{{::item.picture}}?t=small" ng-if="item.picture" alt="{{::item.name}}" class="item-image" />
+<!-- <div class="text-muted item-short-desc break-word">{{::item.short_description}}</div> -->
+        </a>
+      </div>
+    </div>
+    <div class="text-a-c" ng-if="!stopLoader && data.items.length > 0 && !data.error">
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+			<span class="sr-only">${Loading...}</span>
+    </div>
+    <div ng-if="data.limit < data.total_item && !show_popular_item">
+      	<div class="text-a-c">
+          {{data.more_msg}}
+      	</div>
+        <button class="m-t-xs btn btn-default btn-loadmore" ng-click="loadMore()">
+          ${Show More}
+        </button>
+      </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

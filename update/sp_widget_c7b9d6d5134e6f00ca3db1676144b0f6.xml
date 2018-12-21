@@ -5,6 +5,7 @@
 	/* widget controller */
 	var c = this;
 
+	console.log($scope)
 	
 	c.params = $location.search();
 
@@ -23,12 +24,12 @@
 			if($rootScope.feedbackExists){
 				$rootScope.$broadcast('feedbackExists');
 			}
-			if(c.params.section==2 && !c.data.requests){
-				c.getRequests();
-			}
-			if(c.params.section==3 && c.params.sys_id && !c.data.single_req){
-				c.getRequest(c.params.sys_id);
-			}
+			//if(c.params.section==2 && !c.data.requests){
+			//	c.getRequests();
+			//}
+			//if(c.params.section==3 && c.params.sys_id && !c.data.single_req){
+			//	c.getRequest(c.params.sys_id);
+			//}
 		});
 	};
 	
@@ -231,6 +232,18 @@ $text-muted: #9B9B9B;
             font-weight: 500;
           }
         }
+        .copy-requests{
+          color: $font-color;
+          font-size: 32px;
+          font-weight: normal;
+          letter-spacing: -0.53px;
+          padding-top: 60px;
+          @media screen and (max-width: 767px) {
+            font-size: 26px;
+            font-weight: 500;
+            padding-top: 30px;
+          }
+        }
         .copy-text{
           color: $font-color;
           font-size: 18px;
@@ -258,7 +271,7 @@ $text-muted: #9B9B9B;
           color: #43727A
         }
         .item-requests{
-          margin-top: 45px;
+          margin-top: 20px;
           margin-bottom: unset;
           color: $text-muted;
           .item-number{ font-weight: 600; }
@@ -270,6 +283,9 @@ $text-muted: #9B9B9B;
             margin-bottom: 14px;
             border-top: 2px solid #ffffff;
           }
+        }
+        .my-requests{
+          margin-top: 40px;
         }
         .item-request-none{
           display: none;
@@ -286,6 +302,77 @@ $text-muted: #9B9B9B;
         margin-bottom: 60px;
       }
     }
+  }
+}
+.si-title{
+  margin-left: 15px;
+  margin-bottom: 3px;
+}
+.si-progress{
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  height: 36px;
+  background: #D8D8D8;
+  border-radius: 18px 18px 18px 18px;
+  .si-stage{
+    display: inline-flex;
+    width: 100%;
+    height: 36px;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    .si-label{
+      height: 18px;
+      color: #2C3E51;
+      font-size: 12px;
+      font-weight: 600;
+      margin: 0;
+      margin-left: 12px;
+      width: calc( 100% - 42px );
+      background-color: transparent;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .si-label-current{
+      color: #ffffff;
+    }
+    .si-label-complete{
+      color: #2C3E51;
+    }
+    .si-assigned{
+      width: 18px;
+      height: 18px;
+      background-color: #9B9B9B;
+      border-radius: 50%;
+      margin:0;
+      margin-right: 12px;
+    }
+    .si-assigned-current{
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+    .si-assigned-complete{
+      background-color: #00839C;
+    }
+  }
+  .si-current{
+    background-color: #72D0E2;
+  }
+  .si-current-first{
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+  }
+  .si-current-last{
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
   }
 }
 .btn-factory{
@@ -317,14 +404,23 @@ $text-muted: #9B9B9B;
         <script><![CDATA[(function() {
   /* populate the 'data' object */
   /* e.g., data.table = $sp.getValue('table'); */
-	data.cat_item = $sp.getCatalogItem('74a076de136d27004b063192e144b00c');
+	data.conversation = $sp.getWidget('si-factory-conversation');
+	
+	data.factory_catalog = { 
+		sys_id : '1312da9e132d27004b063192e144b01e',
+		categories : [],
+		cat_items : [],
+		cat_items_query : []
+	};
+	
+	data.stages = ['In Review','Assigned','Development','Complete'];
+	
+	data.catalog_item = $sp.getParameter('catalog_item');
+	
 	data.user = gs.getUser().getID();
+	
 	data.user_has_requests = false;
 	
-	//data.cat_widget = $sp.getWidget('yds-sc-catalog-item',data.cat_item);
-	//data.cat_widget = $sp.getWidget('widget-sc-cat-item-v2',data.cat_item);
-	data.cat_widget = $sp.getWidget('si-factory-cat-item',data.cat_item);
-
   data.site_content = [];
 	var portal =  $sp.getPortalRecord();
 	
@@ -346,37 +442,79 @@ $text-muted: #9B9B9B;
 	}
 	
 	data.gahj = $sp.getWidget('pip-gahj');
-  
+	
+	data.cat_item_widget = {};
+	
+	function getCatalog(){
+		var idx = 0;
+		var grCatalog = new GlideRecord('sc_catalog');
+		grCatalog.addQuery('sys_id', data.factory_catalog.sys_id);
+		grCatalog.query();
+		while(grCatalog.next()){
+			var grCategories = new GlideRecord('sc_category');
+			grCategories.addQuery('sc_catalog', data.factory_catalog.sys_id);
+			grCategories.query();
+			while(grCategories.next()){
+				var obj = {};
+				$sp.getRecordElements(obj, grCategories, 'sys_id,title,description,icon');
+				obj.items = [];
+				
+				data.factory_catalog.categories.push(obj);
+				
+				var grCatItems = new GlideRecord('sc_cat_item_category');
+				grCatItems.addQuery('sc_category', data.factory_catalog.categories[idx].sys_id.value);
+				grCatItems.query();
+				
+				while(grCatItems.next()){
+					var item = {};
+					$sp.getRecordElements(item, grCatItems, 'sys_id,sc_cat_item,sc_category')
+					data.factory_catalog.categories[idx].items.push(item);
+					
+					data.factory_catalog.cat_items.push( $sp.getCatalogItem(item.sc_cat_item.value) );
+					data.factory_catalog.cat_items_query.push(item.sc_cat_item.value);
+					data.cat_item_widget[item.sc_cat_item.value] = $sp.getWidget('si-factory-cat-item',{ sys_id : item.sc_cat_item.value});
+				}	
+				
+				idx++;
+				
+			}
+		}
+		//Only have one category for now -- will need to modify this code later to handle multiple categories
+		data.cat_widget = $sp.getWidget('si-factory-categories',{ sys_id : data.factory_catalog.categories[0].sys_id.value });
+	}
+
+	function getRequests(user){
+		data.requests = [];
+		var grReq = new GlideRecord('sc_req_item');
+		grReq.addEncodedQuery('active=true^cat_itemIN'+ data.factory_catalog.cat_items_query.join(',') +'^stateIN-5,1,2^ORDERBYDESCsys_created_on');
+		grReq.query();
+		while(grReq.next()){
+			var obj = {};
+			$sp.getRecordElements(obj, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date');
+			if(!data.user_has_requests){
+				data.user_has_requests = (grReq.getValue('opened_by') == data.user);
+			}
+			obj.need_help ='';
+
+			var grVars = new GlideRecord('sc_item_option_mtom');
+			grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
+			grVars.query();
+			while(grVars.next()){
+				var grVar = new GlideRecord('sc_item_option');
+				grVar.addQuery('sys_id',grVars.getValue('sc_item_option'));
+				grVar.addQuery('item_option_new.sys_id','d21be38b13b567004b063192e144b0f3')
+				grVar.query();
+				while(grVar.next()){
+					obj.need_help = grVar.getDisplayValue('value');
+				}
+			}
+			data.requests.push(obj);
+		}
+	}
+	
 	if (input && Object.keys(input).length > 0) {
 		if(input.action == 'getRequests'){
-			data.requests = [];
-			var grReq = new GlideRecord('sc_req_item');
-			grReq.addEncodedQuery('active=true^cat_item=74a076de136d27004b063192e144b00c^stateIN-5,1,2^ORDERBYDESCsys_created_on');
-			grReq.query();
-			while(grReq.next()){
-				var obj = {};
-				$sp.getRecordElements(obj, grReq, 'sys_id,number,opended_at,opened_by,stage,state,due_date');
-				if(!data.user_has_requests){
-					data.user_has_requests = (grReq.getValue('opened_by') == data.user);
-				}
-				obj.need_help ='';
-				
-				var grVars = new GlideRecord('sc_item_option_mtom');
-				grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
-				grVars.query();
-				while(grVars.next()){
-					var grVar = new GlideRecord('sc_item_option');
-					grVar.addQuery('sys_id',grVars.getValue('sc_item_option'));
-					grVar.addQuery('item_option_new.sys_id','d21be38b13b567004b063192e144b0f3')
-					grVar.query();
-					while(grVar.next()){
-						obj.need_help = grVar.getDisplayValue('value');
-					}
-				}
-				
-				data.requests.push(obj);
-			}
-			data.success = true;
+			getRequests(input.user)
 		}
 		if(input.action == 'getRequest'){
 			data.single_req = {};
@@ -384,7 +522,7 @@ $text-muted: #9B9B9B;
 			grReq.addEncodedQuery('sys_id=' + input.sys_id);
 			grReq.query();
 			while(grReq.next()){
-				$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,opended_at,opened_by,stage,state,due_date');
+				$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,opened_at,opened_by,assigned_to,stage,state,due_date');
 			  data.single_req.variables = {};
 				var grVars = new GlideRecord('sc_item_option_mtom');
 				grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
@@ -395,14 +533,17 @@ $text-muted: #9B9B9B;
 					grVar.orderBy('order');
 					grVar.query();
 					while(grVar.next()){
-						var obj = {};
-						$sp.getRecordElements(obj, grVar, 'sys_id,order,item_option_new,value');
-						data.single_req.variables[obj.item_option_new.value] = obj;
+						var objVars = {};
+						$sp.getRecordElements(objVars, grVar, 'sys_id,order,item_option_new,value');
+						data.single_req.variables[objVars.item_option_new.value] = objVars;
 					}
 				}
 			}
 			data.success = true;
 		}
+	}else{
+		getCatalog();
+		getRequests();
 	}
 	
 })();]]></script>
@@ -412,7 +553,7 @@ $text-muted: #9B9B9B;
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>280</sys_mod_count>
+        <sys_mod_count>401</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -420,7 +561,7 @@ $text-muted: #9B9B9B;
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-10 19:45:57</sys_updated_on>
+        <sys_updated_on>2018-12-20 15:08:13</sys_updated_on>
         <template><![CDATA[<div class='si-container'>
   <div id='divHero' class='div-hero' style='background-image: url({{hero.img}});'></div>
   <div id='heroOverlay' class='hero-overlay'>
@@ -446,7 +587,26 @@ $text-muted: #9B9B9B;
         <div class='col-md-7'>
           <div class='btn-wrapper'>
             <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a Request</button>
-            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track a Request</button>  
+            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track My Requests</button>  
+          </div>
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-md-12'>
+          <div class='copy-requests'>
+            Orders in the Factory
+          </div>
+        </div>
+      </div>
+      <div class='copy-content requested-items'>
+        <div class='col-md-12'>
+          <div ng-repeat='item in c.data.requests' class='item-requests'>
+            <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
+                             data-ritm="{{item.sys_id.value}}"
+                             data-what="{{item.cat_item.display_value}}"
+                             data-current="{{item.state.value}}"
+                             data-assigned="{{item.assigned_to.value}}"
+                             href="siFactoryStatusTemplate"></sifactorystatus>
           </div>
         </div>
       </div>
@@ -461,9 +621,14 @@ $text-muted: #9B9B9B;
           </div>
         </div>
       </div>
-      <div class='copy-content'>
+      <div class='copy-content' ng-if='!c.data.catalog_item'>
         <div class='col-md-12'>
           <sp-widget widget="c.data.cat_widget"></sp-widget>
+        </div>
+      </div>
+      <div class='copy-content' ng-if='c.data.catalog_item'>
+        <div class='col-md-12'>
+          <sp-widget widget="c.data.cat_item_widget[c.data.catalog_item]"></sp-widget>
         </div>
       </div>
     </div>
@@ -473,26 +638,24 @@ $text-muted: #9B9B9B;
       <div class='copy-content'>
         <div class='col-md-12'>
           <div class='copy-question'>
-            Request Tracking
-          </div>
-          <div class='toggle-view' ng-if='c.data.user_has_requests'>
-            <span ng-class="{ 'toggle-view-active' : !c.only_user }" ng-click='c.only_user=false'>See All</span> | <span ng-class="{ 'toggle-view-active' : c.only_user }" ng-click='c.only_user=true'>My Requests</span>
+            Your Requests
           </div>
         </div>
       </div>
       <div class='copy-content requested-items'>
         <div class='col-md-12'>
-          <div ng-repeat='item in c.data.requests' class='item-requests' ng-class="{  'item-request-none' : c.only_user, 'item-request-user' : (item.opened_by.value===c.data.user) }">
+          <div ng-repeat='item in c.data.requests' class='item-requests my-requests' ng-class="{  'item-request-none' : c.only_user, 'item-request-user' : (item.opened_by.value===c.data.user) }">
             <span class='item-number'>{{ item.number.value }}</span>|
-            <span class='item-what'>{{ item.need_help }}</span>|
-            <span class='item-by'>{{ item.opened_by.display_value }}</span>
+            <span class='item-what'>{{ item.cat_item.display_value }}</span>
             <span class='view-click' ng-if='item.opened_by.value===c.data.user' ng-click='c.goViewItem(item.sys_id.value)'>View</span>
             <hr/>
             <div>
-              <sifactorystatus data-sys_id="{{item.sys_id.value}}" 
-                data-stage="{{item.stage.value}}" 
-                data-state="{{item.state.display_value}}"
-                href="siFactoryStatusTemplate"></sifactorystatus>
+              <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
+                             data-ritm="{{item.sys_id.value}}"
+                             data-what=""
+                             data-current="{{item.stage.value}}"
+                             data-assigned="{{item.assigned_to.value}}"
+                             href="siFactoryStatusTemplate"></sifactorystatus>
             </div>
           </div>
         </div>
@@ -510,19 +673,25 @@ $text-muted: #9B9B9B;
       </div>
       <div class='copy-content'>
         <div class='col-md-12'>
-          <sifactorystatus data-sys_id="{{c.data.single_req.sys_id.value}}" 
-                data-stage="{{c.data.single_req.stage.value}}" 
-                data-state="{{c.data.single_req.state.display_value}}"
-                href="siFactoryStatusTemplate"></sifactorystatus>
+          <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
+                             data-ritm="{{item.sys_id.value}}"
+                             data-what=""
+                             data-current="{{item.stage.value}}"
+                             data-assigned="{{item.assigned_to.value}}"
+                             href="siFactoryStatusTemplate"></sifactorystatus>
         </div>
       </div>
       <div class='copy-content'>
-        <div class='col-md-6'>
+        <div class='col-md-12'>
+          RECORD DATA GOES HERE
+        </div>
+<!--        <div class='col-md-6'>
           {{c.data.single_req.number.display_value}} | {{c.data.single_req.variables["d21be38b13b567004b063192e144b0f3"].value.display_value}}
         </div>
         <div class='col-md-6'>
           {{c.data.single_req.variables["d503898313e1a7004b063192e144b019"].value.display_value}}
         </div>
+-->
       </div>
       <div class='copy-content'>
         <div class='col-md-12'>
@@ -533,7 +702,7 @@ $text-muted: #9B9B9B;
       </div>
       <div class='copy-content'>
         <div class='col-md-12'>
-          Activity Widget
+          <sp-widget widget="c.data.conversation"></sp-widget>
         </div>
       </div>
 

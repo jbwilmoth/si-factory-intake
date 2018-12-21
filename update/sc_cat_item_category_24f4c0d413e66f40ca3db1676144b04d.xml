@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
     <sc_cat_item_category action="INSERT_OR_UPDATE">
-        <sc_cat_item display_value="Widget">d0f4849413e66f40ca3db1676144b0ba</sc_cat_item>
+        <sc_cat_item display_value="Portal Widget">d0f4849413e66f40ca3db1676144b0ba</sc_cat_item>
         <sc_category display_value="Intake">d172be1213ad27004b063192e144b0ba</sc_category>
         <sys_class_name>sc_cat_item_category</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>

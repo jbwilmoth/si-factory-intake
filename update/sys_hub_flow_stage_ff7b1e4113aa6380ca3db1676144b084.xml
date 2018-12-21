@@ -3,28 +3,28 @@
         <always_show>true</always_show>
         <ancestor_component_id/>
         <ancestor_stage_id/>
-        <component_indexes>6</component_indexes>
+        <component_indexes>4</component_indexes>
         <duration>1970-01-01 00:00:00</duration>
         <flow display_value="SI Factory - Intake Flow">9022f61213ad27004b063192e144b0f4</flow>
-        <label>Development</label>
-        <order>7</order>
-        <stage_id>79e65f8d-1739-46a0-b08b-3ef68b5a09b8</stage_id>
+        <label>Assigned</label>
+        <order>3</order>
+        <stage_id>b69d5b11-d43c-4bcb-ab57-37e121925190</stage_id>
         <states>{"pending":"Pending - has not started","inprogress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
         <sys_class_name>sys_hub_flow_stage</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:11</sys_created_on>
+        <sys_created_on>2018-12-21 15:06:25</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>1bce4b5213ed27004b063192e144b095</sys_id>
+        <sys_id>ff7b1e4113aa6380ca3db1676144b084</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Development</sys_name>
+        <sys_name>Assigned</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
-        <sys_update_name>sys_hub_flow_stage_1bce4b5213ed27004b063192e144b095</sys_update_name>
+        <sys_update_name>sys_hub_flow_stage_ff7b1e4113aa6380ca3db1676144b084</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:11</sys_updated_on>
+        <sys_updated_on>2018-12-21 15:06:25</sys_updated_on>
         <type>standard</type>
-        <value>development</value>
+        <value>assigned</value>
     </sys_hub_flow_stage>
 </record_update>
