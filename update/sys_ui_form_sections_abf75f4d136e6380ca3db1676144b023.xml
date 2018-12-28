@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="abf75f4d136e6380ca3db1676144b023" sys_domain="global" table="sys_hub_flow_input" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-12-21 19:30:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>f7f75f4d136e6380ca3db1676144b02d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sys_hub_flow_input" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">abf75f4d136e6380ca3db1676144b023</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">b7f75f4d136e6380ca3db1676144b02a</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-12-21 19:30:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-12-21 19:30:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>37f75f4d136e6380ca3db1676144b030</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sys_hub_flow_input" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">abf75f4d136e6380ca3db1676144b023</sys_ui_form>
+            <sys_ui_section caption="Reference Specification" display_value="Reference Specification" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">fbf75f4d136e6380ca3db1676144b02d</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-12-21 19:30:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-12-21 19:30:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>37f75f4d136e6380ca3db1676144b027</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sys_hub_flow_input" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">abf75f4d136e6380ca3db1676144b023</sys_ui_form>
+            <sys_ui_section caption="Choice List Specification" display_value="Choice List Specification" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">73f75f4d136e6380ca3db1676144b026</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-12-21 19:30:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-12-21 19:30:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>3ff75f4d136e6380ca3db1676144b028</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sys_hub_flow_input" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">abf75f4d136e6380ca3db1676144b023</sys_ui_form>
+            <sys_ui_section caption="Dependent Field" display_value="Dependent Field" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">3bf75f4d136e6380ca3db1676144b027</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-12-21 19:30:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>4</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-12-21 19:30:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>b3f75f4d136e6380ca3db1676144b02a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sys_hub_flow_input" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">abf75f4d136e6380ca3db1676144b023</sys_ui_form>
+            <sys_ui_section caption="Calculated Value" display_value="Calculated Value" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">33f75f4d136e6380ca3db1676144b029</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-12-21 19:30:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>5</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-12-21 19:30:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>fbf75f4d136e6380ca3db1676144b031</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sys_hub_flow_input" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">abf75f4d136e6380ca3db1676144b023</sys_ui_form>
+            <sys_ui_section caption="Default Value" display_value="Default Value" name="sys_hub_flow_input" sys_domain="global" view="7966be310a0a0b8c00bd504090503227">3bf75f4d136e6380ca3db1676144b030</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-12-21 19:30:45</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>sys_hub_flow_input</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2018-12-21 19:30:44</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>abf75f4d136e6380ca3db1676144b023</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_hub_flow_input</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+            <sys_update_name>sys_ui_form_sections_abf75f4d136e6380ca3db1676144b023</sys_update_name>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2018-12-21 19:30:44</sys_updated_on>
+            <sys_user/>
+            <view display_value="Advanced" name="advanced">7966be310a0a0b8c00bd504090503227</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

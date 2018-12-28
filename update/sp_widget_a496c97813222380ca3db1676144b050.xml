@@ -331,7 +331,29 @@ console.log($scope)
 }
 
 .panel-heading {
- word-wrap: break-word;
+  word-wrap: break-word;
+  background-color: #293E40;
+  color: #ffffff;
+}
+
+.panel-body, .form-control{
+  font-size: 14px;
+  background-color: #fff;
+}
+.panel-body{
+  background-color: #f5f5f5;
+}
+
+.btn-primary{
+  font-size: 13px;
+  //background-color: #72D0E2;
+  font-weight:  500;
+}
+.timeline-title{
+  font-size: 16px;
+}
+.img-responsive{
+  max-height: 100px;
 }
 
 .avatar-container {
@@ -348,6 +370,10 @@ ul {
 
 .panel-title {
   display: inline;
+  font-weight: 400;
+  @media only screen and (max-width: 475px) {
+    font-size: 14px;
+  }
 }
 
 .overflow-hidden {
@@ -355,9 +381,11 @@ ul {
 }
 
 .timeline-badge.success {
-  background-color: $success;
+  background-color: rgb(129, 181, 161);
 }
-
+.timeline &gt; li &gt; .timeline-panel{
+  background-color: #fff;
+}
 .timeline &gt; span &gt; .timeline-badge {
 	z-index: 100;
 	position: relative;
@@ -369,10 +397,15 @@ ul {
 	margin-left: -25px;
 	border-radius: 50% 50% 50% 50%;
 	text-align: center;
-	font-size: 1.4em;
+	font-size: 13px;
 	line-height: 50px;
 	color: #fff;
+  @media only screen and (max-width: 475px) {
+    left: 15px;
+    margin-left: unset;
+  }
 }
+
 
 .journal-type {
  	display: inline-flex;
@@ -411,6 +444,11 @@ ul {
         <public>false</public>
         <roles>snc_external,snc_internal</roles>
         <script><![CDATA[(function() {
+	data.sys_id = $sp.getParameter("sys_id") || options.sys_id;
+	
+	if(!data.sys_id)
+		return;
+	
 	data.maxAttachmentSize = parseInt(gs.getProperty("com.glide.attachment.max_size", 1024));
 	if (isNaN(data.maxAttachmentSize))
 		data.maxAttachmentSize = 24;
@@ -423,7 +461,7 @@ ul {
 	data.attachAddedMsg = gs.getMessage("Attachment added");
 	data.attachFailMsg = gs.getMessage("Failed to add attachment");
 	
-	data.sys_id = $sp.getParameter("sys_id");
+	
 	
 	data.table = 'sc_req_item'; //input.table || options.table || $sp.getParameter("table");
 	// don't use options.title unless sys_id and table also come from options
@@ -518,7 +556,7 @@ ul {
         <sys_created_on>2018-12-20 14:16:53</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a496c97813222380ca3db1676144b050</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>SI - Factory Work Conversation</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -526,7 +564,7 @@ ul {
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_a496c97813222380ca3db1676144b050</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-20 15:04:54</sys_updated_on>
+        <sys_updated_on>2018-12-28 18:31:45</sys_updated_on>
         <template><![CDATA[<div>
   <div ng-if="!data.canRead && !data.isNewRecord">
     ${Requested record not found}

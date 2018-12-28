@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function($rootScope, $scope, $location,$sce, $timeout) {
+        <client_script><![CDATA[function siFactory($rootScope, $scope, $location, $timeout, $http, spUtil, $sanitize, $window, $sce, i18n, $log ) {
 	/* widget controller */
 	var c = this;
 
-	console.log($scope)
-	
+console.log(c.data.single_req)	
 	c.params = $location.search();
 
 	c.only_user = true;
@@ -24,22 +23,15 @@
 			if($rootScope.feedbackExists){
 				$rootScope.$broadcast('feedbackExists');
 			}
-			//if(c.params.section==2 && !c.data.requests){
-			//	c.getRequests();
-			//}
-			//if(c.params.section==3 && c.params.sys_id && !c.data.single_req){
-			//	c.getRequest(c.params.sys_id);
-			//}
 		});
 	};
 	
-	
 	c.goSection = function(section){
 		$location.url("/" + c.data.portal.url_suffix + "?id=" + c.data.sp_page + '&section=' + section);
-	}
+	};
 	c.goViewItem = function(sysID){
 		$location.url("/" + c.data.portal.url_suffix + "?id=" + c.data.sp_page + '&section=3&sys_id=' + sysID);
-	}
+	};
 	
 	c.checkBool = function(val){
 		var rtn;
@@ -67,31 +59,18 @@
 	};
 	c.openRequest = function(){
 		c.showRequest = !c.showRequest;
-		//$rootScope.$broadcast('openPracticeRequest', '');
 		//ga('send', 'event', "Practice Request", "Open");
 	};
 	
-	c.getRequests = function(){
-		c.server.get({ action: 'getRequests' }).then(function(response) {
-			if (response.data.success) {
-				$timeout(function(){
-					c.data.requests = response.data.requests;
-					c.data.user_has_requests = response.data.user_has_requests;
-					c.only_user = response.data.user_has_requests;
-				});
-			}
-		});
-	}
 	c.getRequest = function(sysID){
 		c.server.get({ action: 'getRequest', sys_id : sysID }).then(function(response) {
 			if (response.data.success) {
 				$timeout(function(){
 					c.data.single_req = response.data.single_req;
-console.log(c.data.single_req);				
 				});
 			}
 		});
-	}
+	};
 	
 	$rootScope.$on('feedbackExists', function() {
 		if(!$rootScope.isMobileView){
@@ -104,9 +83,9 @@ console.log(c.data.single_req);
 		}else{
 			c.fbBtnType = 'right';
 			c.objBtnStyle = {
-				div: {"z-index":"1500", "top":"70%", "background-color":"#81B5A1"},
+				div: {"z-index":"1500", "top":"85%", "background-color":"#81B5A1"},
 				button: { "box-shadow": "0 1px 4px 2px rgba(0, 0, 0, 1)" },
-				label: { "font-size":"18px" }
+				label: { "font-size":"16px" }
 			};
 		}
 		$rootScope.$broadcast('fbStyleButton', c.fbBtnType, c.objBtnStyle);
@@ -124,13 +103,16 @@ $bg-color: transparent !default;
 $font-color: #4A4A4A !default;
 $text-muted: #9B9B9B;
 
-@media screen and (max-width: 1199px) {
-    //medium
+@media only screen and (max-width: 1200px) {
+  //medium
 }
-@media screen and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
   //small
 }
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
+  //tablet
+}
+@media only screen and (max-width: 475px) {
   //mobile
 }
 
@@ -155,8 +137,17 @@ $text-muted: #9B9B9B;
     background-position: bottom;
     background-size: cover;
     background-color: $bg-color;
-    @media screen and (max-width: 767px) {
+    @media only screen and (max-width: 768px) {
       height: 75px;
+    }
+    @media only screen and (max-width: 475px) {
+      background-position-x: 0px;
+    }
+    @media only screen and (max-width: 375px) {
+      background-position-x: -45px;
+    }
+    @media only screen and (max-width: 320px) {
+      background-position-x: -90px;
     }
   }
   .hero-overlay{
@@ -173,14 +164,13 @@ $text-muted: #9B9B9B;
       width: 100%;
       position: relative;
       margin: 0 auto;
-      
       color: $white;
       text-align: left;
       
       .hero-header-wrap{
         display: flex;
         height: 150px;
-        @media screen and (max-width: 767px) {
+        @media only screen and (max-width: 768px) {
           height: 75px;
         }
         .hero-header{
@@ -200,9 +190,10 @@ $text-muted: #9B9B9B;
           -ms-flex-align: center;
           align-items: center;
           
-          @media screen and (max-width: 767px) {
-            font-size: 30px;
+          @media only screen and (max-width: 768px) {
+            font-size: 28px;
             left: 15px;
+            line-height: 1;
           }
         }
       }
@@ -217,19 +208,24 @@ $text-muted: #9B9B9B;
       margin: 0 auto;
       top: 50px;
       text-align: left;
-      @media screen and (max-width: 767px) {
+      @media only screen and (max-width: 768px) {
         top: 20px;
       }
       .copy-content{
+        display: block;
+        height: auto;
         .copy-question{
           color: $font-color;
           font-size: 32px;
           font-weight: normal;
           letter-spacing: -0.53px;
           padding-bottom: 24px;
-          @media screen and (max-width: 767px) {
-            font-size: 26px;
+          @media only screen and (max-width: 768px) {
+            font-size: 22px;
             font-weight: 500;
+          }
+          @media only screen and (max-width: 475px) {
+            padding-bottom: 4px;
           }
         }
         .copy-requests{
@@ -238,11 +234,49 @@ $text-muted: #9B9B9B;
           font-weight: normal;
           letter-spacing: -0.53px;
           padding-top: 60px;
-          @media screen and (max-width: 767px) {
+          @media only screen and (max-width: 768px) {
             font-size: 26px;
             font-weight: 500;
             padding-top: 30px;
           }
+          @media only screen and (max-width: 475px) {
+            padding-top: 10px;
+          }
+        }
+        .copy-record{
+          margin: 50px 0;
+          width: 100%;
+          font-size: 18px;
+          @media only screen and (max-width: 475px) {
+            margin-bottom: 10px;
+          }
+          .details-col{
+            margin: 0;
+            padding: 0;
+            .details{
+              margin-bottom: 30px;
+              .attachment{
+                display: block;
+                margin-top: 8px;
+              }
+            }
+            .details-bold{
+              font-weight: 600;
+              @media only screen and (max-width: 475px) {
+                margin-bottom: 0px;
+              }
+            }
+            .details-block{
+              min-height: 100px;
+              @media only screen and (max-width: 475px) {
+                min-height: unset;
+              }
+            }
+          }
+        }
+        .copy-record-mobile{
+          margin-top: 10px;
+          margin-bottom: 30px;
         }
         .copy-text{
           color: $font-color;
@@ -250,12 +284,21 @@ $text-muted: #9B9B9B;
           font-weight: normal;
           letter-spacing: 0;
           line-height: 31px;
+          @media only screen and (max-width: 768px) {
+            font-size: 16px;
+            line-height: 25px;
+          }
         }
         .btn-wrapper{
           display: block;
           width: 290px;
           margin: 0;
           margin-left: 50px;
+          @media only screen and (max-width: 768px) {
+            margin: 0;
+            width: 100%;
+            padding-bottom: 20px;
+          }
         }
         .toggle-view{
           color: $text-muted;
@@ -308,6 +351,10 @@ $text-muted: #9B9B9B;
   margin-left: 15px;
   margin-bottom: 3px;
 }
+.si-title-useronly{
+  display: inline-flex;
+  font-size: 14px;
+}
 .si-progress{
   width: 100%;
   font-size: 14px;
@@ -336,12 +383,13 @@ $text-muted: #9B9B9B;
       font-size: 12px;
       font-weight: 600;
       margin: 0;
-      margin-left: 12px;
+      margin-right: 15px;
       width: calc( 100% - 42px );
       background-color: transparent;
       text-transform: uppercase;
-      text-align: center;
+      text-align: right;
     }
+    
     .si-label-current{
       color: #ffffff;
     }
@@ -355,12 +403,19 @@ $text-muted: #9B9B9B;
       border-radius: 50%;
       margin:0;
       margin-right: 12px;
+      @media only screen and (max-width: 475px) {
+        margin-left: 65%;
+        margin-right: unset;
+      }
     }
     .si-assigned-current{
       background-color: rgba(255, 255, 255, 0.7);
     }
     .si-assigned-complete{
       background-color: #00839C;
+    }
+    .si-label-past, .si-assigned-past{
+      display: none;
     }
   }
   .si-current{
@@ -386,6 +441,9 @@ $text-muted: #9B9B9B;
   font-weight: normal;
   text-align: center;
   line-height: 43px;
+  @media only screen and (max-width: 475px) {
+    width: 100%;
+  }
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -402,49 +460,74 @@ $text-muted: #9B9B9B;
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-  /* populate the 'data' object */
-  /* e.g., data.table = $sp.getValue('table'); */
-	data.conversation = $sp.getWidget('si-factory-conversation');
-	
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+
+	//Prep for and get information about the current portal content - SI - Factory
+	data.site_content = [];
+
+	data.sp_page = $sp.getParameter('id');
+	var portal =  $sp.getPortalRecord();
+
+	data.portal = {
+		url_suffix : portal.getDisplayValue('url_suffix')
+	};
+
+	//Google Analytics - TBD
+	//data.gahj = $sp.getWidget('pip-gahj');
+
+	//If specific catalog item param
+	data.catalog_item = $sp.getParameter('catalog_item');
+
+	//Get the current user
+	data.user = gs.getUser().getID();
+
+	//Check for direct link situations
+	var sys_id = $sp.getParameter('sys_id');
+	var section = $sp.getParameter('section');
+	var req_id = $sp.getParameter('req_id');
+
+	//SI - Factory Catalog Data
 	data.factory_catalog = { 
 		sys_id : '1312da9e132d27004b063192e144b01e',
 		categories : [],
 		cat_items : [],
 		cat_items_query : []
 	};
-	
-	data.stages = ['In Review','Assigned','Development','Complete'];
-	
-	data.catalog_item = $sp.getParameter('catalog_item');
-	
-	data.user = gs.getUser().getID();
-	
-	data.user_has_requests = false;
-	
-  data.site_content = [];
-	var portal =  $sp.getPortalRecord();
-	
-	data.portal = {
-		url_suffix : portal.getDisplayValue('url_suffix')
-	}
-	
-	data.sp_page = $sp.getParameter('id');
-	
-  var appCopy = new GlideRecord('x_snc_pip_home');
+
+	//Item widget for the service catalog entries
+	data.cat_item_widget = {};
+
+	//Requested Items Stage values
+	data.stages = []; //['In Review','Assigned','Development','Complete'];
+	data.stages_value = [];
+
+
+	//Get the data about this portal / portal section
+	var appCopy = new GlideRecord('x_snc_pip_home');
 	appCopy.addQuery('heading','Factory');
 	appCopy.orderBy('order');
 	appCopy.query();
 	while (appCopy.next()) {
 		var obj = {};
 		$sp.getRecordElements(obj, appCopy, 'sys_id,heading,hero_image,hero_header,hero_copy,page_icon,starting_page,community,order');
-		
+
 		data.site_content.push(obj);
 	}
-	
-	data.gahj = $sp.getWidget('pip-gahj');
-	
-	data.cat_item_widget = {};
-	
+
+
+	//Get stages used in workflow / Flow Designer
+	var grStages = new GlideRecord('stage_set_entry');
+	grStages.addQuery('set','d00a56c5136a6380ca3db1676144b07b');
+	grStages.orderBy('order');
+	grStages.query();
+	while(grStages.next()){
+		data.stages.push(grStages.getDisplayValue('name'));
+		data.stages_value.push(grStages.getValue('value'));
+	}
+
+
+	//Function for gettting the SI - Factory Catalog
 	function getCatalog(){
 		var idx = 0;
 		var grCatalog = new GlideRecord('sc_catalog');
@@ -458,31 +541,32 @@ $text-muted: #9B9B9B;
 				var obj = {};
 				$sp.getRecordElements(obj, grCategories, 'sys_id,title,description,icon');
 				obj.items = [];
-				
+
 				data.factory_catalog.categories.push(obj);
-				
+
 				var grCatItems = new GlideRecord('sc_cat_item_category');
 				grCatItems.addQuery('sc_category', data.factory_catalog.categories[idx].sys_id.value);
 				grCatItems.query();
-				
+
 				while(grCatItems.next()){
 					var item = {};
-					$sp.getRecordElements(item, grCatItems, 'sys_id,sc_cat_item,sc_category')
+					$sp.getRecordElements(item, grCatItems, 'sys_id,sc_cat_item,sc_category');
 					data.factory_catalog.categories[idx].items.push(item);
-					
+
 					data.factory_catalog.cat_items.push( $sp.getCatalogItem(item.sc_cat_item.value) );
 					data.factory_catalog.cat_items_query.push(item.sc_cat_item.value);
 					data.cat_item_widget[item.sc_cat_item.value] = $sp.getWidget('si-factory-cat-item',{ sys_id : item.sc_cat_item.value});
 				}	
-				
+
 				idx++;
-				
+
 			}
 		}
 		//Only have one category for now -- will need to modify this code later to handle multiple categories
 		data.cat_widget = $sp.getWidget('si-factory-categories',{ sys_id : data.factory_catalog.categories[0].sys_id.value });
 	}
 
+	//Function for getting the current requests - ALL and User Specific
 	function getRequests(user){
 		data.requests = [];
 		var grReq = new GlideRecord('sc_req_item');
@@ -491,61 +575,79 @@ $text-muted: #9B9B9B;
 		while(grReq.next()){
 			var obj = {};
 			$sp.getRecordElements(obj, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date');
-			if(!data.user_has_requests){
-				data.user_has_requests = (grReq.getValue('opened_by') == data.user);
-			}
-			obj.need_help ='';
+			data.requests.push(obj);
+		}
+	}
+
+	//Get a single request item's details
+	function getRequest(sys_id,req_id){
+		data.single_req = {};
+		var grReq = new GlideRecord('sc_req_item');
+		if(sys_id == null){
+			grReq.addEncodedQuery('request=' + req_id);
+		}else{
+			grReq.addEncodedQuery('sys_id=' + sys_id);	
+		}
+		grReq.query();
+		while(grReq.next()){
+			$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date');
+			var variables = [];
+			data.single_req.variables = [];
 
 			var grVars = new GlideRecord('sc_item_option_mtom');
 			grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
 			grVars.query();
 			while(grVars.next()){
 				var grVar = new GlideRecord('sc_item_option');
+				grVar.addActiveQuery();
+				grVar.orderBy('order');
 				grVar.addQuery('sys_id',grVars.getValue('sc_item_option'));
-				grVar.addQuery('item_option_new.sys_id','d21be38b13b567004b063192e144b0f3')
 				grVar.query();
 				while(grVar.next()){
-					obj.need_help = grVar.getDisplayValue('value');
+					var objVars = {};
+					$sp.getRecordElements(objVars, grVar, 'sys_id,order,item_option_new,item_option_new.name,value');
+					variables.push( objVars );
 				}
+				data.single_req.variables = variables.sort(function(a,b){
+					return a.order.value-b.order.value;
+				});
 			}
-			data.requests.push(obj);
+
+			data.single_req.attachments = [];
+			var grAttachments = new GlideRecord('sys_attachment');
+			grAttachments.addQuery('table_name','sc_req_item');
+			grAttachments.addQuery('table_sys_id',grReq.getUniqueValue());
+			grAttachments.query();
+			while(grAttachments.next()){
+				data.single_req.attachments.push({
+					display_value : grAttachments.getDisplayValue('file_name'),
+					value: grAttachments.getUniqueValue()
+				});
+				//https://scdevelopment.service-now.com/nav_to.do?uri=sys_attachment.do%3Fsys_id%3D7544b50b13aa6b80ca3db1676144b0c7
+			}
 		}
 	}
-	
+
+	//Let's Go!!	
 	if (input && Object.keys(input).length > 0) {
-		if(input.action == 'getRequests'){
-			getRequests(input.user)
-		}
 		if(input.action == 'getRequest'){
-			data.single_req = {};
-			var grReq = new GlideRecord('sc_req_item');
-			grReq.addEncodedQuery('sys_id=' + input.sys_id);
-			grReq.query();
-			while(grReq.next()){
-				$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,opened_at,opened_by,assigned_to,stage,state,due_date');
-			  data.single_req.variables = {};
-				var grVars = new GlideRecord('sc_item_option_mtom');
-				grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
-				grVars.query();
-				while(grVars.next()){
-					var grVar = new GlideRecord('sc_item_option');
-					grVar.addQuery('sys_id',grVars.getValue('sc_item_option'));
-					grVar.orderBy('order');
-					grVar.query();
-					while(grVar.next()){
-						var objVars = {};
-						$sp.getRecordElements(objVars, grVar, 'sys_id,order,item_option_new,value');
-						data.single_req.variables[objVars.item_option_new.value] = objVars;
-					}
-				}
-			}
-			data.success = true;
+			getRequest(input.sys_id);
 		}
 	}else{
 		getCatalog();
-		getRequests();
+		//If they got here with a direct link to section 3 with a sys_id
+		if(sys_id && section && section=='3'){
+			getRequest(sys_id);
+			//Activity Log Widget
+			data.conversation = $sp.getWidget('si-factory-conversation');
+		}else if(req_id && section && section=='3'){
+			getRequest(null,req_id);
+			//Activity Log Widget
+			data.conversation = $sp.getWidget('si-factory-conversation',{ sys_id : data.single_req.sys_id.value });
+		}else{
+			getRequests();	
+		}
 	}
-	
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
@@ -553,7 +655,7 @@ $text-muted: #9B9B9B;
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>401</sys_mod_count>
+        <sys_mod_count>579</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -561,7 +663,7 @@ $text-muted: #9B9B9B;
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-20 15:08:13</sys_updated_on>
+        <sys_updated_on>2018-12-28 18:27:38</sys_updated_on>
         <template><![CDATA[<div class='si-container'>
   <div id='divHero' class='div-hero' style='background-image: url({{hero.img}});'></div>
   <div id='heroOverlay' class='hero-overlay'>
@@ -581,10 +683,16 @@ $text-muted: #9B9B9B;
         </div>
       </div>
       <div class='copy-content'>
-        <div class='col-md-5'>
+        <div class='col-xs-12 visible-xs'>
+          <div class='btn-wrapper'>
+            <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a Request</button>
+            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track My Requests</button>  
+          </div>
+        </div>
+        <div class='col-xs-12 col-sm-6'>
           <div class='copy-text' ng-bind-html="hero.copy"></div>
         </div>
-        <div class='col-md-7'>
+        <div class='col-sm-6 hidden-xs'>
           <div class='btn-wrapper'>
             <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a Request</button>
             <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track My Requests</button>  
@@ -592,7 +700,7 @@ $text-muted: #9B9B9B;
         </div>
       </div>
       <div class='copy-content'>
-        <div class='col-md-12'>
+        <div class='col-xs-12 col-md-12'>
           <div class='copy-requests'>
             Orders in the Factory
           </div>
@@ -602,10 +710,8 @@ $text-muted: #9B9B9B;
         <div class='col-md-12'>
           <div ng-repeat='item in c.data.requests' class='item-requests'>
             <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
-                             data-ritm="{{item.sys_id.value}}"
-                             data-what="{{item.cat_item.display_value}}"
-                             data-current="{{item.state.value}}"
-                             data-assigned="{{item.assigned_to.value}}"
+                             data-stage-values="{{c.data.stages_value.join(',')}}"
+                             data-item="{{item}}"
                              href="siFactoryStatusTemplate"></sifactorystatus>
           </div>
         </div>
@@ -627,7 +733,7 @@ $text-muted: #9B9B9B;
         </div>
       </div>
       <div class='copy-content' ng-if='c.data.catalog_item'>
-        <div class='col-md-12'>
+        <div class='col-md-12' class='item-requests'>
           <sp-widget widget="c.data.cat_item_widget[c.data.catalog_item]"></sp-widget>
         </div>
       </div>
@@ -649,14 +755,12 @@ $text-muted: #9B9B9B;
             <span class='item-what'>{{ item.cat_item.display_value }}</span>
             <span class='view-click' ng-if='item.opened_by.value===c.data.user' ng-click='c.goViewItem(item.sys_id.value)'>View</span>
             <hr/>
-            <div>
-              <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
-                             data-ritm="{{item.sys_id.value}}"
-                             data-what=""
-                             data-current="{{item.stage.value}}"
-                             data-assigned="{{item.assigned_to.value}}"
+            <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
+                             data-stage-values="{{c.data.stages_value.join(',')}}"
+                             data-item="{{item}}"
+                             data-useronly="true"
                              href="siFactoryStatusTemplate"></sifactorystatus>
-            </div>
+
           </div>
         </div>
       </div>
@@ -671,27 +775,45 @@ $text-muted: #9B9B9B;
           </div>
         </div>
       </div>
-      <div class='copy-content'>
-        <div class='col-md-12'>
-          <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
-                             data-ritm="{{item.sys_id.value}}"
-                             data-what=""
-                             data-current="{{item.stage.value}}"
-                             data-assigned="{{item.assigned_to.value}}"
-                             href="siFactoryStatusTemplate"></sifactorystatus>
+      <div class='copy-content visible-xs'>
+        <div class='col-xs-12 copy-record copy-record-mobile'>
+          <div class='col-xs-12 details-col'>
+            <div class='details details-bold'>
+              {{c.data.single_req.number.display_value}} | {{c.data.single_req.cat_item.display_value}} 
+            </div>
+          </div>
         </div>
       </div>
       <div class='copy-content'>
-        <div class='col-md-12'>
-          RECORD DATA GOES HERE
+        <div class='col-xs-12 col-md-12'>
+          <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
+                           data-stage-values="{{c.data.stages_value.join(',')}}"
+                           data-item="{{c.data.single_req}}"
+                           data-useronly="true"
+                           href="siFactoryStatusTemplate"></sifactorystatus>
         </div>
-<!--        <div class='col-md-6'>
-          {{c.data.single_req.number.display_value}} | {{c.data.single_req.variables["d21be38b13b567004b063192e144b0f3"].value.display_value}}
-        </div>
-        <div class='col-md-6'>
-          {{c.data.single_req.variables["d503898313e1a7004b063192e144b019"].value.display_value}}
-        </div>
--->
+      </div>
+      <div class='copy-content'>
+        <div class='col-xs-12 col-md-12 copy-record'>
+          <div class='col-xs-12 col-md-6 details-col'>
+            <div class='details details-bold hidden-xs'>
+              {{c.data.single_req.number.display_value}} | {{c.data.single_req.cat_item.display_value}} 
+            </div>
+            <div class='details' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details.value.display_value.length>0 && details["item_option_new.name"].value!="additional_info"'>
+              {{details.item_option_new.display_value}}<br/>
+              {{details.value.display_value}}
+            </div>
+          </div>
+          <div class='col-xs-12 col-md-6 details-col'>
+            <div class='details details-block' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details["item_option_new.name"].value=="additional_info"'>
+              Details:  <br/>
+              {{details.value.display_value}}
+            </div>
+            <div class='details' ng-if='c.data.single_req.attachments.length>0'>
+              Attachments:<br/>
+              <a class='attachment' download href='/sys_attachment.do?sys_id={{item.value}}' ng-repeat='item in c.data.single_req.attachments'>{{item.display_value}}</a>
+            </div>
+          </div>
       </div>
       <div class='copy-content'>
         <div class='col-md-12'>

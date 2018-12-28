@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>sc</category>
-        <client_script><![CDATA[function ($scope, $http, spUtil, nowAttachmentHandler, $rootScope, $sanitize, $window, $sce, i18n, $timeout, $log ) {
+        <client_script><![CDATA[function ($scope, $location, $http, spUtil, nowAttachmentHandler, $rootScope, $sanitize, $window, $sce, i18n, $timeout, $log ) {
 	var c = this;
-
-	console.log(c.data);
-	
 	c.quantity = 1;
 	if ($scope.data.sc_cat_item) {
 		$scope.data.sc_cat_item.description = $sce.trustAsHtml($scope.data.sc_cat_item.description);
@@ -189,12 +186,28 @@
 		postCatalogFormRequest().success(function(response) {
 			var a = response.result ? response.result : response.answer;
 			var n = a.number;
+
+			$location.url('?id=si_factory&section=3&req_id=' + a.sys_id);
+//console.log(a)			
+/*
+number: "REQ0019355"
+return: "ok"
+sys_id: "a78a0e8f13ea6b80ca3db1676144b068"
+table: "sc_request"
+
+
+
 			$scope.$emit("$$uiNotification", a.$$uiNotification);
 			$scope.$emit("$sp.sc_cat_item.submitted", a);
+			
 			if (n)
 				issueMessage(n, a.table, a.sys_id, a.redirect_to, a.redirect_portal_url);
+			
 			$scope.submitting = false;
 			$scope.submitButtonMsg = $scope.m.submittedMsg;
+*/			
+			
+			
 		}).error(function(response) {
 			console.log(response);
 		});
@@ -227,6 +240,7 @@
 			reqData = $scope.data.sc_cat_item;
 			reqData._attachmentGUID = $scope.data._attachmentGUID;
 		}
+		
 		return $http.post(requestUrl, reqData);
 	}
 
@@ -298,15 +312,20 @@
         <controller_as>c</controller_as>
         <css>.panel{
   background: transparent !important;
+  color: #4A4A4A !important;
 }
 .wrapper-md{
   padding: 0 !imporant;
 }
 .form-control{
-  min-height: 133px !important;
+  //min-height: 133px !important;
   background: #FFFFFF !important;
   border: 1px solid #979797 !important;
   border-radius: 3px 3px 3px 3px !important;
+
+}
+textarea{
+  min-height: 133px !important;
 }
 .panel-button {
   float: none;
@@ -386,6 +405,7 @@
 
 .file-list-wrap {
   margin-bottom: 10px;
+  margin-top: 60px;
 }
 
 .quantity-selector {
@@ -524,7 +544,7 @@ iframe{
         <sys_created_on>2018-12-09 17:11:29</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>3e05c51913d6a3402ea1b2566144b0dd</sys_id>
-        <sys_mod_count>94</sys_mod_count>
+        <sys_mod_count>109</sys_mod_count>
         <sys_name>SI - Factory Catalog Item</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -532,9 +552,9 @@ iframe{
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_3e05c51913d6a3402ea1b2566144b0dd</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-19 19:09:08</sys_updated_on>
+        <sys_updated_on>2018-12-28 18:55:18</sys_updated_on>
         <template><![CDATA[<div id="sc_cat_item" >
-  <div class="row" ng-if="::data.sc_cat_item" >
+  <div ng-if="::data.sc_cat_item" >
     <div ng-if="::data.sc_cat_item.render_in_iframe != 'true'">
 <!--
 			<div ng-if="::data.sc_cat_item.picture" class="col-sm-3">
@@ -565,6 +585,9 @@ iframe{
                   </div>
                   <div class='btn-submit'>
                     <button ng-if="::c.showOrderNowButton()" tabindex="0" name="submit" ng-disabled="submitted" ng-click="triggerOnSubmit()" class="btn btn-primary">{{submitButtonMsg}}</button>  
+                  </div>
+                  <div class='btn-cancel visible-xs'>
+                    <button tabindex="1" name="submit" ng-disabled="submitted" ng-click="goBack()" class="btn btn-primary">Cancel</button>  
                   </div>
 <!-- Start: Misc Stuff -->                  
                   <button tabindex="0" ng-if="c.showAddCartBtn()" name="submit" ng-disabled="submitted" ng-click="triggerAddToCart()" class="btn btn-default">${Add to Cart}</button>

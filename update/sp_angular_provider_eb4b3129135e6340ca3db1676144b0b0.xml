@@ -8,14 +8,30 @@
 			return attrs.href;
 		},
 		link: function (scope, element, attrs) {
-			var randomID = Math.round((Math.random() * 100000000));
-			var sys_id = attrs.ritm;
-			scope.what = attrs.what;
 			
-			//temporary for demo purpose
-			scope.curStage = Math.round((Math.random() % 3) * 3); //parseInt(attrs.current);
+			var randomID = Math.round((Math.random() * 100000000));
+			var stage_values = attrs.stageValues.split(',');
+			
+			var sys_id = attrs.ritm;
+			
+			var item = JSON.parse(attrs.item);
 			
 			scope.theStages = attrs.stages.split(',');
+			scope.useronly = (attrs.useronly != undefined);
+			
+			scope.what = item.cat_item.display_value;
+			
+			scope.curStage = stage_values.indexOf(item.stage.value);
+			scope.xsStage = scope.theStages[scope.curStage];
+			
+			if((stage_values.indexOf(item.stage.value)>=1) && item.assigned_to && item.assigned_to.value.length<=0){
+				scope.curStage = 0;
+				scope.xsStage = scope.theStages[0];
+			}else if(scope.curStage == -1){
+				scope.curStage = 0;
+				scope.xsStage = scope.theStages[0];
+			}
+			
 			scope.randomID = randomID;
 			
 		}
@@ -26,7 +42,7 @@
         <sys_created_on>2018-12-10 15:47:13</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>eb4b3129135e6340ca3db1676144b0b0</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>sifactorystatus</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -34,7 +50,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_angular_provider_eb4b3129135e6340ca3db1676144b0b0</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-20 14:05:58</sys_updated_on>
+        <sys_updated_on>2018-12-28 16:00:31</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>
