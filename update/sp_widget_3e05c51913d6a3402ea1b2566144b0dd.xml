@@ -180,7 +180,9 @@
 		if (g_form)
 			g_form.submit();
 	};
-
+	$scope.goBack = function(){
+		window.history.back();
+	}
 	// order / create request
 	function getOne() {
 		postCatalogFormRequest().success(function(response) {
@@ -188,23 +190,13 @@
 			var n = a.number;
 
 			$location.url('?id=si_factory&section=3&req_id=' + a.sys_id);
-//console.log(a)			
 /*
-number: "REQ0019355"
-return: "ok"
-sys_id: "a78a0e8f13ea6b80ca3db1676144b068"
-table: "sc_request"
-
-
-
-			$scope.$emit("$$uiNotification", a.$$uiNotification);
-			$scope.$emit("$sp.sc_cat_item.submitted", a);
-			
-			if (n)
-				issueMessage(n, a.table, a.sys_id, a.redirect_to, a.redirect_portal_url);
-			
-			$scope.submitting = false;
-			$scope.submitButtonMsg = $scope.m.submittedMsg;
+$scope.$emit("$$uiNotification", a.$$uiNotification);
+$scope.$emit("$sp.sc_cat_item.submitted", a);
+if (n)
+	issueMessage(n, a.table, a.sys_id, a.redirect_to, a.redirect_portal_url);
+$scope.submitting = false;
+$scope.submitButtonMsg = $scope.m.submittedMsg;
 */			
 			
 			
@@ -320,7 +312,7 @@ table: "sc_request"
 .form-control{
   //min-height: 133px !important;
   background: #FFFFFF !important;
-  border: 1px solid #979797 !important;
+  border: 1px solid #bdc0c4 !important;
   border-radius: 3px 3px 3px 3px !important;
 
 }
@@ -338,7 +330,7 @@ textarea{
   right: 0;
   width: 50%;
   float: right;
-  top: -30px;
+  top: 10px;
   @media screen and (max-width: 767px) {
     min-height: 150px;
     width: 100%;
@@ -385,8 +377,9 @@ textarea{
       float:right; 
       width: 103px;
       height: 40px;
-      background: #72D0E2;
+
       border-radius: 2px 2px 2px 2px;
+      font-weight: bold;
       @media screen and (max-width: 767px) {
         //mobile
         float: left;
@@ -395,8 +388,15 @@ textarea{
     @media screen and (max-width: 767px) {
       //mobile
       top: 35px;
+      display: inline-block !important;
+      float: unset;
     }
-
+  }
+  .btn-cancel &gt; button {
+    background: #f5f5f5 !important;
+    color: #9b9b9b !important;
+    border-color: #9b9b9b !important;
+    font-weight: normal;
   }
 }
 .p-t-none {
@@ -544,7 +544,7 @@ iframe{
         <sys_created_on>2018-12-09 17:11:29</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>3e05c51913d6a3402ea1b2566144b0dd</sys_id>
-        <sys_mod_count>109</sys_mod_count>
+        <sys_mod_count>122</sys_mod_count>
         <sys_name>SI - Factory Catalog Item</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -552,7 +552,7 @@ iframe{
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_3e05c51913d6a3402ea1b2566144b0dd</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-28 18:55:18</sys_updated_on>
+        <sys_updated_on>2018-12-28 19:38:07</sys_updated_on>
         <template><![CDATA[<div id="sc_cat_item" >
   <div ng-if="::data.sc_cat_item" >
     <div ng-if="::data.sc_cat_item.render_in_iframe != 'true'">
@@ -586,7 +586,7 @@ iframe{
                   <div class='btn-submit'>
                     <button ng-if="::c.showOrderNowButton()" tabindex="0" name="submit" ng-disabled="submitted" ng-click="triggerOnSubmit()" class="btn btn-primary">{{submitButtonMsg}}</button>  
                   </div>
-                  <div class='btn-cancel visible-xs'>
+                  <div class='btn-submit btn-cancel visible-xs'>
                     <button tabindex="1" name="submit" ng-disabled="submitted" ng-click="goBack()" class="btn btn-primary">Cancel</button>  
                   </div>
 <!-- Start: Misc Stuff -->                  

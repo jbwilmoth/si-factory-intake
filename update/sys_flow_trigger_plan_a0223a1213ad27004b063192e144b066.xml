@@ -9,7 +9,7 @@
         <sys_created_on>2018-11-05 20:54:56</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a0223a1213ad27004b063192e144b066</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>a4223a1213ad27004b063192e144b064</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -17,7 +17,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_flow_trigger_plan_a0223a1213ad27004b063192e144b066</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-12-28 18:09:27</sys_updated_on>
+        <sys_updated_on>2019-01-02 21:50:48</sys_updated_on>
         <trigger display_value="">a4223a1213ad27004b063192e144b064</trigger>
     </sys_flow_trigger_plan>
 </record_update>

@@ -6,8 +6,8 @@
 }&#13;
 section.page{&#13;
   padding-top: 0;&#13;
-  background: rgba(167, 212, 223, 0.2);&#13;
-  background-color: rgba(167, 212, 223, 0.2);&#13;
+  //background: rgba(167, 212, 223, 0.2);&#13;
+  //background-color: rgba(167, 212, 223, 0.2);&#13;
 }&#13;
 &#13;
 </css>
@@ -23,7 +23,7 @@ section.page{&#13;
         <sys_created_on>2018-11-27 13:07:16</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>241a9ed5134e6f00ca3db1676144b0ce</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>si_factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -31,7 +31,7 @@ section.page{&#13;
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_page_241a9ed5134e6f00ca3db1676144b0ce</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-09 21:56:24</sys_updated_on>
+        <sys_updated_on>2018-12-30 19:01:48</sys_updated_on>
         <title>SI Factory</title>
     </sp_page>
 </record_update>

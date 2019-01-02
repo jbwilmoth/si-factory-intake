@@ -5,7 +5,6 @@
 	/* widget controller */
 	var c = this;
 
-console.log(c.data.single_req)	
 	c.params = $location.search();
 
 	c.only_user = true;
@@ -120,9 +119,8 @@ $text-muted: #9B9B9B;
   min-height: calc( 100vh - 80px);
   height: 100%;
   text-align: center;
-  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif !important; 
+  //font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif !important; 
   font-weight: 400;
-  
   .div-hero{
     position: relative;
     top: 0;
@@ -138,16 +136,16 @@ $text-muted: #9B9B9B;
     background-size: cover;
     background-color: $bg-color;
     @media only screen and (max-width: 768px) {
-      height: 75px;
+      //height: 75px;
     }
     @media only screen and (max-width: 475px) {
-      background-position-x: 0px;
+      //background-position-x: 0px;
     }
     @media only screen and (max-width: 375px) {
-      background-position-x: -45px;
+      //background-position-x: -45px;
     }
     @media only screen and (max-width: 320px) {
-      background-position-x: -90px;
+      //background-position-x: -90px;
     }
   }
   .hero-overlay{
@@ -171,7 +169,7 @@ $text-muted: #9B9B9B;
         display: flex;
         height: 150px;
         @media only screen and (max-width: 768px) {
-          height: 75px;
+          //height: 75px;
         }
         .hero-header{
           text-align: left;
@@ -189,11 +187,15 @@ $text-muted: #9B9B9B;
           -moz-box-align: center;
           -ms-flex-align: center;
           align-items: center;
-          
+          left: 70px;
           @media only screen and (max-width: 768px) {
-            font-size: 28px;
+            font-size: 40px;
             left: 15px;
             line-height: 1;
+            width: 50%;
+          }
+          @media only screen and (max-width: 375px) {
+            font-size: 32px;
           }
         }
       }
@@ -208,8 +210,12 @@ $text-muted: #9B9B9B;
       margin: 0 auto;
       top: 50px;
       text-align: left;
+      padding: 0 70px;
       @media only screen and (max-width: 768px) {
         top: 20px;
+        padding: 0px 15px;
+      }
+      @media only screen and (max-width: 475px) {
       }
       .copy-content{
         display: block;
@@ -324,7 +330,8 @@ $text-muted: #9B9B9B;
           hr{
             margin-top: 14px;
             margin-bottom: 14px;
-            border-top: 2px solid #ffffff;
+            //border-top: 2px solid #ffffff;
+            border-top: 2px solid rgba(167, 212, 223, 0.6);
           }
         }
         .my-requests{
@@ -655,7 +662,7 @@ $text-muted: #9B9B9B;
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>579</sys_mod_count>
+        <sys_mod_count>594</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -663,7 +670,7 @@ $text-muted: #9B9B9B;
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-28 18:27:38</sys_updated_on>
+        <sys_updated_on>2018-12-31 16:41:58</sys_updated_on>
         <template><![CDATA[<div class='si-container'>
   <div id='divHero' class='div-hero' style='background-image: url({{hero.img}});'></div>
   <div id='heroOverlay' class='hero-overlay'>

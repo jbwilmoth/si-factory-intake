@@ -28,9 +28,9 @@
         <list_table/>
         <lookup_label/>
         <lookup_price/>
-        <lookup_table>sp_widget</lookup_table>
+        <lookup_table>solutions</lookup_table>
         <lookup_unique>true</lookup_unique>
-        <lookup_value>sys_name</lookup_value>
+        <lookup_value>u_common_name</lookup_value>
         <macro/>
         <mandatory>true</mandatory>
         <map_to_field>false</map_to_field>
@@ -47,7 +47,7 @@
         <record/>
         <record_producer_table/>
         <reference/>
-        <reference_qual/>
+        <reference_qual>javascript: "typeLIKE2807734913a93600ca3db1676144b0da"</reference_qual>
         <reference_qual_condition/>
         <scale_max>5</scale_max>
         <scale_min>0</scale_min>
@@ -60,7 +60,7 @@
         <sys_created_on>2018-12-18 21:02:52</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c4501cd0132a6f40ca3db1676144b0c2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Select the widget you need assistance with.</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -68,7 +68,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>item_option_new_c4501cd0132a6f40ca3db1676144b0c2</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-12-18 21:02:52</sys_updated_on>
+        <sys_updated_on>2019-01-02 21:28:30</sys_updated_on>
         <table/>
         <tooltip/>
         <type>18</type>

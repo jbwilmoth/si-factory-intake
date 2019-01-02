@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="309b5589137e63c0ca3db1676144b00d" sys_domain="global" table="sc_req_item" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2019-01-02 20:42:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>d19b5589137e63c0ca3db1676144b010</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sc_req_item" name="sc_req_item" sys_domain="global" view="197b5189137e63c0ca3db1676144b02b">309b5589137e63c0ca3db1676144b00d</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="sc_req_item" sys_domain="global" view="197b5189137e63c0ca3db1676144b02b">bc9b5589137e63c0ca3db1676144b00b</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2019-01-02 20:42:52</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>sc_req_item</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2019-01-02 20:42:51</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>309b5589137e63c0ca3db1676144b00d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sc_req_item</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+            <sys_update_name>sys_ui_form_sections_309b5589137e63c0ca3db1676144b00d</sys_update_name>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2019-01-02 20:42:51</sys_updated_on>
+            <sys_user/>
+            <view display_value="SI Factory" name="SI_Factory">197b5189137e63c0ca3db1676144b02b</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>
