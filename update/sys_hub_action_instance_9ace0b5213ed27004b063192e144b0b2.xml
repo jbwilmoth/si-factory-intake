@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_action_instance">
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
-        <action_inputs/>
         <action_type display_value="Wait For Condition">d3f92c160b10030085c083eb37673a7f</action_type>
         <action_type_parent display_value="Wait For Condition">8bb9a8160b10030085c083eb37673aec</action_type_parent>
         <comment/>
@@ -15,7 +14,7 @@
         <sys_created_on>2018-11-05 23:00:07</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9ace0b5213ed27004b063192e144b0b2</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>36</sys_mod_count>
         <sys_name/>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -23,73 +22,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_hub_action_instance_9ace0b5213ed27004b063192e144b0b2</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-02 21:50:46</sys_updated_on>
+        <sys_updated_on>2019-01-04 15:43:09</sys_updated_on>
         <ui_id>5aeabdc2-2ccb-4822-8075-924b994b4ad9</ui_id>
     </sys_hub_action_instance>
-    <sys_variable_value action="delete_multiple" query="document_key=9ace0b5213ed27004b063192e144b0b2"/>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_hub_action_instance</document>
-        <document_key>9ace0b5213ed27004b063192e144b0b2</document_key>
-        <order>1</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:08</sys_created_on>
-        <sys_id>92ce0b5213ed27004b063192e144b0b8</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-02 20:50:29</sys_updated_on>
-        <value>sc_req_item</value>
-        <variable display_value="">1ff92c160b10030085c083eb37673a81</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_hub_action_instance</document>
-        <document_key>9ace0b5213ed27004b063192e144b0b2</document_key>
-        <order>2</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:08</sys_created_on>
-        <sys_id>dece0b5213ed27004b063192e144b0b7</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-02 20:50:29</sys_updated_on>
-        <value>approval=approved^assigned_toISNOTEMPTY</value>
-        <variable display_value="">5ff92c160b10030085c083eb37673ac1</variable>
-    </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="id=9ace0b5213ed27004b063192e144b0b2"/>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>conditions</field>
-        <id>9ace0b5213ed27004b063192e144b0b2</id>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:08</sys_created_on>
-        <sys_id>d6ce0b5213ed27004b063192e144b0b7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:08</sys_updated_on>
-        <table>var__m_sys_hub_action_input_d3f92c160b10030085c083eb37673a7f</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>record</field>
-        <id>9ace0b5213ed27004b063192e144b0b2</id>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:08</sys_created_on>
-        <sys_id>5ece0b5213ed27004b063192e144b0b7</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-02 20:50:29</sys_updated_on>
-        <table>var__m_sys_hub_action_input_d3f92c160b10030085c083eb37673a7f</table>
-        <value>{{Service Catalog_1.request_item}}</value>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>table_name</field>
-        <id>9ace0b5213ed27004b063192e144b0b2</id>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:08</sys_created_on>
-        <sys_id>9ace0b5213ed27004b063192e144b0b7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:08</sys_updated_on>
-        <table>var__m_sys_hub_action_input_d3f92c160b10030085c083eb37673a7f</table>
-        <value/>
-    </sys_element_mapping>
 </record_update>

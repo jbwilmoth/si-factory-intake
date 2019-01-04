@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog">
     <sc_cat_item_catalog action="INSERT_OR_UPDATE">
-        <sc_cat_item display_value="Portal Widget">d0f4849413e66f40ca3db1676144b0ba</sc_cat_item>
+        <sc_cat_item display_value="Custom Portal Widget">d0f4849413e66f40ca3db1676144b0ba</sc_cat_item>
         <sc_catalog display_value="SI Factory">1312da9e132d27004b063192e144b01e</sc_catalog>
         <sys_class_name>sc_cat_item_catalog</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>

@@ -4,6 +4,8 @@
         <client_script><![CDATA[function ($scope, $location, $http, spUtil, nowAttachmentHandler, $rootScope, $sanitize, $window, $sce, i18n, $timeout, $log ) {
 	var c = this;
 	c.quantity = 1;
+	
+console.log($scope.data.sc_cat_item)	
 	if ($scope.data.sc_cat_item) {
 		$scope.data.sc_cat_item.description = $sce.trustAsHtml($scope.data.sc_cat_item.description);
 		$scope.data.iframeURL = "yds_servicecatalog_cat_item_view.do?v=1&sysparm_id=" + $scope.data.sc_cat_item.sys_id + "&sysparm_headless=true";
@@ -302,157 +304,165 @@ $scope.submitButtonMsg = $scope.m.submittedMsg;
 	}
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>.panel{
-  background: transparent !important;
-  color: #4A4A4A !important;
-}
-.wrapper-md{
-  padding: 0 !imporant;
-}
-.form-control{
-  //min-height: 133px !important;
-  background: #FFFFFF !important;
-  border: 1px solid #bdc0c4 !important;
-  border-radius: 3px 3px 3px 3px !important;
-
-}
-textarea{
-  min-height: 133px !important;
-}
-.panel-button {
-  float: none;
-}
-.submit-stuff{
-  min-height: 80px;
-  margin-bottom: 30px;
-  height: 100%;
-  position: relative;
-  right: 0;
-  width: 50%;
-  float: right;
-  top: 10px;
-  @media screen and (max-width: 767px) {
-    min-height: 150px;
-    width: 100%;
-    float: unset;
-  }
-  .btn-attachment{
-    position: relative;
-    display: block;
-    height: 40px;
-    top: -10px;
-    .lbl-attach{
-      font-weight:normal;
-      cursor:pointer;
-      float: right;
-      @media screen and (max-width: 767px) {
-        //mobile
-        float: left;
-      }
-    }
-    @media screen and (max-width: 767px) {
-      //mobile
-      top: 30px;
-    }
-    .panel-button{
-      margin-left: 2px !important;
-    }
-    .glyphicon{
-      -moz-transform: scaleX(-1);
-      -o-transform: scaleX(-1);
-      -webkit-transform: scaleX(-1);
-      transform: scaleX(-1);
-      filter: FlipH;
-      -ms-filter: "FlipH";
-      height: 20px;
-      width:20px;
-      font-size: 20px;
-    }
-  }
-  .btn-submit{
-    position: relative;
-    display: block;
-    height: 40px;
-    button{
-      float:right; 
-      width: 103px;
-      height: 40px;
-
-      border-radius: 2px 2px 2px 2px;
-      font-weight: bold;
-      @media screen and (max-width: 767px) {
-        //mobile
-        float: left;
-      }
-    }
-    @media screen and (max-width: 767px) {
-      //mobile
-      top: 35px;
-      display: inline-block !important;
-      float: unset;
-    }
-  }
-  .btn-cancel &gt; button {
-    background: #f5f5f5 !important;
-    color: #9b9b9b !important;
-    border-color: #9b9b9b !important;
-    font-weight: normal;
-  }
-}
-.p-t-none {
-  padding-top: 0 !important;
-}
-
-.file-list-wrap {
-  margin-bottom: 10px;
-  margin-top: 60px;
-}
-
-.quantity-selector {
-  display: inline-block;
-  width: 65px;
-  padding-top: 2px;
-}
-
-iframe{
-  width:100%;
-  border: 1px solid #ddd;
-  border-radius:4px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.05);
-}
-.file-list-wrap{
-  position: relative;
-  .list-group{
-    display: inline-table;
-    width: 100%;
-    .list-group-item{
-      .file-attachment{
-      }
-    }
-  }
-  @media screen and (max-width: 767px) {
-		top: -50px;
-    .col-xs-1, .col-sm-1, .col-xs-2, .col-sm-2, .col-xs-3, .col-sm-3,
-    .col-xs-4, .col-sm-4, .col-xs-5, .col-sm-5, .col-xs-6, .col-sm-6,
-    .col-xs-7, .col-sm-7, .col-xs-8, .col-sm-8, .col-xs-9, .col-sm-9,
-    .col-xs-10, .col-sm-10, .col-xs-11, .col-sm-11, .col-xs-12, .col-sm-12{
-      padding: 5px !important;
-    }
-    .list-group{
-      margin: 0 !important;
-      .list-group-item{
-        padding: 0;
-        .file-attachment{
-          margin: 0 !important;
-          display: flex;
-          width: 100%;
-          .btn-group{
-            padding-top: 5px;
-          }
-        }
-      }
-    }
-  }
+        <css>$btn-background-color: rgba(167, 212, 223, 1);&#13;
+&#13;
+.btn-primary{&#13;
+  background-color: $btn-background-color;&#13;
+  border-color: $btn-background-color;&#13;
+  color: $text-color;&#13;
+}&#13;
+&#13;
+.panel{&#13;
+  background: transparent !important;&#13;
+  color: #4A4A4A !important;&#13;
+}&#13;
+.wrapper-md{&#13;
+  padding: 0 !imporant;&#13;
+}&#13;
+.form-control{&#13;
+  //min-height: 133px !important;&#13;
+  background: #FFFFFF !important;&#13;
+  border: 1px solid #bdc0c4 !important;&#13;
+  border-radius: 3px 3px 3px 3px !important;&#13;
+&#13;
+}&#13;
+textarea{&#13;
+  min-height: 133px !important;&#13;
+}&#13;
+.panel-button {&#13;
+  float: none;&#13;
+}&#13;
+.submit-stuff{&#13;
+  min-height: 80px;&#13;
+  margin-bottom: 30px;&#13;
+  height: 100%;&#13;
+  position: relative;&#13;
+  right: 0;&#13;
+  width: 50%;&#13;
+  float: right;&#13;
+  top: 10px;&#13;
+  @media screen and (max-width: 767px) {&#13;
+    min-height: 150px;&#13;
+    width: 100%;&#13;
+    float: unset;&#13;
+  }&#13;
+  .btn-attachment{&#13;
+    position: relative;&#13;
+    display: block;&#13;
+    height: 40px;&#13;
+    top: -10px;&#13;
+    .lbl-attach{&#13;
+      font-weight:normal;&#13;
+      cursor:pointer;&#13;
+      float: right;&#13;
+      @media screen and (max-width: 767px) {&#13;
+        //mobile&#13;
+        float: left;&#13;
+      }&#13;
+    }&#13;
+    @media screen and (max-width: 767px) {&#13;
+      //mobile&#13;
+      top: 30px;&#13;
+    }&#13;
+    .panel-button{&#13;
+      margin-left: 2px !important;&#13;
+    }&#13;
+    .glyphicon{&#13;
+      -moz-transform: scaleX(-1);&#13;
+      -o-transform: scaleX(-1);&#13;
+      -webkit-transform: scaleX(-1);&#13;
+      transform: scaleX(-1);&#13;
+      filter: FlipH;&#13;
+      -ms-filter: "FlipH";&#13;
+      height: 20px;&#13;
+      width:20px;&#13;
+      font-size: 20px;&#13;
+    }&#13;
+  }&#13;
+  .btn-submit{&#13;
+    position: relative;&#13;
+    display: block;&#13;
+    height: 40px;&#13;
+    button{&#13;
+      float:right; &#13;
+      width: 103px;&#13;
+      height: 40px;&#13;
+&#13;
+      border-radius: 2px 2px 2px 2px;&#13;
+      font-weight: bold;&#13;
+      @media screen and (max-width: 767px) {&#13;
+        //mobile&#13;
+        float: left;&#13;
+      }&#13;
+    }&#13;
+    @media screen and (max-width: 767px) {&#13;
+      //mobile&#13;
+      top: 35px;&#13;
+      display: inline-block !important;&#13;
+      float: unset;&#13;
+    }&#13;
+  }&#13;
+  .btn-cancel &gt; button {&#13;
+    background: #f5f5f5 !important;&#13;
+    color: #9b9b9b !important;&#13;
+    border-color: #9b9b9b !important;&#13;
+    font-weight: normal;&#13;
+  }&#13;
+}&#13;
+.p-t-none {&#13;
+  padding-top: 0 !important;&#13;
+}&#13;
+&#13;
+.file-list-wrap {&#13;
+  margin-bottom: 10px;&#13;
+  margin-top: 60px;&#13;
+}&#13;
+&#13;
+.quantity-selector {&#13;
+  display: inline-block;&#13;
+  width: 65px;&#13;
+  padding-top: 2px;&#13;
+}&#13;
+&#13;
+iframe{&#13;
+  width:100%;&#13;
+  border: 1px solid #ddd;&#13;
+  border-radius:4px;&#13;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);&#13;
+}&#13;
+.file-list-wrap{&#13;
+  position: relative;&#13;
+  .list-group{&#13;
+    display: inline-table;&#13;
+    width: 100%;&#13;
+    .list-group-item{&#13;
+      .file-attachment{&#13;
+      }&#13;
+    }&#13;
+  }&#13;
+  @media screen and (max-width: 767px) {&#13;
+		top: -50px;&#13;
+    .col-xs-1, .col-sm-1, .col-xs-2, .col-sm-2, .col-xs-3, .col-sm-3,&#13;
+    .col-xs-4, .col-sm-4, .col-xs-5, .col-sm-5, .col-xs-6, .col-sm-6,&#13;
+    .col-xs-7, .col-sm-7, .col-xs-8, .col-sm-8, .col-xs-9, .col-sm-9,&#13;
+    .col-xs-10, .col-sm-10, .col-xs-11, .col-sm-11, .col-xs-12, .col-sm-12{&#13;
+      padding: 5px !important;&#13;
+    }&#13;
+    .list-group{&#13;
+      margin: 0 !important;&#13;
+      .list-group-item{&#13;
+        padding: 0;&#13;
+        .file-attachment{&#13;
+          margin: 0 !important;&#13;
+          display: flex;&#13;
+          width: 100%;&#13;
+          .btn-group{&#13;
+            padding-top: 5px;&#13;
+          }&#13;
+        }&#13;
+      }&#13;
+    }&#13;
+  }&#13;
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -544,7 +554,7 @@ iframe{
         <sys_created_on>2018-12-09 17:11:29</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>3e05c51913d6a3402ea1b2566144b0dd</sys_id>
-        <sys_mod_count>122</sys_mod_count>
+        <sys_mod_count>129</sys_mod_count>
         <sys_name>SI - Factory Catalog Item</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -552,7 +562,7 @@ iframe{
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_3e05c51913d6a3402ea1b2566144b0dd</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-28 19:38:07</sys_updated_on>
+        <sys_updated_on>2019-01-04 18:47:04</sys_updated_on>
         <template><![CDATA[<div id="sc_cat_item" >
   <div ng-if="::data.sc_cat_item" >
     <div ng-if="::data.sc_cat_item.render_in_iframe != 'true'">

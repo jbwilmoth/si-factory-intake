@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
+    <sc_cat_item_category action="INSERT_OR_UPDATE">
+        <sc_cat_item display_value="Application Assistance">7fca07ed133a2300ca3db1676144b0a6</sc_cat_item>
+        <sc_category display_value="Intake">d172be1213ad27004b063192e144b0ba</sc_category>
+        <sys_class_name>sc_cat_item_category</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-04 18:05:47</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b3ca87ed133a2300ca3db1676144b0eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Intake.Application Assistance</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sc_cat_item_category_b3ca87ed133a2300ca3db1676144b0eb</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-04 18:05:47</sys_updated_on>
+    </sc_cat_item_category>
+</record_update>

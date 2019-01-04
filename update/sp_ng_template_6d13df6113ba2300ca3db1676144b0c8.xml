@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>si-cat-item.xml</id>
+        <sp_widget display_value="SI - Factory Catalog Item">3e05c51913d6a3402ea1b2566144b0dd</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>chris.stoll</sys_created_by>
+        <sys_created_on>2019-01-04 18:42:17</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6d13df6113ba2300ca3db1676144b0c8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>si-cat-item.xml</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sp_ng_template_6d13df6113ba2300ca3db1676144b0c8</sys_update_name>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2019-01-04 18:42:17</sys_updated_on>
+        <template><![CDATA[<div><sp-variable-layout ng-attr-id="{{::formModel.table}}.do"></sp-variable-layout><div ng-attr-id="{{::formModel.table}}.do" ng-init="execItemScripts()"></div></div>]]></template>
+    </sp_ng_template>
+</record_update>

@@ -8,7 +8,7 @@
         <custom_cart/>
         <delivery_plan/>
         <delivery_plan_script/>
-        <delivery_time>1970-01-03 00:00:00</delivery_time>
+        <delivery_time>1970-01-06 00:00:00</delivery_time>
         <description/>
         <entitlement_script/>
         <flow_designer_flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow_designer_flow>
@@ -24,7 +24,7 @@
         <mobile_picture/>
         <mobile_picture_type>use_desktop_picture</mobile_picture_type>
         <model/>
-        <name>Portal Widget</name>
+        <name>Custom Portal Widget</name>
         <no_cart>true</no_cart>
         <no_order>false</no_order>
         <no_order_now>false</no_order_now>
@@ -43,7 +43,7 @@
         <sc_catalogs>1312da9e132d27004b063192e144b01e</sc_catalogs>
         <sc_ic_item_staging/>
         <sc_ic_version/>
-        <short_description>Request widget services from the Solution Innovation Factory</short_description>
+        <short_description>Request custom portal widget services from the Solution Innovation Factory</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
         <sys_class_name>sc_cat_item</sys_class_name>
@@ -51,15 +51,15 @@
         <sys_created_on>2018-12-18 20:13:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d0f4849413e66f40ca3db1676144b0ba</sys_id>
-        <sys_mod_count>7</sys_mod_count>
-        <sys_name>Portal Widget</sys_name>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Custom Portal Widget</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sc_cat_item_d0f4849413e66f40ca3db1676144b0ba</sys_update_name>
-        <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-30 18:22:23</sys_updated_on>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-04 19:39:13</sys_updated_on>
         <template/>
         <type>item</type>
         <u_bootstrap_order/>

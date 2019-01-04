@@ -8,7 +8,7 @@
         <custom_cart/>
         <delivery_plan/>
         <delivery_plan_script/>
-        <delivery_time>1970-01-03 00:00:00</delivery_time>
+        <delivery_time>1970-01-06 00:00:00</delivery_time>
         <description/>
         <entitlement_script/>
         <flow_designer_flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow_designer_flow>
@@ -24,7 +24,7 @@
         <mobile_picture/>
         <mobile_picture_type>use_desktop_picture</mobile_picture_type>
         <model/>
-        <name>Portal Template</name>
+        <name>Custom Service Portal</name>
         <no_cart>true</no_cart>
         <no_order>false</no_order>
         <no_order_now>false</no_order_now>
@@ -43,7 +43,7 @@
         <sc_catalogs>1312da9e132d27004b063192e144b01e</sc_catalogs>
         <sc_ic_item_staging/>
         <sc_ic_version/>
-        <short_description>Request template services from the Solution Innovation Factory</short_description>
+        <short_description>Request Custom Service Portal template services from the Solution Innovation Factory</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
         <sys_class_name>sc_cat_item</sys_class_name>
@@ -51,15 +51,15 @@
         <sys_created_on>2018-11-05 20:48:58</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>74a076de136d27004b063192e144b00c</sys_id>
-        <sys_mod_count>17</sys_mod_count>
-        <sys_name>Portal Template</sys_name>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Custom Service Portal</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sc_cat_item_74a076de136d27004b063192e144b00c</sys_update_name>
-        <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-30 18:22:50</sys_updated_on>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-04 19:39:27</sys_updated_on>
         <template/>
         <type>item</type>
         <u_bootstrap_order/>
@@ -109,6 +109,23 @@
         <sys_updated_by>joe.wilmoth</sys_updated_by>
         <sys_updated_on>2018-11-05 20:48:59</sys_updated_on>
         <table>sc_cat_item</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>recurring_price</field>
+        <id>74a076de136d27004b063192e144b00c</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-04 19:41:18</sys_created_on>
+        <sys_id>36a0a7a1133e2300ca3db1676144b0ea</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-04 19:41:18</sys_updated_on>
+        <table>sc_req_item</table>
         <type>calculated</type>
     </fx_price>
     <sys_attachment action="INSERT_OR_UPDATE">

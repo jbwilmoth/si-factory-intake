@@ -6,7 +6,6 @@
 	var c = this;
 
 	c.params = $location.search();
-
 	c.only_user = true;
 
 	$scope.hero = {
@@ -99,8 +98,10 @@ $soft-blue: #1D66AE;
 
 $sn-brand-color: #81B5A1;
 $bg-color: transparent !default;
+
 $font-color: #4A4A4A !default;
 $text-muted: #9B9B9B;
+
 
 @media only screen and (max-width: 1200px) {
   //medium
@@ -114,12 +115,19 @@ $text-muted: #9B9B9B;
 @media only screen and (max-width: 475px) {
   //mobile
 }
-
+footer{
+  display: none;
+}
+.factory-footer{
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  bottom: -60px;
+}
 .si-container{
-  min-height: calc( 100vh - 80px);
+  min-height: calc( 100vh - 140px);
   height: 100%;
   text-align: center;
-  //font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif !important; 
   font-weight: 400;
   .div-hero{
     position: relative;
@@ -173,7 +181,7 @@ $text-muted: #9B9B9B;
         }
         .hero-header{
           text-align: left;
-          font-size: 60px;
+          font-size: 52px;
           font-weight: 300;
           letter-spacing: -1.25px;
           position: relative;
@@ -203,6 +211,7 @@ $text-muted: #9B9B9B;
   }
   .primary-copy{
     width: 100vw;
+    background-color: transparent;
     .copy-wrapper{
       max-width: 1200px;
       width: 100%;
@@ -261,6 +270,7 @@ $text-muted: #9B9B9B;
             padding: 0;
             .details{
               margin-bottom: 30px;
+              font-weight: 300;
               .attachment{
                 display: block;
                 margin-top: 8px;
@@ -330,7 +340,7 @@ $text-muted: #9B9B9B;
           hr{
             margin-top: 14px;
             margin-bottom: 14px;
-            //border-top: 2px solid #ffffff;
+            border-top: 2px solid #ffffff;
             border-top: 2px solid rgba(167, 212, 223, 0.6);
           }
         }
@@ -414,6 +424,12 @@ $text-muted: #9B9B9B;
         margin-left: 65%;
         margin-right: unset;
       }
+      .si-avatar{
+				height: 18px;
+        width: auto;
+        border-radius: 50%;
+        margin-top: -8px;
+      }
     }
     .si-assigned-current{
       background-color: rgba(255, 255, 255, 0.7);
@@ -425,6 +441,7 @@ $text-muted: #9B9B9B;
       display: none;
     }
   }
+  
   .si-current{
     background-color: #72D0E2;
   }
@@ -448,6 +465,7 @@ $text-muted: #9B9B9B;
   font-weight: normal;
   text-align: center;
   line-height: 43px;
+  text-transform: uppercase;
   @media only screen and (max-width: 475px) {
     width: 100%;
   }
@@ -533,7 +551,30 @@ $text-muted: #9B9B9B;
 		data.stages_value.push(grStages.getValue('value'));
 	}
 
+	//Get Assigned to Avatar
+	function getAvatar(sys_id){
+		var avatar = '';
+		var grAvatar = new GlideRecord('sys_user');
+		grAvatar.addQuery('sys_id',sys_id);
+		grAvatar.query();
+		while(grAvatar.next()){
+			avatar = grAvatar.getDisplayValue('photo');
+		}
+		return avatar;
+	}
 
+	//Get Account Name
+	function getAccount(sys_id){
+		var acct = 'Unkown';
+		var grAcct = new GlideRecord('sales_account');
+		grAcct.addQuery('sys_id',sys_id);
+		grAcct.query();
+		while(grAcct.next()){
+			acct = grAcct.getDisplayValue('name');
+		}
+		return acct;
+	}
+	
 	//Function for gettting the SI - Factory Catalog
 	function getCatalog(){
 		var idx = 0;
@@ -582,6 +623,27 @@ $text-muted: #9B9B9B;
 		while(grReq.next()){
 			var obj = {};
 			$sp.getRecordElements(obj, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date');
+			obj.avatar = getAvatar(grReq.getValue('assigned_to'));
+			
+			var grVars = new GlideRecord('sc_item_option_mtom');
+			grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
+			grVars.query();
+			while(grVars.next()){
+				var grVar = new GlideRecord('sc_item_option');
+				grVar.addActiveQuery();
+				grVar.orderBy('order');
+				grVar.addQuery('sys_id',grVars.getValue('sc_item_option'));
+				grVar.query();
+				while(grVar.next()){
+					var objVars = {};
+					$sp.getRecordElements(objVars, grVar, 'sys_id,order,item_option_new,item_option_new.name,value');
+					if(objVars['item_option_new.name'].value == 'account'){
+						var acct = getAccount(objVars.value.display_value);
+						obj.account = acct;
+					}
+				}
+			}
+			
 			data.requests.push(obj);
 		}
 	}
@@ -598,8 +660,10 @@ $text-muted: #9B9B9B;
 		grReq.query();
 		while(grReq.next()){
 			$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date');
+			data.single_req.avatar = getAvatar(grReq.getValue('assigned_to'));
 			var variables = [];
 			data.single_req.variables = [];
+			
 
 			var grVars = new GlideRecord('sc_item_option_mtom');
 			grVars.addQuery('request_item.sys_id',grReq.getUniqueValue());
@@ -613,6 +677,11 @@ $text-muted: #9B9B9B;
 				while(grVar.next()){
 					var objVars = {};
 					$sp.getRecordElements(objVars, grVar, 'sys_id,order,item_option_new,item_option_new.name,value');
+					if(objVars['item_option_new.name'].value == 'account'){
+						var acct = getAccount(objVars.value.display_value);
+						objVars.value.display_value = acct;
+						objVars.value.value = acct;
+					}
 					variables.push( objVars );
 				}
 				data.single_req.variables = variables.sort(function(a,b){
@@ -662,7 +731,7 @@ $text-muted: #9B9B9B;
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>594</sys_mod_count>
+        <sys_mod_count>636</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -670,7 +739,7 @@ $text-muted: #9B9B9B;
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2018-12-31 16:41:58</sys_updated_on>
+        <sys_updated_on>2019-01-04 20:36:00</sys_updated_on>
         <template><![CDATA[<div class='si-container'>
   <div id='divHero' class='div-hero' style='background-image: url({{hero.img}});'></div>
   <div id='heroOverlay' class='hero-overlay'>
@@ -709,7 +778,7 @@ $text-muted: #9B9B9B;
       <div class='copy-content'>
         <div class='col-xs-12 col-md-12'>
           <div class='copy-requests'>
-            Orders in the Factory
+            Factory Work
           </div>
         </div>
       </div>
@@ -758,7 +827,7 @@ $text-muted: #9B9B9B;
       <div class='copy-content requested-items'>
         <div class='col-md-12'>
           <div ng-repeat='item in c.data.requests' class='item-requests my-requests' ng-class="{  'item-request-none' : c.only_user, 'item-request-user' : (item.opened_by.value===c.data.user) }">
-            <span class='item-number'>{{ item.number.value }}</span>|
+            <!--<span class='item-number'>{{ item.number.value }}</span>|-->
             <span class='item-what'>{{ item.cat_item.display_value }}</span>
             <span class='view-click' ng-if='item.opened_by.value===c.data.user' ng-click='c.goViewItem(item.sys_id.value)'>View</span>
             <hr/>
@@ -786,8 +855,9 @@ $text-muted: #9B9B9B;
         <div class='col-xs-12 copy-record copy-record-mobile'>
           <div class='col-xs-12 details-col'>
             <div class='details details-bold'>
-              {{c.data.single_req.number.display_value}} | {{c.data.single_req.cat_item.display_value}} 
+              {{c.data.single_req.cat_item.display_value}} 
             </div>
+            <!-- {{c.data.single_req.number.display_value}} | -->
           </div>
         </div>
       </div>
@@ -804,8 +874,9 @@ $text-muted: #9B9B9B;
         <div class='col-xs-12 col-md-12 copy-record'>
           <div class='col-xs-12 col-md-6 details-col'>
             <div class='details details-bold hidden-xs'>
-              {{c.data.single_req.number.display_value}} | {{c.data.single_req.cat_item.display_value}} 
+              {{c.data.single_req.cat_item.display_value}} 
             </div>
+            <!-- {{c.data.single_req.number.display_value}} | -->
             <div class='details' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details.value.display_value.length>0 && details["item_option_new.name"].value!="additional_info"'>
               {{details.item_option_new.display_value}}<br/>
               {{details.value.display_value}}
@@ -834,14 +905,9 @@ $text-muted: #9B9B9B;
           <sp-widget widget="c.data.conversation"></sp-widget>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-<!--
-<div ng-if='$root.headerWidgets.footer'>
-  <sp-widget widget="$root.headerWidgets.footer"></sp-widget>
-</div>
--->]]></template>
+<div class='factory-footer'><sp-widget widget="$root.headerWidgets.footer"></sp-widget></div>]]></template>
     </sp_widget>
 </record_update>

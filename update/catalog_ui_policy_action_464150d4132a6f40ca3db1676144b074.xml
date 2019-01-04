@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
     <catalog_ui_policy_action action="INSERT_OR_UPDATE">
-        <catalog_item display_value="Portal Widget">d0f4849413e66f40ca3db1676144b0ba</catalog_item>
+        <catalog_item display_value="Custom Portal Widget">d0f4849413e66f40ca3db1676144b0ba</catalog_item>
         <catalog_variable>IO:c4501cd0132a6f40ca3db1676144b0c2</catalog_variable>
         <cleared>false</cleared>
         <disabled>ignore</disabled>

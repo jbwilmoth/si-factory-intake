@@ -13,6 +13,19 @@
             <sys_updated_by>joe.wilmoth</sys_updated_by>
             <sys_updated_on>2019-01-02 20:42:52</sys_updated_on>
         </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2019-01-04 16:52:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>a01a32e513f62300ca3db1676144b069</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="sc_req_item" name="sc_req_item" sys_domain="global" view="197b5189137e63c0ca3db1676144b02b">309b5589137e63c0ca3db1676144b00d</sys_ui_form>
+            <sys_ui_section caption="Target Dates" display_value="Target Dates" name="sc_req_item" sys_domain="global" view="197b5189137e63c0ca3db1676144b02b">ac1a32e513f62300ca3db1676144b067</sys_ui_section>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2019-01-04 16:52:39</sys_updated_on>
+        </sys_ui_form_section>
         <sys_ui_form action="INSERT_OR_UPDATE">
             <name>sc_req_item</name>
             <roles/>

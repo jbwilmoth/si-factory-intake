@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Deleter</name>
+        <run_as display_value="Joe Wilmoth">dc4482340faf21003494bd5be1050eb3</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2019-01-04 19:47:05</run_start>
+        <run_time>1970-01-01 06:00:00</run_time>
+        <run_type>on_demand</run_type>
+        <script><![CDATA[var item = new GlideRecord('sc_cat_item');
+item.get('a39a0bad133a2300ca3db1676144b0dc');
+item.icon = '';
+item.update();]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-04 19:47:17</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e7f12f65133e2300ca3db1676144b071</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Deleter</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sysauto_script_e7f12f65133e2300ca3db1676144b071</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-04 20:06:17</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

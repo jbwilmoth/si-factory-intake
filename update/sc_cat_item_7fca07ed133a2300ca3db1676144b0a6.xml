@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item">
+    <sc_cat_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <availability>on_both</availability>
+        <billable>false</billable>
+        <category display_value="Intake">d172be1213ad27004b063192e144b0ba</category>
+        <cost>0</cost>
+        <custom_cart/>
+        <delivery_plan/>
+        <delivery_plan_script/>
+        <delivery_time>1970-01-06 00:00:00</delivery_time>
+        <description/>
+        <entitlement_script/>
+        <flow_designer_flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow_designer_flow>
+        <group/>
+        <hide_sp>false</hide_sp>
+        <icon>a879e725137e2300ca3db1676144b0b6</icon>
+        <ignore_price>true</ignore_price>
+        <image/>
+        <list_price>0</list_price>
+        <location/>
+        <meta/>
+        <mobile_hide_price>true</mobile_hide_price>
+        <mobile_picture/>
+        <mobile_picture_type>use_desktop_picture</mobile_picture_type>
+        <model/>
+        <name>Application Assistance</name>
+        <no_cart>true</no_cart>
+        <no_order>false</no_order>
+        <no_order_now>false</no_order_now>
+        <no_proceed_checkout>true</no_proceed_checkout>
+        <no_quantity>false</no_quantity>
+        <no_search>false</no_search>
+        <omit_price>true</omit_price>
+        <order>0</order>
+        <ordered_item_link/>
+        <picture>e8ce9944133e6f80ca3db1676144b003</picture>
+        <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=7fca07ed133a2300ca3db1676144b0a6&amp;sysparm_preview=true", "summary");</preview>
+        <price>0</price>
+        <recurring_frequency/>
+        <recurring_price>0</recurring_price>
+        <roles/>
+        <sc_catalogs>1312da9e132d27004b063192e144b01e</sc_catalogs>
+        <sc_ic_item_staging/>
+        <sc_ic_version/>
+        <short_description>Request Application Assistance from the Solution Innovation Factory</short_description>
+        <show_variable_help_on_load>false</show_variable_help_on_load>
+        <start_closed>false</start_closed>
+        <sys_class_name>sc_cat_item</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-04 18:05:47</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7fca07ed133a2300ca3db1676144b0a6</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Application Assistance</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sc_cat_item_7fca07ed133a2300ca3db1676144b0a6</sys_update_name>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2019-01-04 20:19:38</sys_updated_on>
+        <template/>
+        <type>item</type>
+        <u_bootstrap_order/>
+        <u_update_set/>
+        <use_sc_layout>false</use_sc_layout>
+        <vendor/>
+        <visible_bundle>true</visible_bundle>
+        <visible_guide>true</visible_guide>
+        <visible_standalone>true</visible_standalone>
+        <workflow/>
+        <x_yala_yds_allow_large_quantities>false</x_yala_yds_allow_large_quantities>
+        <x_yala_yds_failsafe_sizing>false</x_yala_yds_failsafe_sizing>
+        <x_yala_yds_render_in_iframe>false</x_yala_yds_render_in_iframe>
+        <x_yala_yds_resize_width>false</x_yala_yds_resize_width>
+    </sc_cat_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=7fca07ed133a2300ca3db1676144b0a6"/>
+    <fx_price action="delete_multiple" query="id=7fca07ed133a2300ca3db1676144b0a6"/>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>price</field>
+        <id>7fca07ed133a2300ca3db1676144b0a6</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-04 18:05:47</sys_created_on>
+        <sys_id>3fca07ed133a2300ca3db1676144b0a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-04 18:05:47</sys_updated_on>
+        <table>sc_cat_item</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="INSERT_OR_UPDATE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>recurring_price</field>
+        <id>7fca07ed133a2300ca3db1676144b0a6</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-04 18:05:47</sys_created_on>
+        <sys_id>77ca07ed133a2300ca3db1676144b0a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-04 18:05:47</sys_updated_on>
+        <table>sc_cat_item</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#0</average_image_color>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>icon</file_name>
+        <image_height>71</image_height>
+        <image_width>71</image_width>
+        <size_bytes>1788</size_bytes>
+        <size_compressed>1811</size_compressed>
+        <state/>
+        <sys_created_by>chris.stoll</sys_created_by>
+        <sys_created_on>2019-01-04 20:19:38</sys_created_on>
+        <sys_id>a879e725137e2300ca3db1676144b0b6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>chris.stoll</sys_updated_by>
+        <sys_updated_on>2019-01-04 20:19:38</sys_updated_on>
+        <table_name>ZZ_YYsc_cat_item</table_name>
+        <table_sys_id>7fca07ed133a2300ca3db1676144b0a6</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="icon" sys_id="a879e725137e2300ca3db1676144b0b6">a879e725137e2300ca3db1676144b0b6</sys_attachment>
+        <sys_created_by>chris.stoll</sys_created_by>
+        <sys_created_on>2019-01-04 20:19:38</sys_created_on>
+        <sys_id>e879e725137e2300ca3db1676144b0b6</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>2404</length>
+        <position>1</position>
+        <sys_attachment display_value="icon" sys_id="a879e725137e2300ca3db1676144b0b6">a879e725137e2300ca3db1676144b0b6</sys_attachment>
+        <sys_created_by>chris.stoll</sys_created_by>
+        <sys_created_on>2019-01-04 20:19:38</sys_created_on>
+        <sys_id>6c79e725137e2300ca3db1676144b0b6</sys_id>
+    </sys_attachment_doc>
+</record_update>

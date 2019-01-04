@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update node_type="sys_portal_page" unload_date="2019-01-02 22:44:47">
+<?xml version="1.0" encoding="UTF-8"?><record_update node_type="sys_portal_page" unload_date="2019-01-04 21:16:43">
     <sys_portal_page action="INSERT_OR_UPDATE">
         <layout display_value="layout_2_across">f6defafa0a0a0b12000d5016bd12ff06</layout>
         <order/>
@@ -24,5 +24,142 @@
         <title>catalog_si_factory</title>
         <user/>
         <view>catalog_si_factory</view>
+        <related_items_node>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone1</dropzone>
+                <offset>0</offset>
+                <page display_value="catalog_si_factory">a8525a9e132d27004b063192e144b016</page>
+                <summary/>
+                <sys_created_by>joe.wilmoth</sys_created_by>
+                <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                <sys_id>df7513a913ba2300ca3db1676144b06a</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>joe.wilmoth</sys_updated_by>
+                <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>537513a913ba2300ca3db1676144b06b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>d172be1213ad27004b063192e144b0ba</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>type</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>577513a913ba2300ca3db1676144b06d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>category</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>catalog_view</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>5b7513a913ba2300ca3db1676144b06d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>catalog_si_factory</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>5f7513a913ba2300ca3db1676144b06d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>a8525a9e132d27004b063192e144b016</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>catalog</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>d37513a913ba2300ca3db1676144b06c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>1312da9e132d27004b063192e144b01e</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>macro</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>d77513a913ba2300ca3db1676144b06b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>sc_catalog_homepage_category_item</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title_link_class</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>d77513a913ba2300ca3db1676144b06c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>category_title_link</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>db7513a913ba2300ca3db1676144b06b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>com.glideapp.servicecatalog.RenderCategory</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title_link</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>db7513a913ba2300ca3db1676144b06c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>com.glideapp.servicecatalog_category_view.do?v=1&amp;amp;sysparm_parent=d172be1213ad27004b063192e144b0ba&amp;amp;sysparm_catalog=1312da9e132d27004b063192e144b01e&amp;amp;sysparm_catalog_view=catalog_si_factory</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>render_title</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>df7513a913ba2300ca3db1676144b06b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>false</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2019-01-04 12:52:26">df7513a913ba2300ca3db1676144b06a</portal_section>
+                        <sys_created_by>joe.wilmoth</sys_created_by>
+                        <sys_created_on>2019-01-04 18:52:26</sys_created_on>
+                        <sys_id>df7513a913ba2300ca3db1676144b06c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>joe.wilmoth</sys_updated_by>
+                        <sys_updated_on>2019-01-04 18:52:26</sys_updated_on>
+                        <value>Intake</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+        </related_items_node>
     </sys_portal_page>
 </record_update>
