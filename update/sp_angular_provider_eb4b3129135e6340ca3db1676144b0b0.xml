@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_angular_provider">
     <sp_angular_provider action="INSERT_OR_UPDATE">
         <name>sifactorystatus</name>
-        <script><![CDATA[function siFactoryStatus($timeout){        
+        <script><![CDATA[function siFactoryStatus($timeout){    
+	function formatDate(strDate){
+		var d = new Date(strDate);
+		
+		var month = (d.getMonth()+1);
+		if(month<10){
+			month = '0'+month;
+		}
+		var day = d.getDate();
+		if(day<10){
+			day = '0' + day;
+		}
+		var year = d.getFullYear().toString().substr(2,2);
+		
+		return month+'.'+day+'.'+year;
+	}
 	return {
 		restrict: 'AE',
 		templateUrl: function(element,attrs){
 			return attrs.href;
 		},
 		link: function (scope, element, attrs) {
-			
 			var randomID = Math.round((Math.random() * 100000000));
 			var stage_values = attrs.stageValues.split(',');
 			
 			var sys_id = attrs.ritm;
 			
 			var item = JSON.parse(attrs.item);
-
+			
+			var assigned_to = 'TBD';
 			if(item.avatar && item.avatar.length>0){
 				scope.avatar = item.avatar;
 				scope.avatar_title = item.assigned_to.display_value;
+				assigned_to = item.assigned_to.display_value;
 			}
 			
 			scope.theStages = attrs.stages.split(',');
 			scope.useronly = (attrs.useronly != undefined);
-			
+		
 			scope.what = item.cat_item.display_value;
 			scope.byWhom = item.opened_by.display_value;
 			
@@ -31,8 +47,28 @@
 				scope.forAccount = item.account;
 			}
 			
+			scope.single_item = (attrs.single==='true');
+			scope.first_record = (attrs.first == 'true') || (attrs.single==='true');
+			
 			scope.curStage = stage_values.indexOf(item.stage.value);
 			scope.xsStage = scope.theStages[scope.curStage];
+
+			var dev_start = 'TBD';
+			if(item.dev_start){
+				dev_start = formatDate(item.dev_start.display_value);
+			}
+
+			var target_date = 'TBD';
+			if(item.due_date){
+				target_date = formatDate(item.due_date.display_value);
+			}
+			
+			scope.stageLabels = [
+				'Submitted: ' + formatDate(item.opened_at.display_value),
+				'Assigned: ' + assigned_to,
+				'DEV Start: ' + dev_start,
+				'Target: ' + target_date
+			]
 			
 			if((stage_values.indexOf(item.stage.value)>=1) && item.assigned_to && item.assigned_to.value.length<=0){
 				scope.curStage = 0;
@@ -46,13 +82,14 @@
 			
 		}
 	};
+	
 }]]></script>
         <sys_class_name>sp_angular_provider</sys_class_name>
         <sys_created_by>chris.stoll</sys_created_by>
         <sys_created_on>2018-12-10 15:47:13</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>eb4b3129135e6340ca3db1676144b0b0</sys_id>
-        <sys_mod_count>73</sys_mod_count>
+        <sys_mod_count>99</sys_mod_count>
         <sys_name>sifactorystatus</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -60,7 +97,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_angular_provider_eb4b3129135e6340ca3db1676144b0b0</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-04 20:36:20</sys_updated_on>
+        <sys_updated_on>2019-01-07 16:47:52</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>

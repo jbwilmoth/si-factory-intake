@@ -69,7 +69,15 @@
 			}
 		});
 	};
-	
+	c.getUserRequestCount = function(){
+		var count=0;
+		for(var item in c.data.requests){
+			if(c.data.requests[item].opened_by.value === c.data.user){
+				count++;
+			}
+		}
+		return count;
+	}
 	$rootScope.$on('feedbackExists', function() {
 		if(!$rootScope.isMobileView){
 			c.fbBtnType = 'right';
@@ -88,6 +96,10 @@
 		}
 		$rootScope.$broadcast('fbStyleButton', c.fbBtnType, c.objBtnStyle);
 	});
+	
+	$scope.userFilter = function(item){
+		return (item.opened_by.value === c.data.user);
+	}
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>$btn-bg: $brand-primary;
@@ -97,7 +109,12 @@ $brand-dark: #1B1464;
 $soft-blue: #1D66AE;
 
 $sn-brand-color: #81B5A1;
+
 $bg-color: transparent !default;
+
+$bg-tracker: rgba(167, 212, 223, 0.2);
+$border-tracker: #72D0E2;
+$text-tracker: #68A1AF;
 
 $font-color: #4A4A4A !default;
 $text-muted: #9B9B9B;
@@ -225,6 +242,7 @@ footer{
         padding: 0px 15px;
       }
       @media only screen and (max-width: 475px) {
+        padding: 0px;
       }
       .copy-content{
         display: block;
@@ -260,10 +278,16 @@ footer{
         }
         .copy-record{
           margin: 50px 0;
+          margin-bottom: 10px;
           width: 100%;
           font-size: 18px;
           @media only screen and (max-width: 475px) {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 0px;
+            padding-top: 30px;
+            border: 0;
+            border-bottom: 1px solid $border-tracker;
+            background-color: $bg-tracker;
           }
           .details-col{
             margin: 0;
@@ -283,7 +307,7 @@ footer{
               }
             }
             .details-block{
-              min-height: 100px;
+              //min-height: 100px;
               @media only screen and (max-width: 475px) {
                 min-height: unset;
               }
@@ -330,13 +354,23 @@ footer{
           color: #43727A
         }
         .item-requests{
-          margin-top: 20px;
           margin-bottom: unset;
           color: $text-muted;
           .item-number{ font-weight: 600; }
           .item-what{ text-transform: capitalize; }
           .item-by{ text-transform: capitalize; }
-          .view-click{ float: right; }
+          .view-click{
+            position: relative;
+            top: 4px;
+            float: right; 
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: -0.53px;
+            @media only screen and (max-width: 768px) {
+              right: 10px;
+              top: -20px;
+            }
+          }
           hr{
             margin-top: 14px;
             margin-bottom: 14px;
@@ -344,9 +378,7 @@ footer{
             border-top: 2px solid rgba(167, 212, 223, 0.6);
           }
         }
-        .my-requests{
-          margin-top: 40px;
-        }
+        
         .item-request-none{
           display: none;
         }
@@ -357,21 +389,72 @@ footer{
       }
       .requested-items{
         overflow: auto;
-        min-height: 300px;
         width: 100%;
-        margin-bottom: 60px;
+        margin-bottom: 80px;
+
+        @media only screen and (max-width: 475px) {
+          .col-md-12{
+            padding-left: 0px;
+            padding-right: 0px;
+          }
+        }
+
+      }
+      .single-request{
+        margin-bottom: 0px;
+      }
+      .my-requests{
+        padding-top: 30px;
+        @media only screen and (max-width: 475px) {
+          padding-top: 10px;
+        }
       }
     }
   }
 }
+.factory-tracker{
+  min-height: 180px;
+  height: 100%;
+  border: 0;
+  border-bottom: 1px solid $border-tracker;
+  background-color: $bg-tracker;
+  width: 100%;
+  display: flex;
+}
+.factory-tracker-first{
+  border-top: 1px solid $border-tracker;
+  margin-top: 20px;
+}
+.tracker{
+	width: 100%;
+  margin: 0 60px;
+  margin-top: 40px;
+  color: $text-tracker;
+  font-size: 18px;
+  @media only screen and (max-width: 768px) {
+    margin: 0 10px;
+    margin-top: 35px;
+  }
+  @media only screen and (max-width: 475px) {
+    padding-left: 5px;
+    padding-right: 15px;
+  }
+}
 .si-title{
-  margin-left: 15px;
-  margin-bottom: 3px;
+  margin-bottom: 13px;
+  font-weight: 300;
+  margin-left: 1px;
 }
-.si-title-useronly{
+.si-title-small{
   display: inline-flex;
-  font-size: 14px;
+  text-transform: uppercase;
+  font-size: 10.8px;
+  font-weight: 600;
+  height: 13px;
+  margin-bottom: unset;
+  margin-left: 8px;
 }
+
 .si-progress{
   width: 100%;
   font-size: 14px;
@@ -453,10 +536,45 @@ footer{
     border-top-right-radius: 18px;
     border-bottom-right-radius: 18px;
   }
+  
+}
+.si-progress-labels{
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  margin-top: 12px;
+  color: $text-muted;
+  text-align: right;
+  @media only screen and (max-width: 768px) {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .si-progress-label{
+    width: 100%;
+    height: 36px;
+    
+    margin: 0;
+    margin-right: 45px;
+    background-color: transparent;
+    @media only screen and (max-width: 768px) {
+      margin-left: 8px;
+      height: 22px;
+      margin-right: 0;
+    }
+
+  }
+  .si-progress-label-current{
+    color: $text-tracker;
+  }
 }
 .btn-factory{
   width: 290px;
-  background: #FFFFFF;
+  background: rgba(167, 212, 223, 0.2);
+  
   border: 1px solid #68A1AF;
   padding: 10px 0px;
   margin: 6px auto;
@@ -506,6 +624,7 @@ footer{
 
 	//Get the current user
 	data.user = gs.getUser().getID();
+	data.user_name = gs.getUserDisplayName();
 
 	//Check for direct link situations
 	var sys_id = $sp.getParameter('sys_id');
@@ -622,7 +741,7 @@ footer{
 		grReq.query();
 		while(grReq.next()){
 			var obj = {};
-			$sp.getRecordElements(obj, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date');
+			$sp.getRecordElements(obj, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date,estimated_delivery,x_snc_intake_in_review_completed_on,x_snc_intake_assigned_completed_on,x_snc_intake_development_completed_on,x_snc_intake_completed_on');
 			obj.avatar = getAvatar(grReq.getValue('assigned_to'));
 			
 			var grVars = new GlideRecord('sc_item_option_mtom');
@@ -659,7 +778,7 @@ footer{
 		}
 		grReq.query();
 		while(grReq.next()){
-			$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date');
+			$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date,estimated_delivery,x_snc_intake_in_review_completed_on,x_snc_intake_assigned_completed_on,x_snc_intake_development_completed_on,x_snc_intake_completed_on');
 			data.single_req.avatar = getAvatar(grReq.getValue('assigned_to'));
 			var variables = [];
 			data.single_req.variables = [];
@@ -731,7 +850,7 @@ footer{
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>636</sys_mod_count>
+        <sys_mod_count>741</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -739,7 +858,7 @@ footer{
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-04 20:36:00</sys_updated_on>
+        <sys_updated_on>2019-01-07 18:32:31</sys_updated_on>
         <template><![CDATA[<div class='si-container'>
   <div id='divHero' class='div-hero' style='background-image: url({{hero.img}});'></div>
   <div id='heroOverlay' class='hero-overlay'>
@@ -761,8 +880,8 @@ footer{
       <div class='copy-content'>
         <div class='col-xs-12 visible-xs'>
           <div class='btn-wrapper'>
-            <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a Request</button>
-            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track My Requests</button>  
+            <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a new Request</button>
+            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track a Request</button>  
           </div>
         </div>
         <div class='col-xs-12 col-sm-6'>
@@ -770,8 +889,8 @@ footer{
         </div>
         <div class='col-sm-6 hidden-xs'>
           <div class='btn-wrapper'>
-            <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a Request</button>
-            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track My Requests</button>  
+            <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a new Request</button>
+            <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track a Request</button>  
           </div>
         </div>
       </div>
@@ -788,6 +907,7 @@ footer{
             <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
                              data-stage-values="{{c.data.stages_value.join(',')}}"
                              data-item="{{item}}"
+                             data-first="{{$first}}"
                              href="siFactoryStatusTemplate"></sifactorystatus>
           </div>
         </div>
@@ -820,21 +940,23 @@ footer{
       <div class='copy-content'>
         <div class='col-md-12'>
           <div class='copy-question'>
-            Your Requests
+            Hello {{::c.data.user_name}},
+          </div>
+        </div>
+        <div class='col-md-12'>
+          <div class='copy-text'>
+            The status of your ({{::c.getUserRequestCount()}}) Factory requests are as follows:
           </div>
         </div>
       </div>
-      <div class='copy-content requested-items'>
+      <div class='copy-content requested-items my-requests'>
         <div class='col-md-12'>
-          <div ng-repeat='item in c.data.requests' class='item-requests my-requests' ng-class="{  'item-request-none' : c.only_user, 'item-request-user' : (item.opened_by.value===c.data.user) }">
+          <div ng-repeat='item in c.data.requests | filter: userFilter' class='item-requests'>
             <!--<span class='item-number'>{{ item.number.value }}</span>|-->
-            <span class='item-what'>{{ item.cat_item.display_value }}</span>
-            <span class='view-click' ng-if='item.opened_by.value===c.data.user' ng-click='c.goViewItem(item.sys_id.value)'>View</span>
-            <hr/>
             <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
                              data-stage-values="{{c.data.stages_value.join(',')}}"
                              data-item="{{item}}"
-                             data-useronly="true"
+                             data-first="{{$first}}"
                              href="siFactoryStatusTemplate"></sifactorystatus>
 
           </div>
@@ -851,38 +973,23 @@ footer{
           </div>
         </div>
       </div>
-      <div class='copy-content visible-xs'>
-        <div class='col-xs-12 copy-record copy-record-mobile'>
-          <div class='col-xs-12 details-col'>
-            <div class='details details-bold'>
-              {{c.data.single_req.cat_item.display_value}} 
-            </div>
-            <!-- {{c.data.single_req.number.display_value}} | -->
-          </div>
-        </div>
-      </div>
-      <div class='copy-content'>
+      <div class='copy-content requested-items single-request'>
         <div class='col-xs-12 col-md-12'>
           <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
                            data-stage-values="{{c.data.stages_value.join(',')}}"
                            data-item="{{c.data.single_req}}"
-                           data-useronly="true"
+                           data-single='true'
                            href="siFactoryStatusTemplate"></sifactorystatus>
         </div>
       </div>
       <div class='copy-content'>
         <div class='col-xs-12 col-md-12 copy-record'>
-          <div class='col-xs-12 col-md-6 details-col'>
-            <div class='details details-bold hidden-xs'>
-              {{c.data.single_req.cat_item.display_value}} 
-            </div>
-            <!-- {{c.data.single_req.number.display_value}} | -->
-            <div class='details' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details.value.display_value.length>0 && details["item_option_new.name"].value!="additional_info"'>
+          <div class='col-xs-12 col-md-12 details-col'>
+            <!--<div class='details' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details.value.display_value.length>0 && details["item_option_new.name"].value!="additional_info"'>
               {{details.item_option_new.display_value}}<br/>
               {{details.value.display_value}}
             </div>
-          </div>
-          <div class='col-xs-12 col-md-6 details-col'>
+            -->
             <div class='details details-block' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details["item_option_new.name"].value=="additional_info"'>
               Details:  <br/>
               {{details.value.display_value}}

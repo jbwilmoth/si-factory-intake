@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_action_instance">
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow>
+        <order>3.1</order>
+        <parent_ui_id>2490e060-e504-43e7-bafc-2eb206d63f0f</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>1a54efb21332a7002ea1b2566144b0d8</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sys_hub_action_instance_1a54efb21332a7002ea1b2566144b0d8</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-08 21:22:11</sys_updated_on>
+        <ui_id>b8950c91-6ac1-4973-b00c-9e7993c1134f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=1a54efb21332a7002ea1b2566144b0d8"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>1a54efb21332a7002ea1b2566144b0d8</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
+        <sys_id>d654efb21332a7002ea1b2566144b0df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-08 17:09:46</sys_updated_on>
+        <value>Rejected</value>
+        <variable display_value="">b21241160b100300d97d8bf637673a4a</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=1a54efb21332a7002ea1b2566144b0d8"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>1a54efb21332a7002ea1b2566144b0d8</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
+        <sys_id>5654efb21332a7002ea1b2566144b0df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-08 17:09:46</sys_updated_on>
+        <table>var__m_sys_hub_action_input_98c181d20b100300d97d8bf637673ab5</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>1a54efb21332a7002ea1b2566144b0d8</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
+        <sys_id>9e54efb21332a7002ea1b2566144b0de</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-08 17:09:46</sys_updated_on>
+        <table>var__m_sys_hub_action_input_98c181d20b100300d97d8bf637673ab5</table>
+        <value>{{Service Catalog_1.request_item.opened_by}}</value>
+    </sys_element_mapping>
+</record_update>

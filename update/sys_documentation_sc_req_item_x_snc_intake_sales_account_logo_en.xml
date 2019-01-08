@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="x_snc_intake_sales_account_logo" label="Sales Account Logo" language="en" table="sc_req_item">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>x_snc_intake_sales_account_logo</element>
+            <help/>
+            <hint/>
+            <label>Sales Account Logo</label>
+            <language>en</language>
+            <name>sc_req_item</name>
+            <plural>Sales Account Logos</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>joe.wilmoth</sys_created_by>
+            <sys_created_on>2019-01-08 16:39:45</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>e67d5b7a13fe67002ea1b2566144b019</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Sales Account Logo</sys_name>
+            <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+            <sys_update_name>sys_documentation_sc_req_item_x_snc_intake_sales_account_logo_en</sys_update_name>
+            <sys_updated_by>joe.wilmoth</sys_updated_by>
+            <sys_updated_on>2019-01-08 16:39:45</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

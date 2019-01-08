@@ -145,50 +145,53 @@
 	/*=============== End link handling ===============*/
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>.toggle {
-  	color: $dropdown-fallback-border;
+        <css>$bg-color: rgba(167, 212, 223, 0.2);
+$border-color: #72D0E2;
+$text-color: #68A1AF;
+
+.toggle {
+  color: $dropdown-fallback-border;
 }
 .fa.active {
   color: $primary;
 }
 .panel{
-  background-color: #fff;
-  border: 1px solid #A7D4DF;
-  border-radius: 4px;
-  min-height: 200px;
-  max-height: 200px;
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  color: $text-color;
+  min-height: 180px;
   height: 100%;
-  max-width: 200px;
+  max-width: 180px;
   text-align: center;
+  max-height: 180px;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.22);
+  @media only screen and (max-width: 475px) {
+    max-height: 135px;
+  }
   h2{
-    height: 27px;
-    color: #68A1AF;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.18px;
-    line-height: 27px;
+    color: $text-color;
     margin: 0 auto;
-    margin-bottom: 35px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    height: 48px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 24px;
     @media only screen and (max-width: 475px) {
-      //font-size: 18px;
-      //max-width: 110px;
+      
     }
   }
   img{
-    max-height: 88px;
-		//min-width: 117px;
+    max-height: 75px;
     width: auto;
     height: 100%;
     margin: 0 auto;
-    margin-top: 30px;
     @media only screen and (max-width: 475px) {
-      //min-width: unset;
-      //max-height: unset;
     }
   }
   @media only screen and (max-width: 475px) {
-    //min-height: unset;
-    //max-height: 150px;
   }
 }
 .panel-nopadding{
@@ -211,7 +214,7 @@
     max-width: calc(50% - 16px);
   }
   @media only screen and (max-width: 475px) {
-    max-width: calc(100% - 16px);
+    //max-width: calc(100% - 16px);
   }
 }
 .panel-tile-md{
@@ -220,26 +223,26 @@
     max-width: calc(50% - 16px);
   }
   @media only screen and (max-width: 475px) {
-    max-width: calc(100% - 16px);
+    //max-width: calc(100% - 16px);
   }
 }
 .panel-tile-sm{
   max-width: calc(50% - 16px);
   @media only screen and (max-width: 475px) {
-    max-width: calc(100% - 16px);
+    //max-width: calc(100% - 16px);
   }
 }
 .panel-tile-xs{
   //max-width: calc(45% - 8px);
-  max-width: calc(100% - 16px);
+  max-width: calc(50% - 16px);
 }
 .panel-full{
-  max-width: calc(100% - 16px);
+  max-width: calc(50% - 16px);
 }
 
 .panel-tile:hover{
   .panel-body{
-    background-color: #ffffff;
+    //background-color: #ffffff;
   }
 
   -webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.22), 0 10px 10px rgba(0,0,0,0.22);
@@ -439,7 +442,7 @@
         <sys_created_on>2018-12-19 15:18:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>4c0b80a4136aaf40ca3db1676144b0a6</sys_id>
-        <sys_mod_count>71</sys_mod_count>
+        <sys_mod_count>82</sys_mod_count>
         <sys_name>SI - Factory Categories</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -447,7 +450,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_4c0b80a4136aaf40ca3db1676144b0a6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-04 20:25:56</sys_updated_on>
+        <sys_updated_on>2019-01-07 16:35:15</sys_updated_on>
         <template><![CDATA[<div id='factory-catalog' class="m-t-sm " ng-class="{'hidden-xs' : hideItemWidget, 'm-l-sm': !isMobile}">
   <h4 ng-if="data.error">{{data.error}}</h4>
   <div ng-init="spSearch.targetCatalog()">

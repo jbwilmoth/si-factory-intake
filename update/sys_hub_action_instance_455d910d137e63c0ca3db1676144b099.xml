@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_action_instance">
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
+        <action_inputs/>
         <action_type display_value="Send Email">716281160b100300d97d8bf637673ac7</action_type>
         <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
         <comment/>
@@ -25,4 +26,56 @@
         <sys_updated_on>2019-01-04 15:43:09</sys_updated_on>
         <ui_id>eff054ea-5a3d-4333-a8dd-ff7e3e54f1dd</ui_id>
     </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=455d910d137e63c0ca3db1676144b099"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>455d910d137e63c0ca3db1676144b099</document_key>
+        <order>4</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:30</sys_created_on>
+        <sys_id>4d5d910d137e63c0ca3db1676144b09f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 21:50:45</sys_updated_on>
+        <value>&lt;p data-tinymcerootblock=""&gt;Your request is in Development.&lt;/p&gt;</value>
+        <variable display_value="">4e62c1160b100300d97d8bf637673a10</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=455d910d137e63c0ca3db1676144b099"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_body</field>
+        <id>455d910d137e63c0ca3db1676144b099</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:30</sys_created_on>
+        <sys_id>c95d910d137e63c0ca3db1676144b09f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:50:30</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>455d910d137e63c0ca3db1676144b099</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:30</sys_created_on>
+        <sys_id>095d910d137e63c0ca3db1676144b09f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:50:30</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value>Solution Innovation Factory  Request{{Service Catalog_1.request_item.number}} is in Development</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>455d910d137e63c0ca3db1676144b099</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:30</sys_created_on>
+        <sys_id>455d910d137e63c0ca3db1676144b09f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:50:30</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value>{{Service Catalog_1.request_item.opened_by.email}}</value>
+    </sys_element_mapping>
 </record_update>
