@@ -3,13 +3,13 @@
         <binding_strategy>com.snc.process_flow.engine.binding.RunAlways</binding_strategy>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"a0223a1213ad27004b063192e144b066","name":"plan"}}</plan>
         <plan_id>ae51b6de136d27004b063192e144b0c6</plan_id>
-        <snapshot>ef23d365137623002ea1b2566144b0bc</snapshot>
+        <snapshot>9022f61213ad27004b063192e144b0f4</snapshot>
         <sys_class_name>sys_flow_trigger_plan</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-05 20:54:56</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a0223a1213ad27004b063192e144b066</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>a4223a1213ad27004b063192e144b064</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -17,7 +17,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_flow_trigger_plan_a0223a1213ad27004b063192e144b066</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-04 15:41:48</sys_updated_on>
+        <sys_updated_on>2019-01-14 19:41:16</sys_updated_on>
         <trigger display_value="">a4223a1213ad27004b063192e144b064</trigger>
     </sys_flow_trigger_plan>
 </record_update>

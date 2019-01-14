@@ -5,155 +5,155 @@
         <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
         <action_type_parent/>
         <comment/>
-        <compiled_snapshot display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <compiled_snapshot/>
         <display_text/>
         <flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow>
-        <order>3.8</order>
-        <parent_ui_id>742b6dec-b41a-40bf-9546-d41da13777bf</parent_ui_id>
+        <order>4.3</order>
+        <parent_ui_id>2490e060-e504-43e7-bafc-2eb206d63f0f</parent_ui_id>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 22:59:52</sys_created_on>
+        <sys_created_on>2019-01-14 18:57:29</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>aebe875213ed27004b063192e144b024</sys_id>
-        <sys_mod_count>118</sys_mod_count>
+        <sys_id>ea863e781303ef002ea1b2566144b060</sys_id>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name/>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
-        <sys_update_name>sys_hub_action_instance_aebe875213ed27004b063192e144b024</sys_update_name>
+        <sys_update_name>sys_hub_action_instance_ea863e781303ef002ea1b2566144b060</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-14 20:00:01</sys_updated_on>
-        <ui_id>85e7f335-737e-4bab-8a5d-bde7fc7c3a9c</ui_id>
+        <sys_updated_on>2019-01-14 20:00:03</sys_updated_on>
+        <ui_id>c251a199-618f-4c0b-870d-e1a75810b987</ui_id>
     </sys_hub_action_instance>
-    <sys_variable_value action="delete_multiple" query="document_key=aebe875213ed27004b063192e144b024"/>
+    <sys_variable_value action="delete_multiple" query="document_key=ea863e781303ef002ea1b2566144b060"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_hub_action_instance</document>
-        <document_key>aebe875213ed27004b063192e144b024</document_key>
-        <order>50</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 22:59:52</sys_created_on>
-        <sys_id>26be875213ed27004b063192e144b02a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 22:59:52</sys_updated_on>
-        <value>sc_req_item</value>
-        <variable display_value="">1fd27c8cc3c632002841b63b12d3aeb9</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_hub_action_instance</document>
-        <document_key>aebe875213ed27004b063192e144b024</document_key>
+        <document_key>ea863e781303ef002ea1b2566144b060</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:05</sys_created_on>
-        <sys_id>31ce0b5213ed27004b063192e144b038</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_created_on>2019-01-14 19:41:06</sys_created_on>
+        <sys_id>2d8083f01343ef002ea1b2566144b074</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-14 19:59:29</sys_updated_on>
-        <value>state=3^x_snc_intake_development_completed_on=javascript: new GlideDate();^x_snc_intake_completed_on=javascript: new GlideDate();</value>
+        <sys_updated_on>2019-01-14 19:41:06</sys_updated_on>
+        <value>state=4</value>
         <variable display_value="">02d01916c31332002841b63b12d3aeee</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_hub_action_instance</document>
-        <document_key>aebe875213ed27004b063192e144b024</document_key>
+        <document_key>ea863e781303ef002ea1b2566144b060</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-14 18:57:29</sys_created_on>
+        <sys_id>ae863e781303ef002ea1b2566144b07f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-14 18:57:29</sys_updated_on>
+        <value>sc_request</value>
+        <variable display_value="">1fd27c8cc3c632002841b63b12d3aeb9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>ea863e781303ef002ea1b2566144b060</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 22:59:52</sys_created_on>
-        <sys_id>62be875213ed27004b063192e144b02a</sys_id>
+        <sys_created_on>2019-01-14 18:57:29</sys_created_on>
+        <sys_id>ea863e781303ef002ea1b2566144b07f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 22:59:52</sys_updated_on>
-        <value>state=3</value>
+        <sys_updated_on>2019-01-14 18:57:29</sys_updated_on>
+        <value>state=4</value>
         <variable display_value="">e7d270ccc3c632002841b63b12d3ae8b</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_hub_action_instance</document>
-        <document_key>aebe875213ed27004b063192e144b024</document_key>
+        <document_key>ea863e781303ef002ea1b2566144b060</document_key>
         <order>50</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:05</sys_created_on>
-        <sys_id>f1ce0b5213ed27004b063192e144b038</sys_id>
+        <sys_created_on>2019-01-14 19:41:06</sys_created_on>
+        <sys_id>ed8083f01343ef002ea1b2566144b074</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:05</sys_updated_on>
-        <value>sc_req_item</value>
+        <sys_updated_on>2019-01-14 19:41:06</sys_updated_on>
+        <value>sc_request</value>
         <variable display_value="">b5d01916c31332002841b63b12d3aec9</variable>
     </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="id=aebe875213ed27004b063192e144b024"/>
+    <sys_element_mapping action="delete_multiple" query="id=ea863e781303ef002ea1b2566144b060"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>record</field>
-        <id>aebe875213ed27004b063192e144b024</id>
+        <id>ea863e781303ef002ea1b2566144b060</id>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 22:59:52</sys_created_on>
-        <sys_id>2ebe875213ed27004b063192e144b029</sys_id>
+        <sys_created_on>2019-01-14 18:57:29</sys_created_on>
+        <sys_id>a6863e781303ef002ea1b2566144b07f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 22:59:52</sys_updated_on>
+        <sys_updated_on>2019-01-14 18:57:29</sys_updated_on>
         <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
-        <value>{{Service Catalog_1.request_item}}</value>
+        <value>{{Service Catalog_1.request_item.request}}</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>record</field>
-        <id>aebe875213ed27004b063192e144b024</id>
+        <id>ea863e781303ef002ea1b2566144b060</id>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:05</sys_created_on>
-        <sys_id>f9ce0b5213ed27004b063192e144b037</sys_id>
+        <sys_created_on>2019-01-14 19:41:06</sys_created_on>
+        <sys_id>e58083f01343ef002ea1b2566144b074</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:05</sys_updated_on>
+        <sys_updated_on>2019-01-14 19:41:06</sys_updated_on>
         <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
-        <value>{{Service Catalog_1.request_item}}</value>
+        <value>{{Service Catalog_1.request_item.request}}</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>table_name</field>
-        <id>aebe875213ed27004b063192e144b024</id>
+        <id>ea863e781303ef002ea1b2566144b060</id>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:05</sys_created_on>
-        <sys_id>39ce0b5213ed27004b063192e144b037</sys_id>
+        <sys_created_on>2019-01-14 19:41:06</sys_created_on>
+        <sys_id>6d8083f01343ef002ea1b2566144b067</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:05</sys_updated_on>
+        <sys_updated_on>2019-01-14 19:41:06</sys_updated_on>
         <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
         <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>table_name</field>
-        <id>aebe875213ed27004b063192e144b024</id>
+        <id>ea863e781303ef002ea1b2566144b060</id>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 22:59:52</sys_created_on>
-        <sys_id>6abe875213ed27004b063192e144b029</sys_id>
+        <sys_created_on>2019-01-14 18:57:29</sys_created_on>
+        <sys_id>e2863e781303ef002ea1b2566144b07f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 22:59:52</sys_updated_on>
+        <sys_updated_on>2019-01-14 18:57:29</sys_updated_on>
         <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
         <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>values</field>
-        <id>aebe875213ed27004b063192e144b024</id>
+        <id>ea863e781303ef002ea1b2566144b060</id>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 23:00:05</sys_created_on>
-        <sys_id>bdce0b5213ed27004b063192e144b037</sys_id>
+        <sys_created_on>2019-01-14 18:57:29</sys_created_on>
+        <sys_id>6a863e781303ef002ea1b2566144b07f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 23:00:05</sys_updated_on>
-        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <sys_updated_on>2019-01-14 18:57:29</sys_updated_on>
+        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
         <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>values</field>
-        <id>aebe875213ed27004b063192e144b024</id>
+        <id>ea863e781303ef002ea1b2566144b060</id>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-11-05 22:59:52</sys_created_on>
-        <sys_id>eebe875213ed27004b063192e144b029</sys_id>
+        <sys_created_on>2019-01-14 19:41:06</sys_created_on>
+        <sys_id>a98083f01343ef002ea1b2566144b074</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2018-11-05 22:59:52</sys_updated_on>
-        <table>var__m_sys_hub_action_input_baf174c8c3c232002841b63b12d3aee4</table>
+        <sys_updated_on>2019-01-14 19:41:06</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
         <value/>
     </sys_element_mapping>
 </record_update>
