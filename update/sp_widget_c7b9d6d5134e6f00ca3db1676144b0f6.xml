@@ -25,9 +25,15 @@
 	};
 	
 	c.goSection = function(section){
+		if(section==1)
+			ga('send', 'event', "Factory - Make New Request", "Open");
+		if(section==2)
+			ga('send', 'event', "Factory - Track My Request", "Open");
+
 		$location.url("/" + c.data.portal.url_suffix + "?id=" + c.data.sp_page + '&section=' + section);
 	};
 	c.goViewItem = function(sysID){
+		ga('send', 'event', "Factory - View Request", "Open");
 		$location.url("/" + c.data.portal.url_suffix + "?id=" + c.data.sp_page + '&section=3&sys_id=' + sysID);
 	};
 	
@@ -43,23 +49,10 @@
 		return rtn;
 	};
 	
-	c.openCommunity = function(){
-		//ga('send', 'event', "Community", "Open");
-		//$location.url('?id=pip_community');
-		window.open('/community?id=community_forum&sys_id=412dd77e139017002ea1b2566144b09c');
-	};
 	c.openLogin = function(){
 		$location.url('?id=pip_login');
 	};
-	c.openAskQuestion = function() {
-		$rootScope.$broadcast('openAskQuestion', '');
-		//ga('send', 'event', "Ask Question", "Open");
-	};
-	c.openRequest = function(){
-		c.showRequest = !c.showRequest;
-		//ga('send', 'event', "Practice Request", "Open");
-	};
-	
+
 	c.getRequest = function(sysID){
 		c.server.get({ action: 'getRequest', sys_id : sysID }).then(function(response) {
 			if (response.data.success) {
@@ -462,13 +455,17 @@ footer{
   flex-wrap: nowrap;
   justify-content: space-evenly;
   flex-grow: 1;
-  height: 36px;
+  height: 52px;
   background: #D8D8D8;
-  border-radius: 18px 18px 18px 18px;
+  border-radius: 26px;
+  @media only screen and (max-width: 661px) {
+    height: 32px;
+    border-radius: 15.75px;
+  }
   .si-stage{
     display: inline-flex;
     width: 100%;
-    height: 36px;
+    height: 52px;
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
@@ -477,10 +474,14 @@ footer{
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    @media only screen and (max-width: 661px) {
+      height: 32px;
+    }
+    
     .si-label{
-      height: 18px;
+      height: 22px;
       color: #2C3E51;
-      font-size: 12px;
+      font-size: 18px;
       font-weight: 600;
       margin: 0;
       margin-right: 15px;
@@ -497,21 +498,27 @@ footer{
       color: #2C3E51;
     }
     .si-assigned{
-      width: 18px;
-      height: 18px;
+      width: 26px;
+      height: 26px;
       background-color: #9B9B9B;
       border-radius: 50%;
       margin:0;
       margin-right: 12px;
-      @media only screen and (max-width: 475px) {
+      @media only screen and (max-width: 661px) {
+        height: 20px;
+        width: 20px;
         margin-left: 65%;
         margin-right: unset;
       }
       .si-avatar{
-				height: 18px;
+				height: 26px;
         width: auto;
         border-radius: 50%;
-        margin-top: -8px;
+        @media only screen and (max-width: 661px) {
+          height: 20px;
+          position: relative;
+          top: -2px;
+        }
       }
     }
     .si-assigned-current{
@@ -529,12 +536,21 @@ footer{
     background-color: #72D0E2;
   }
   .si-current-first{
-    border-top-left-radius: 18px;
-    border-bottom-left-radius: 18px;
+    border-top-left-radius: 26px;
+    border-bottom-left-radius: 26px;
+    @media only screen and (max-width: 661px) {
+      border-top-left-radius: 15.75px;
+      border-bottom-left-radius: 15.75px;
+    }
+
   }
   .si-current-last{
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-top-right-radius: 26px;
+    border-bottom-right-radius: 26px;
+    @media only screen and (max-width: 661px) {
+      border-top-right-radius: 15.75px;
+      border-bottom-right-radius: 15.75px;
+    }
   }
   
 }
@@ -556,7 +572,6 @@ footer{
   .si-progress-label{
     width: 100%;
     height: 36px;
-    
     margin: 0;
     margin-right: 45px;
     background-color: transparent;
@@ -616,8 +631,9 @@ footer{
 		url_suffix : portal.getDisplayValue('url_suffix')
 	};
 
+	data.examples_wgt = $sp.getWidget('si-factory-examples');
 	//Google Analytics - TBD
-	//data.gahj = $sp.getWidget('pip-gahj');
+	data.gahj = $sp.getWidget('pip-gahj');
 
 	//If specific catalog item param
 	data.catalog_item = $sp.getParameter('catalog_item');
@@ -850,7 +866,7 @@ footer{
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>741</sys_mod_count>
+        <sys_mod_count>755</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -858,8 +874,11 @@ footer{
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-07 18:32:31</sys_updated_on>
-        <template><![CDATA[<div class='si-container'>
+        <sys_updated_on>2019-01-15 19:29:22</sys_updated_on>
+        <template><![CDATA[<div ng-if='c.data.gahj'>
+  <sp-widget widget="c.data.gahj"></sp-widget>
+</div>
+<div class='si-container'>
   <div id='divHero' class='div-hero' style='background-image: url({{hero.img}});'></div>
   <div id='heroOverlay' class='hero-overlay'>
     <div class='hero-content'>
@@ -892,6 +911,11 @@ footer{
             <button class='btn-factory' role='button' ng-click='c.goSection(1)'>Make a new Request</button>
             <button class='btn-factory' role='button' ng-click='c.goSection(2)'>Track a Request</button>  
           </div>
+        </div>
+      </div>
+      <div class='copy-content'>
+        <div class='col-xs-12 col-md-12'>
+          <sp-widget widget="c.data.examples_wgt"></sp-widget>
         </div>
       </div>
       <div class='copy-content'>
