@@ -16,46 +16,17 @@
         <sys_created_on>2019-01-08 17:09:46</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9254efb21332a7002ea1b2566144b0e4</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name/>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_hub_flow_logic_9254efb21332a7002ea1b2566144b0e4</sys_update_name>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-14 20:00:03</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-01-17 14:46:59</sys_updated_on>
         <ui_id>2490e060-e504-43e7-bafc-2eb206d63f0f</ui_id>
         <workflow_inputs/>
         <workflow_reference/>
     </sys_hub_flow_logic>
-    <sys_variable_value action="delete_multiple" query="document_key=9254efb21332a7002ea1b2566144b0e4"/>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_hub_flow_logic</document>
-        <document_key>9254efb21332a7002ea1b2566144b0e4</document_key>
-        <order>20</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
-        <sys_id>1654efb21332a7002ea1b2566144b0e7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-08 17:09:46</sys_updated_on>
-        <value>{{99369330-11c8-4e1b-8687-531f051b62ae.approval_state}}=rejected</value>
-        <variable display_value="">9a5f5105c32632002841b63b12d3ae46</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_hub_flow_logic</document>
-        <document_key>9254efb21332a7002ea1b2566144b0e4</document_key>
-        <order>10</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
-        <sys_id>d654efb21332a7002ea1b2566144b0e7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-08 17:09:46</sys_updated_on>
-        <value>Rejected</value>
-        <variable display_value="">f0af19c1c32632002841b63b12d3aea3</variable>
-    </sys_variable_value>
 </record_update>
