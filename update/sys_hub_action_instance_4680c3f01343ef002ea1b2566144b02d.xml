@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_action_instance">
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
+        <action_inputs/>
         <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
         <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
         <comment/>
@@ -25,4 +26,70 @@
         <sys_updated_on>2019-01-14 19:59:54</sys_updated_on>
         <ui_id>8c0ec36c-cf26-4501-8dce-4bb7fa3c0147</ui_id>
     </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=4680c3f01343ef002ea1b2566144b02d"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>4680c3f01343ef002ea1b2566144b02d</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-14 19:41:08</sys_created_on>
+        <sys_id>4a80c3f01343ef002ea1b2566144b033</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-14 19:41:08</sys_updated_on>
+        <value>sc_req_item</value>
+        <variable display_value="">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>4680c3f01343ef002ea1b2566144b02d</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-14 19:41:08</sys_created_on>
+        <sys_id>8680c3f01343ef002ea1b2566144b033</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-14 19:56:25</sys_updated_on>
+        <value>x_snc_intake_in_review_completed_on=javascript: new GlideDate();^state=2</value>
+        <variable display_value="">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=4680c3f01343ef002ea1b2566144b02d"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>4680c3f01343ef002ea1b2566144b02d</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-14 19:41:08</sys_created_on>
+        <sys_id>4280c3f01343ef002ea1b2566144b033</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-14 19:41:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Service Catalog_1.request_item}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>4680c3f01343ef002ea1b2566144b02d</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-14 19:41:08</sys_created_on>
+        <sys_id>8e80c3f01343ef002ea1b2566144b032</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-14 19:41:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>4680c3f01343ef002ea1b2566144b02d</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-14 19:41:08</sys_created_on>
+        <sys_id>0680c3f01343ef002ea1b2566144b033</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-14 19:41:08</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
 </record_update>

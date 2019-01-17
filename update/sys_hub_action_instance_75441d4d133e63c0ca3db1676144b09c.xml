@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_action_instance">
     <sys_hub_action_instance action="INSERT_OR_UPDATE">
         <action_inputs/>
+        <action_inputs/>
         <action_type display_value="Wait For Condition">d3f92c160b10030085c083eb37673a7f</action_type>
         <action_type_parent/>
         <comment/>
@@ -25,4 +26,134 @@
         <sys_updated_on>2019-01-14 20:00:00</sys_updated_on>
         <ui_id>e2afea3d-1580-4c86-bd1b-08345bbed662</ui_id>
     </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=75441d4d133e63c0ca3db1676144b09c"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>75441d4d133e63c0ca3db1676144b09c</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:10:57</sys_created_on>
+        <sys_id>71441d4d133e63c0ca3db1676144b0b0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:10:57</sys_updated_on>
+        <value>sc_req_item</value>
+        <variable display_value="">36f9a8160b10030085c083eb37673af3</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>75441d4d133e63c0ca3db1676144b09c</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:27</sys_created_on>
+        <sys_id>9c5d510d137e63c0ca3db1676144b06d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:50:27</sys_updated_on>
+        <value>sc_req_item</value>
+        <variable display_value="">1ff92c160b10030085c083eb37673a81</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>75441d4d133e63c0ca3db1676144b09c</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:10:57</sys_created_on>
+        <sys_id>b9441d4d133e63c0ca3db1676144b0af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:10:57</sys_updated_on>
+        <value>state=2</value>
+        <variable display_value="">c7f92c160b10030085c083eb37673a49</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>75441d4d133e63c0ca3db1676144b09c</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:27</sys_created_on>
+        <sys_id>d45d510d137e63c0ca3db1676144b06d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-14 19:34:08</sys_updated_on>
+        <value>state=2^assigned_toISNOTEMPTY</value>
+        <variable display_value="">5ff92c160b10030085c083eb37673ac1</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=75441d4d133e63c0ca3db1676144b09c"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>75441d4d133e63c0ca3db1676144b09c</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:10:57</sys_created_on>
+        <sys_id>bd441d4d133e63c0ca3db1676144b0ae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:10:57</sys_updated_on>
+        <table>var__m_sys_hub_action_input_8bb9a8160b10030085c083eb37673aec</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>conditions</field>
+        <id>75441d4d133e63c0ca3db1676144b09c</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:27</sys_created_on>
+        <sys_id>d85d510d137e63c0ca3db1676144b06c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:50:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_d3f92c160b10030085c083eb37673a7f</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>75441d4d133e63c0ca3db1676144b09c</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:10:57</sys_created_on>
+        <sys_id>39441d4d133e63c0ca3db1676144b0af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:10:57</sys_updated_on>
+        <table>var__m_sys_hub_action_input_8bb9a8160b10030085c083eb37673aec</table>
+        <value>{{Service Catalog_1.request_item}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>75441d4d133e63c0ca3db1676144b09c</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:27</sys_created_on>
+        <sys_id>545d510d137e63c0ca3db1676144b06d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:50:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_d3f92c160b10030085c083eb37673a7f</table>
+        <value>{{Service Catalog_1.request_item}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>75441d4d133e63c0ca3db1676144b09c</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:10:57</sys_created_on>
+        <sys_id>75441d4d133e63c0ca3db1676144b0af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:10:57</sys_updated_on>
+        <table>var__m_sys_hub_action_input_8bb9a8160b10030085c083eb37673aec</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>75441d4d133e63c0ca3db1676144b09c</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-02 20:50:27</sys_created_on>
+        <sys_id>905d510d137e63c0ca3db1676144b06d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-02 20:50:27</sys_updated_on>
+        <table>var__m_sys_hub_action_input_d3f92c160b10030085c083eb37673a7f</table>
+        <value/>
+    </sys_element_mapping>
 </record_update>
