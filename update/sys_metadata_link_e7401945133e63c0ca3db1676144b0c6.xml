@@ -14,18 +14,18 @@
         <exclude_manager>false</exclude_manager>
         <hourly_rate>0</hourly_rate>
         <include_members>false</include_members>
-        <manager display_value="Joe Wilmoth">dc4482340faf21003494bd5be1050eb3</manager>
+        <manager/>
         <name>Solution Innovation Factory Development</name>
-        <parent/>
+        <parent display_value="Solution Innovation Factory Managers" name="Solution Innovation Factory Managers">ba21d945133e63c0ca3db1676144b054</parent>
         <points/>
         <roles/>
         <source/>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2018-11-16 20:32:56</sys_created_on>
         <sys_id>cd669739137da3004b063192e144b0ce</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-02 19:51:44</sys_updated_on>
+        <sys_updated_on>2019-01-02 19:58:40</sys_updated_on>
         <type/>
         <u_correlation_display/>
         <u_correlation_id/>
@@ -41,7 +41,7 @@
         <sys_created_on>2019-01-02 19:53:36</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>e7401945133e63c0ca3db1676144b0c6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Solution Innovation Factory Development</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -49,7 +49,7 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_metadata_link_e7401945133e63c0ca3db1676144b0c6</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-02 19:53:36</sys_updated_on>
+        <sys_updated_on>2019-01-17 14:38:13</sys_updated_on>
         <tablename>sys_user_group</tablename>
     </sys_metadata_link>
 </record_update>

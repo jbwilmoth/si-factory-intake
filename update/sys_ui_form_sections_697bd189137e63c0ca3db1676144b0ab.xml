@@ -13,19 +13,6 @@
             <sys_updated_by>joe.wilmoth</sys_updated_by>
             <sys_updated_on>2019-01-02 20:42:21</sys_updated_on>
         </sys_ui_form_section>
-        <sys_ui_form_section action="INSERT_OR_UPDATE">
-            <position>1</position>
-            <sys_created_by>joe.wilmoth</sys_created_by>
-            <sys_created_on>2019-01-02 20:42:21</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_id>757bd189137e63c0ca3db1676144b0af</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_overrides/>
-            <sys_ui_form display_value="sc_req_item" name="sc_req_item" sys_domain="global" view="197b5189137e63c0ca3db1676144b02b">697bd189137e63c0ca3db1676144b0ab</sys_ui_form>
-            <sys_ui_section caption="New Section" display_value="New Section" name="sc_req_item" sys_domain="global" view="197b5189137e63c0ca3db1676144b02b">e57b5189137e63c0ca3db1676144b030</sys_ui_section>
-            <sys_updated_by>joe.wilmoth</sys_updated_by>
-            <sys_updated_on>2019-01-02 20:42:21</sys_updated_on>
-        </sys_ui_form_section>
         <sys_ui_form action="INSERT_OR_UPDATE">
             <name>sc_req_item</name>
             <roles/>
