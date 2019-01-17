@@ -29,33 +29,4 @@
         <workflow_inputs/>
         <workflow_reference/>
     </sys_hub_flow_logic>
-    <sys_variable_value action="delete_multiple" query="document_key=d254efb21332a7002ea1b2566144b0ce"/>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_hub_flow_logic</document>
-        <document_key>d254efb21332a7002ea1b2566144b0ce</document_key>
-        <order>10</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
-        <sys_id>9254efb21332a7002ea1b2566144b0d3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-08 17:09:46</sys_updated_on>
-        <value>Approved</value>
-        <variable display_value="">f0af19c1c32632002841b63b12d3aea3</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_hub_flow_logic</document>
-        <document_key>d254efb21332a7002ea1b2566144b0ce</document_key>
-        <order>20</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2019-01-08 17:09:46</sys_created_on>
-        <sys_id>da54efb21332a7002ea1b2566144b0d2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-08 17:09:46</sys_updated_on>
-        <value>{{99369330-11c8-4e1b-8687-531f051b62ae.approval_state}}=approved</value>
-        <variable display_value="">9a5f5105c32632002841b63b12d3ae46</variable>
-    </sys_variable_value>
 </record_update>

@@ -812,10 +812,10 @@ footer{
 				while(grVar.next()){
 					var objVars = {};
 					$sp.getRecordElements(objVars, grVar, 'sys_id,order,item_option_new,item_option_new.name,value');
+					
 					if(objVars['item_option_new.name'].value == 'account'){
 						var acct = getAccount(objVars.value.display_value);
-						objVars.value.display_value = acct;
-						objVars.value.value = acct;
+						data.single_req.account = acct;
 					}
 					variables.push( objVars );
 				}
@@ -866,7 +866,7 @@ footer{
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>755</sys_mod_count>
+        <sys_mod_count>756</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -874,7 +874,7 @@ footer{
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-15 19:29:22</sys_updated_on>
+        <sys_updated_on>2019-01-17 13:01:13</sys_updated_on>
         <template><![CDATA[<div ng-if='c.data.gahj'>
   <sp-widget widget="c.data.gahj"></sp-widget>
 </div>
