@@ -49,7 +49,7 @@
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2019-01-04 16:53:44</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>d05af62913f62300ca3db1676144b0e2</sys_id>
+        <sys_id>1628e53d134327402ea1b2566144b07f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Development Completed On</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
@@ -57,8 +57,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_dictionary_sc_req_item_x_snc_intake_development_completed_on</sys_update_name>
-        <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-04 16:53:44</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-01-17 15:49:01</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

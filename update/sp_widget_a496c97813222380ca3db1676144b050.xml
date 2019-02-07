@@ -2,13 +2,18 @@
     <sp_widget action="INSERT_OR_UPDATE">
         <category>standard</category>
         <client_script><![CDATA[function spTicketConversation($scope, nowAttachmentHandler, $animate, $rootScope, cabrillo, $timeout, snRecordWatcher, spUtil, spAriaUtil, $http, $window) {
+	//var c = this;
+
 	$scope.showLocationIcon = false;
 	$scope.msg = "";
 	$scope.isNative = cabrillo.isNative();
 	$scope.errorMessages = [];
-	var existingEntries = {}
+	var existingEntries = {};
 	var skipNextRecordWatchUpdate = false;
 	$scope.typing = [];
+	
+console.log($scope.data)	
+	
 	if (!$scope.data.hasReadableJournalField && !$scope.data.isNewRecord)
 		console.warn("No readable journal field (comments, work notes, etc.) available in the stream for this record");
 	if ($scope.page && $scope.page.g_form)
@@ -35,7 +40,7 @@
 
 	$scope.getLiveProfileByUserId = function (userId){
 		return liveProfiles[userId];
-	}
+	};
 
 	var pending = {};
 
@@ -56,7 +61,7 @@
 			});
 			return false;
 		}
-	}
+	};
 
 	function buildInitials(name) {
 		if (!name)
@@ -90,7 +95,7 @@
 
 		$timeout(function() {
 			$scope.attachmentHandler.setParams($scope.data.table, $scope.data.sys_id, 1024 * 1024 * $scope.data.maxAttachmentSize);
-		})
+		});
 	}
 	setupAttachmentHandler();
 
@@ -98,6 +103,7 @@
 	$scope.$on('record.updated', function(name, data) {
 		// Use record watcher update if:
 		//	This record was updated AND This widget didn't trigger the update.
+		
 		if (data.table_name == $scope.data.table && data.sys_id == $scope.data.sys_id){
 			$timeout.cancel(recordWatcherTimer);
 			recordWatcherTimer = $timeout(function(){
@@ -123,12 +129,12 @@
 				return;
 
 			$scope.typing.push(session);
-		})
-	})
+		});
+	});
 
 	$scope.$on('sp.conversation_title.changed', function(evt, text) {
 		$scope.data.ticketTitle = text;
-	})
+	});
 
 	$scope.$watch("data.canWrite", function() {
 		$rootScope.$broadcast("sp.record.can_write", $scope.data.canWrite);
@@ -199,28 +205,30 @@
 			colorCache[jf[i].name] = jf[i].color || defaultColor;
 		}
 		return $scope.getFieldColor(fieldName);
-	}
+	};
 
 	$scope.checkInLocation = function() {
 		$rootScope.$broadcast("check_in_location");
 		$rootScope.$broadcast("location.sharing.start");
-	}
+	};
 
 	$scope.$on("location.sharing.end", function() {
-		$timeout(function() {$scope.msg = ""}, 500);
-	})
+		$timeout(function(){
+			$scope.msg = "";
+		}, 500);
+	});
 
 	$scope.$on("location.sharing.start", function() {
 		$scope.msg = $scope.data.sharingLocMsg;
-	})
+	});
 
 	$scope.scanBarcode = function() {
 		$rootScope.$broadcast("scan_barcode");
-	}
+	};
 
 	$scope.$on("attachment.upload.start", function() {
 		$scope.msg = $scope.data.uploadingAttachmentMsg;
-	})
+	});
 
 	$scope.$on("attachment.upload.stop", function() {
 		$scope.msg = "";
@@ -231,12 +239,9 @@
 	});
 
 	$scope.data.isPosting = false;
-
-	$scope.postEntry = function(input) {
-		post(input);
-	};
-
+	
 	function post(input) {
+
 		if ($scope.data.isPosting)
 			return;
 
@@ -250,35 +255,38 @@
 		if($scope.data.useSecondaryJournalField){
 			$scope.data.journalEntryField = $scope.data.secondaryJournalField.name;
 		}
-		
+
 		$scope.data.isPosting = true;
-console.log($scope)		
-		spUtil.update($scope).then(function(){
+
+		$scope.server.get({ action: 'journal', table: $scope.data.table, sys_id: $scope.data.sys_id, entry: $scope.data.journalEntry }).then(function(r){
+
 			
 			$scope.data.isPosting = false;
-			reset();
+			
 			spAriaUtil.sendLiveMessage($scope.data.messagePostedMsg);
 			$timeout(function() {
 				$scope.setFocus(); // sets focus back on input, defined in "link"
 			});
-			
+
 		});
 		skipNextRecordWatchUpdate = true;
 		$scope.setFocus(); // sets focus back on input, defined in "link"
 	}
-
+	$scope.postEntry = function(input) {
+		post(input);
+	};
 	var reset = function(){
 		$scope.userTyping("");
 		$scope.data.journalEntry = "";
 		$scope.updateFormWithJournalFields();
 		$scope.data.useSecondaryJournalField = false;
 		$scope.data.journalEntryField = "";
-	}
+	};
 
 	$scope.keyPress = function(event) {
 		if ($scope.data.isPosting)
 			return;
-		
+
 		if (event.keyCode === 13 && !event.shiftKey) {
 			event.preventDefault();
 			$timeout(function() {
@@ -286,7 +294,7 @@ console.log($scope)
 					$scope.postEntry($scope.data.journalEntry);
 			}, 250);
 		}
-	}
+	};
 
 	$scope.userTyping = function(input) {
 		var status = "viewing";
@@ -295,7 +303,34 @@ console.log($scope)
 
 		$scope.$emit("record.typing", {status: status, value: input, table: $scope.data.table, sys_id: $scope.data.sys_id});
 		$scope.updateFormWithJournalFields();
-	}
+	};
+	
+	spUtil.recordWatch($scope, $scope.data.table, "sys_id=" + $scope.data.sys_id, function(event, data) {
+		console.log(event.data);
+		if(event.data.action==='change'){
+			if(event.data.changes.length==0){
+				$scope.server.get({
+					action: 'getComments',
+					table: $scope.data.table,
+					sys_id: $scope.data.sys_id
+				}).then(function (r) {
+					$scope.data.stream = r.data.stream;
+					reset();
+				});
+			}
+		}
+		if(event.data.changes.includes('comments')){
+			$scope.server.get({
+				action: 'getComments',
+				table: $scope.data.table,
+				sys_id: $scope.data.sys_id
+			}).then(function (r) {
+				$scope.data.stream = r.data.stream;
+				reset();
+			});
+		}
+	});
+
 	$scope.updateFormWithJournalFields = function () {
 		var fieldName, fieldToClear = "";
 		if ($scope.data.useSecondaryJournalField) {
@@ -306,7 +341,7 @@ console.log($scope)
 			fieldToClear = "";
 		}
 		$scope.$emit("activity_stream_is_changed", {"fieldName": fieldName, "fieldToClear": fieldToClear, "input": $scope.data.journalEntry});
-	}
+	};
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>$btn-background-color: rgba(167, 212, 223, 1);
@@ -430,38 +465,46 @@ ul {
 }
 </css>
         <data_table>sp_instance</data_table>
-        <demo_data>{"options": {
-	"sys_id": -1,
-		"table": "incident"
-	}
-}</demo_data>
+        <demo_data/>
         <description/>
         <docs/>
         <field_list/>
         <has_preview>false</has_preview>
         <id>si-factory-conversation</id>
         <internal>false</internal>
-        <link><![CDATA[function(scope, elm) {
+        <link><![CDATA[function spTicketConversationLink(scope, elm) {
 	// Set the focus back on the input for IE11
 	scope.setFocus = function() {
 		var input = $(elm[0]).find('textarea#post-input');
 		if (input[0])
 			input[0].focus();
-	}
+	};
 }]]></link>
         <name>SI - Factory Work Conversation</name>
         <option_schema>[{"hint":"Placeholder text shows selected journal field","name":"use_dynamic_placeholder","section":"Behavior","label":"Use dynamic placeholder","type":"boolean"},{"hint":"Message to show when record has no readable journal field","name":"no_readable_journal_field_message","default_value":"","section":"Presentation","label":"No readable journal field message","type":"string"}]</option_schema>
         <public>false</public>
-        <roles>snc_external,snc_internal</roles>
-        <script><![CDATA[(function() {
-	data.sys_id = $sp.getParameter("sys_id") || options.sys_id;
-	
-	if(!data.sys_id)
-		return;
-	
+        <roles>snc_internal</roles>
+        <script><![CDATA[(function(){
+	data.req_id = $sp.getParameter("req_id") || undefined;
+	data.sys_id = $sp.getParameter("sys_id") || undefined;
+	data.table = $sp.getParameter("table") || 'sc_req_item';
+
+	data.hasWritableJournalField = false;
+	data.hasReadableJournalField = false;
+
+	data.no_readable_journal_field_message = gs.getMessage("No readable comment field");
+
+	data.placeholder = gs.getMessage("Type your message here...");
+	data.placeholderNoEntries = gs.getMessage("Type your message here...");
+	data.btnLabel = gs.getMessage("Send");
+	data.useSecondaryJournalField = false;
+	data.includeExtended = false;
+	data.use_dynamic_placeholder = false;
+
 	data.maxAttachmentSize = parseInt(gs.getProperty("com.glide.attachment.max_size", 1024));
-	if (isNaN(data.maxAttachmentSize))
+	if (isNaN(data.maxAttachmentSize)){
 		data.maxAttachmentSize = 24;
+	}
 	data.uploadingAttachmentMsg = gs.getMessage("Uploading attachment...");
 	data.sharingLocMsg = gs.getMessage("Sharing location...");
 	data.scanBarcodeMsg = gs.getMessage("Scan barcode");
@@ -470,103 +513,135 @@ ul {
 	data.viewMsg = gs.getMessage("View");
 	data.attachAddedMsg = gs.getMessage("Attachment added");
 	data.attachFailMsg = gs.getMessage("Failed to add attachment");
-	
-	
-	
-	data.table = 'sc_req_item'; //input.table || options.table || $sp.getParameter("table");
-	// don't use options.title unless sys_id and table also come from options
-	if (options && options.sys_id && options.table)
-		data.ticketTitle = options.title;
-	data.placeholder = options.placeholder || gs.getMessage("Type your message here...");
-	data.placeholderNoEntries = options.placeholderNoEntries || gs.getMessage("Type your message here...");
-	data.btnLabel = options.btnLabel || gs.getMessage("Send");
-	data.includeExtended = options.includeExtended || false;
-	data.use_dynamic_placeholder = options.use_dynamic_placeholder;
 
-	var gr = new GlideRecord(data.table);
-	if (!gr.isValid())
-		return;
-
-	gr.get(data.sys_id);
-	if (!gr.canRead())
-		return;
-
-	data.isNewRecord = data.sys_id == -1 || gr.isNewRecord();
-	
-	data.table = gr.getRecordClassName(); // use actual table for the record
-	options.no_readable_journal_field_message = options.no_readable_journal_field_message || gs.getMessage("No readable comment field");
-	data.number = gr.getDisplayValue('number');
-	data.created_on = gr.getValue('sys_created_on');
-
-	if (input) { // if we have input then we're saving
-		if (input.journalEntry && input.journalEntryField){
-			if (gr.canWrite(input.journalEntryField)){
-				
-//---> Not allowed in scope app
-// gr.setDisplayValue(input.journalEntryField, input.journalEntry);
-//---> Changing to be hard set to the comments field
-				gr.comments.setDisplayValue(input.journalEntry);
-				
-				gr.update();
-				$sp.logStat('Comments', data.table, data.sys_id, input.journalEntry);
-			}
-		}
-		data.ticketTitle = input.ticketTitle;
-		data.placeholder = input.placeholder;
-		data.btnLabel = input.btnLabel;
-		data.includeExtended = input.includeExtended;
-	} else {
-		if (!data.ticketTitle) {
-			if (gr.short_description.canRead())
-				data.ticketTitle = gr.getDisplayValue("short_description");
-			if (!data.ticketTitle)
-				data.ticketTitle = data.number;
-		}
-
-		$sp.logStat('Task View', data.table, data.sys_id);
-	}
-
-	data.canWrite = gr.canWrite();
-	//Get error with below
-	//data.canAttach = gs.hasRole(gs.getProperty("glide.attachment.role")) && GlideTableDescriptor.get(data.table).getED().getAttribute("no_attachment") != "true";
-	//Modified for now
-	data.canAttach = gs.hasRole(gs.getProperty("glide.attachment.role"));
-	data.canRead = gr.canRead();
-	data.hasWritableJournalField = false;
-	data.hasReadableJournalField = false;
-	if (data.canRead && !data.isNewRecord) {
-		data.stream = $sp.getStream(data.table, data.sys_id);
-		// Journal fields come in correct order already
-		// so grab the first 2 writeable fields
-		if ('journal_fields' in data.stream) {
-			var jf = data.stream.journal_fields;
-			for(var i=0; i < jf.length; i++){
-				if (jf[i].can_read === true)
-					data.hasReadableJournalField = true;
-				if (jf[i].can_write === true){
-					data.hasWritableJournalField = true;
-					if (!data.primaryJournalField)
-						data.primaryJournalField = jf[i];
-					else if (data.includeExtended && !data.secondaryJournalField)
-						data.secondaryJournalField = jf[i];
-					else
-						break;
+	if(input && Object.keys(input).length > 0) {
+		if(input.action === 'getComments'){
+			data.stream = $sp.getStream(input.table, input.sys_id);
+			// Journal fields come in correct order already
+			// so grab the first 2 writeable fields
+			if ('journal_fields' in data.stream) {
+				var jf = data.stream.journal_fields;
+				for(var i=0; i < jf.length; i++){
+					if (jf[i].can_read === true)
+						data.hasReadableJournalField = true;
+					if (jf[i].can_write === true){
+						data.hasWritableJournalField = true;
+						if (!data.primaryJournalField){
+							data.primaryJournalField = jf[i];
+						}else if (data.includeExtended && !data.secondaryJournalField){
+							data.secondaryJournalField = jf[i];
+						}else{
+							break;
+						}
+					}
 				}
 			}
 		}
+		if(input.action === 'journal'){
 
+			data.journalEntryPosted = false;
+
+			data.sys_id = input.sys_id
+
+			var grItem = new GlideRecord(input.table);
+			grItem.get(input.sys_id);
+
+			var canWrite = grItem.canWrite('comments');
+
+			if (input.entry && canWrite){
+				grItem.comments = input.entry;
+				grItem.update();
+				
+				data.journalEntryPosted = true;
+
+				$sp.logStat('Factory Comment Made', input.table, input.sys_id, input.entry, input.entry );
+			}
+		}
+	}
+	
+	if(data.sys_id || data.req_id){
+
+
+		var grReqItem = new GlideRecord(data.table);
+		if(grReqItem.isValid()){
+			if(data.sys_id){
+				grReqItem.addQuery('sys_id',data.sys_id);
+			}else{
+				grReqItem.addQuery('request.sys_id',data.req_id);
+			}
+			grReqItem.query()
+			if(grReqItem.next()){
+				data.sys_id = grReqItem.getUniqueValue();
+				data.canRead = grReqItem.canRead();
+				data.canWrite = grReqItem.canWrite();
+				//Get error with below
+				//data.canAttach = gs.hasRole(gs.getProperty("glide.attachment.role")) && GlideTableDescriptor.get(data.table).getED().getAttribute("no_attachment") != "true";
+				//Modified for now
+				data.canAttach = gs.hasRole(gs.getProperty("glide.attachment.role"));
+
+				if(data.canRead){
+					$sp.logStat('Factory Item Viewed', data.table, data.sys_id);
+					data.isNewRecord = data.sys_id == -1 || grReqItem.isNewRecord();
+					//data.table = gr.getRecordClassName(); // use actual table for the record
+
+					data.number = grReqItem.getDisplayValue('number');
+					data.created_on = grReqItem.getValue('sys_created_on');
+
+					if(!data.ticketTitle){
+						if(grReqItem.short_description.canRead()){
+							data.ticketTitle = grReqItem.getDisplayValue("short_description");
+						}
+						if(!data.ticketTitle){
+							data.ticketTitle = data.number;
+						}
+					}
+
+
+					if(!data.isNewRecord){
+						data.stream = $sp.getStream(data.table, data.sys_id);
+						// Journal fields come in correct order already
+						// so grab the first 2 writeable fields
+						if ('journal_fields' in data.stream) {
+							var jf = data.stream.journal_fields;
+							for(var i=0; i < jf.length; i++){
+								if (jf[i].can_read === true)
+									data.hasReadableJournalField = true;
+								if (jf[i].can_write === true){
+									data.hasWritableJournalField = true;
+									if (!data.primaryJournalField){
+										data.primaryJournalField = jf[i];
+									}else if (data.includeExtended && !data.secondaryJournalField){
+										data.secondaryJournalField = jf[i];
+									}else{
+										break;
+									}
+								}
+							}
+						}
+					}
+					data.tableLabel = grReqItem.getLabel();
+				}else{
+					return;
+				}				
+			}else{
+				return;
+			}
+		}else{
+			return;
+		}
+	}else{
+		return;
 	}
 
-	data.tableLabel = gr.getLabel();
 
-})()]]></script>
+})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>chris.stoll</sys_created_by>
         <sys_created_on>2018-12-20 14:16:53</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a496c97813222380ca3db1676144b050</sys_id>
-        <sys_mod_count>47</sys_mod_count>
+        <sys_mod_count>143</sys_mod_count>
         <sys_name>SI - Factory Work Conversation</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -574,7 +649,7 @@ ul {
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_a496c97813222380ca3db1676144b050</sys_update_name>
         <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-04 14:43:28</sys_updated_on>
+        <sys_updated_on>2019-01-30 18:20:10</sys_updated_on>
         <template><![CDATA[<div class='convo-container'>
   <div ng-if="!data.canRead && !data.isNewRecord">
     ${Requested record not found}

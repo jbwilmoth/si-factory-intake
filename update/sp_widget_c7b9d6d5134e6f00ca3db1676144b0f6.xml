@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function siFactory($rootScope, $scope, $location, $timeout, $http, spUtil, $sanitize, $window, $sce, i18n, $log ) {
+        <client_script><![CDATA[function siFactory($rootScope, $scope, $location, $timeout, $http, spUtil, $sanitize, $window, $sce, i18n, $log, spUtil ) {
 	/* widget controller */
 	var c = this;
-
+	
+	$scope.single_req = c.data.single_req;
+	
 	c.params = $location.search();
 	c.only_user = true;
 
@@ -21,8 +23,53 @@
 			if($rootScope.feedbackExists){
 				$rootScope.$broadcast('feedbackExists');
 			}
+/*			
+			if(c.data.request.sys_id || c.data.request.req_id){
+				
+				
+				c.data.fields = ("opened_at,opened_by,assigned_to,stage,state,due_date,estimated_delivery,x_snc_intake_in_review_completed_on,x_snc_intake_assigned_completed_on,x_snc_intake_development_completed_on,x_snc_intake_completed_on").split(',');	
+				
+				var q = "sys_id=" + c.data.request.sys_id;
+				if(c.data.request.sys_id==null){
+					q = "request=" + c.data.request.req_id;
+				}
+				
+				spUtil.recordWatch($scope, "sc_req_item", q, function(event, data) {
+console.log('~~~ Record Watch ~~~');
+console.log(event.data)					
+					var process = false;
+					
+					for(var f in c.data.fields){
+						if(event.data.changes.includes(c.data.fields[f])){
+							f = c.data.fields.length;
+							process = true;
+						}
+					}
+					if(process){
+						c.server.get({
+							action: 'getRequest',
+							sys_id: c.data.request.sys_id,
+							req_id: c.data.request.req_id
+						}).then(function (r) {
+
+							try{
+								$scope.single_req = r.data.single_req;
+console.log('~~~ Processed Record ~~~');
+console.log($scope.single_req)					
+								
+							}catch(e){
+								console.log(e);
+							}
+						});
+					}
+				});
+				
+			}
+*/			
 		});
 	};
+	
+	
 	
 	c.goSection = function(section){
 		if(section==1)
@@ -57,7 +104,7 @@
 		c.server.get({ action: 'getRequest', sys_id : sysID }).then(function(response) {
 			if (response.data.success) {
 				$timeout(function(){
-					c.data.single_req = response.data.single_req;
+					$scope.single_req = response.data.single_req;
 				});
 			}
 		});
@@ -441,7 +488,7 @@ footer{
 .si-title-small{
   display: inline-flex;
   text-transform: uppercase;
-  font-size: 10.8px;
+  font-size: 13px;
   font-weight: 600;
   height: 13px;
   margin-bottom: unset;
@@ -484,7 +531,7 @@ footer{
       font-size: 18px;
       font-weight: 600;
       margin: 0;
-      margin-right: 15px;
+      margin-right: 20px;
       width: calc( 100% - 42px );
       background-color: transparent;
       text-transform: uppercase;
@@ -511,18 +558,22 @@ footer{
         margin-right: unset;
       }
       .si-avatar{
-				height: 26px;
+				height: 52px;
         width: auto;
         border-radius: 50%;
+        position: relative;
+        top: -13px;
+        right: 12.5px;
         @media only screen and (max-width: 661px) {
-          height: 20px;
+          height: 32px;
           position: relative;
-          top: -2px;
+          top: -6px;
+          right: -2px;
         }
       }
     }
     .si-assigned-current{
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: transparent; //rgba(255, 255, 255, 0.7);
     }
     .si-assigned-complete{
       background-color: #00839C;
@@ -618,8 +669,6 @@ footer{
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-	/* populate the 'data' object */
-	/* e.g., data.table = $sp.getValue('table'); */
 
 	//Prep for and get information about the current portal content - SI - Factory
 	data.site_content = [];
@@ -646,7 +695,14 @@ footer{
 	var sys_id = $sp.getParameter('sys_id');
 	var section = $sp.getParameter('section');
 	var req_id = $sp.getParameter('req_id');
+	data.request = {
+		sys_id : sys_id,
+		section : section,
+		req_id : req_id
+	}
 
+	
+	
 	//SI - Factory Catalog Data
 	data.factory_catalog = { 
 		sys_id : '1312da9e132d27004b063192e144b01e',
@@ -690,7 +746,7 @@ footer{
 	function getAvatar(sys_id){
 		var avatar = '';
 		var grAvatar = new GlideRecord('sys_user');
-		grAvatar.addQuery('sys_id',sys_id);
+		grAvatar.addQuery('sys_id',sys_id);	
 		grAvatar.query();
 		while(grAvatar.next()){
 			avatar = grAvatar.getDisplayValue('photo');
@@ -757,7 +813,7 @@ footer{
 		grReq.query();
 		while(grReq.next()){
 			var obj = {};
-			$sp.getRecordElements(obj, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date,estimated_delivery,x_snc_intake_in_review_completed_on,x_snc_intake_assigned_completed_on,x_snc_intake_development_completed_on,x_snc_intake_completed_on');
+			$sp.getRecordElements(obj, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date,estimated_delivery,x_snc_intake_dev_start_date,x_snc_intake_in_review_completed_on,x_snc_intake_assigned_completed_on,x_snc_intake_development_completed_on,x_snc_intake_completed_on');
 			obj.avatar = getAvatar(grReq.getValue('assigned_to'));
 			
 			var grVars = new GlideRecord('sc_item_option_mtom');
@@ -794,7 +850,7 @@ footer{
 		}
 		grReq.query();
 		while(grReq.next()){
-			$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date,estimated_delivery,x_snc_intake_in_review_completed_on,x_snc_intake_assigned_completed_on,x_snc_intake_development_completed_on,x_snc_intake_completed_on');
+			$sp.getRecordElements(data.single_req, grReq, 'sys_id,number,cat_item,quantity,opened_at,opened_by,assigned_to,stage,state,due_date,estimated_delivery,x_snc_intake_dev_start_date,x_snc_intake_in_review_completed_on,x_snc_intake_assigned_completed_on,x_snc_intake_development_completed_on,x_snc_intake_completed_on');
 			data.single_req.avatar = getAvatar(grReq.getValue('assigned_to'));
 			var variables = [];
 			data.single_req.variables = [];
@@ -842,7 +898,7 @@ footer{
 	//Let's Go!!	
 	if (input && Object.keys(input).length > 0) {
 		if(input.action == 'getRequest'){
-			getRequest(input.sys_id);
+			getRequest(input.sys_id,input.req_id);
 		}
 	}else{
 		getCatalog();
@@ -866,15 +922,15 @@ footer{
         <sys_created_on>2018-11-27 13:05:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c7b9d6d5134e6f00ca3db1676144b0f6</sys_id>
-        <sys_mod_count>756</sys_mod_count>
+        <sys_mod_count>790</sys_mod_count>
         <sys_name>SI - Factory</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_widget_c7b9d6d5134e6f00ca3db1676144b0f6</sys_update_name>
-        <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-17 13:01:13</sys_updated_on>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-07 18:59:06</sys_updated_on>
         <template><![CDATA[<div ng-if='c.data.gahj'>
   <sp-widget widget="c.data.gahj"></sp-widget>
 </div>
@@ -1001,7 +1057,7 @@ footer{
         <div class='col-xs-12 col-md-12'>
           <sifactorystatus data-stages="{{c.data.stages.join(',')}}"
                            data-stage-values="{{c.data.stages_value.join(',')}}"
-                           data-item="{{c.data.single_req}}"
+                           data-item="{{single_req}}"
                            data-single='true'
                            href="siFactoryStatusTemplate"></sifactorystatus>
         </div>
@@ -1009,18 +1065,18 @@ footer{
       <div class='copy-content'>
         <div class='col-xs-12 col-md-12 copy-record'>
           <div class='col-xs-12 col-md-12 details-col'>
-            <!--<div class='details' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details.value.display_value.length>0 && details["item_option_new.name"].value!="additional_info"'>
+            <!--<div class='details' ng-repeat="details in single_req.variables track by $index" ng-if='details.value.display_value.length>0 && details["item_option_new.name"].value!="additional_info"'>
               {{details.item_option_new.display_value}}<br/>
               {{details.value.display_value}}
             </div>
             -->
-            <div class='details details-block' ng-repeat="details in c.data.single_req.variables track by $index" ng-if='details["item_option_new.name"].value=="additional_info"'>
+            <div class='details details-block' ng-repeat="details in single_req.variables track by $index" ng-if='details["item_option_new.name"].value=="additional_info"'>
               Details:  <br/>
               {{details.value.display_value}}
             </div>
-            <div class='details' ng-if='c.data.single_req.attachments.length>0'>
+            <div class='details' ng-if='single_req.attachments.length>0'>
               Attachments:<br/>
-              <a class='attachment' download href='/sys_attachment.do?sys_id={{item.value}}' ng-repeat='item in c.data.single_req.attachments'>{{item.display_value}}</a>
+              <a class='attachment' download href='/sys_attachment.do?sys_id={{item.value}}' ng-repeat='item in single_req.attachments'>{{item.display_value}}</a>
             </div>
           </div>
       </div>

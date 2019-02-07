@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="hasWorkflow=true" audit="true" create_roles="catalog_admin" extends="task" label="Requested Item" max_length="40" name="sc_req_item" sizeclass="10899" text_index="true" type="collection">
+    <element attributes="hasWorkflow=true" audit="true" create_roles="catalog_admin" extends="task" label="Requested Item" max_length="40" name="sc_req_item" sizeclass="10926" text_index="true" type="collection">
         <element attributes="edge_encryption_enabled=true" label="Assigned Completed On" max_length="40" name="x_snc_intake_assigned_completed_on" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Completed On" max_length="40" name="x_snc_intake_completed_on" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Development Completed On" max_length="40" name="x_snc_intake_development_completed_on" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Dev Start Date" max_length="40" name="x_snc_intake_dev_start_date" type="string"/>
+        <element label="In Development" max_length="40" name="x_snc_intake_in_development" type="boolean"/>
         <element attributes="edge_encryption_enabled=true" label="In Review Completed On" max_length="40" name="x_snc_intake_in_review_completed_on" type="string"/>
         <element attributes="pdf_cell_type=image" label="Sales Account Logo" max_length="40" name="x_snc_intake_sales_account_logo" type="user_image"/>
     </element>

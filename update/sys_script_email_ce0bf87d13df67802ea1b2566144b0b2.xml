@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>sysapproval_approver_script_1</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[template.print("Summary of the Request:\n");  
+  var nicePrice = current.sysapproval.price.toString();
+  if (nicePrice != '') {
+      nicePrice = parseFloat(nicePrice);
+      nicePrice = nicePrice.toFixed(2);
+  }
+  template.print(current.sysapproval.number + ":  " + current.sysapproval.quantity + " X " + current.sysapproval.cat_item.getDisplayValue() + " at $" + nicePrice + " each \n");
+  template.print("    Options:\n");
+ 
+  var keys = new Array();
+  var set = new GlideappVariablePoolQuestionSet();
+  set.setRequestID(current.sysapproval);
+  set.load();
+  var vs = set.getFlatQuestions();
+  for (var i=0; i < vs.size(); i++) {
+    if(vs.get(i).getLabel() != '') {
+       template.space(4);
+       template.print('     ' +  vs.get(i).getLabel() + " = " + vs.get(i).getDisplayValue() + "\n");  
+    }
+  }]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-29 22:47:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ce0bf87d13df67802ea1b2566144b0b2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sysapproval_approver_script_1</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sys_script_email_ce0bf87d13df67802ea1b2566144b0b2</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-29 22:47:30</sys_updated_on>
+    </sys_script_email>
+</record_update>

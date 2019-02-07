@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_angular_provider">
     <sp_angular_provider action="INSERT_OR_UPDATE">
         <name>sifactorystatus</name>
-        <script><![CDATA[function siFactoryStatus($timeout){    
+        <script><![CDATA[function siFactoryStatus($timeout){
 	function formatDate(strDate){
 		var d = new Date(strDate);
 		
@@ -17,16 +17,43 @@
 		
 		return month+'.'+day+'.'+year;
 	}
+	function formatDevDate(strDate){
+		var d = new Date(strDate);
+		
+		var month = (d.getMonth()+1);
+		if(month<10){
+			month = '0'+month;
+		}
+		var day = (d.getDate()+1);
+		if(day<10){
+			day = '0' + day;
+		}
+		var year = d.getFullYear().toString().substr(2,2);
+		
+		return month+'.'+day+'.'+year;
+	}
 	return {
-		restrict: 'AE',
+		restrict: 'E',
 		templateUrl: function(element,attrs){
 			return attrs.href;
 		},
-		link: function (scope, element, attrs) {
+		link: function (scope, element, attrs, ctrl) {
+			//console.log('~~~ Link Scope ~~~');
+			//console.log(scope)
+			/*
+			scope.$watch(attrs.item,function(){
+				console.log('~~~ Attrs Item Watch ~~~');
+				console.log(attrs.item)
+			});
+ 			*/
+			
 			var randomID = Math.round((Math.random() * 100000000));
 			var stage_values = attrs.stageValues.split(',');
+			var stages = attrs.stages.split(',');
 			
 			var sys_id = attrs.ritm;
+			
+			scope.single_item = (attrs.single==='true');
 			
 			var item = JSON.parse(attrs.item);
 			
@@ -39,7 +66,7 @@
 			
 			scope.theStages = attrs.stages.split(',');
 			scope.useronly = (attrs.useronly != undefined);
-		
+			
 			scope.what = item.cat_item.display_value;
 			scope.byWhom = item.opened_by.display_value;
 			
@@ -47,28 +74,35 @@
 				scope.forAccount = item.account;
 			}
 			
-			scope.single_item = (attrs.single==='true');
+			
 			scope.first_record = (attrs.first == 'true') || (attrs.single==='true');
 			
-			scope.curStage = stage_values.indexOf(item.stage.value);
-			scope.xsStage = scope.theStages[scope.curStage];
-
-			var dev_start = 'TBD';
-			if(item.dev_start){
-				dev_start = formatDate(item.dev_start.display_value);
+			scope.curStage = 0;
+			
+			if(stage_values.indexOf(item.stage.value) != -1){
+				scope.curStage = stage_values.indexOf(item.stage.value);
+			}else if(stages.indexOf(item.stage.display_value) != -1){
+				scope.curStage = stages.indexOf(item.stage.display_value);
 			}
-
+			
+			scope.xsStage = scope.theStages[scope.curStage];
+			
+			var dev_start = 'TBD';
+			if(item.x_snc_intake_dev_start_date != ''){
+				dev_start = formatDevDate(item.x_snc_intake_dev_start_date.display_value);
+			}
+			
 			var target_date = 'TBD';
 			if(item.due_date){
 				target_date = formatDate(item.due_date.display_value);
 			}
 			
 			scope.stageLabels = [
-				'Submitted: ' + formatDate(item.opened_at.display_value),
-				'Assigned: ' + assigned_to,
-				'DEV Start: ' + dev_start,
-				'Target: ' + target_date
-			]
+			'Submitted: ' + formatDate(item.opened_at.display_value),
+			'Assigned: ' + assigned_to,
+			'Development Start: ' + dev_start,
+			'Target: ' + target_date
+			];
 			
 			if((stage_values.indexOf(item.stage.value)>=1) && item.assigned_to && item.assigned_to.value.length<=0){
 				scope.curStage = 0;
@@ -89,15 +123,15 @@
         <sys_created_on>2018-12-10 15:47:13</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>eb4b3129135e6340ca3db1676144b0b0</sys_id>
-        <sys_mod_count>99</sys_mod_count>
+        <sys_mod_count>155</sys_mod_count>
         <sys_name>sifactorystatus</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sp_angular_provider_eb4b3129135e6340ca3db1676144b0b0</sys_update_name>
-        <sys_updated_by>chris.stoll</sys_updated_by>
-        <sys_updated_on>2019-01-07 16:47:52</sys_updated_on>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-07 19:04:46</sys_updated_on>
         <type>directive</type>
     </sp_angular_provider>
 </record_update>

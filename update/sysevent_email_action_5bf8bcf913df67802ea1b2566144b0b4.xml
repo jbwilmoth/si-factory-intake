@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_email_action">
+    <sysevent_email_action action="INSERT_OR_UPDATE">
+        <action_insert>false</action_insert>
+        <action_update>false</action_update>
+        <active>false</active>
+        <advanced_condition/>
+        <affected_field_on_event/>
+        <category display_value="Approval" name="Approval">1a9d02137f232200ee2e108c3ffa9113</category>
+        <collection>sysapproval_approver</collection>
+        <condition/>
+        <content_type>multipart/mixed</content_type>
+        <default_interval/>
+        <description/>
+        <digest_from/>
+        <digest_html/>
+        <digest_reply_to/>
+        <digest_separator_html><![CDATA[<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>]]></digest_separator_html>
+        <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
+        <digest_subject/>
+        <digest_template/>
+        <digest_text/>
+        <digestable>false</digestable>
+        <event_name>x_snc_intake.reqitem.approval.inserted</event_name>
+        <event_parm_1>false</event_parm_1>
+        <event_parm_2>false</event_parm_2>
+        <exclude_delegates>false</exclude_delegates>
+        <force_delivery>false</force_delivery>
+        <from/>
+        <generation_type>event</generation_type>
+        <importance/>
+        <include_attachments>false</include_attachments>
+        <item>event.parm1</item>
+        <item_table/>
+        <mandatory>false</mandatory>
+        <message/>
+        <message_html/>
+        <message_list/>
+        <message_text/>
+        <name>Requested Item Approval Request</name>
+        <omit_watermark>false</omit_watermark>
+        <order>100</order>
+        <push_message_only>false</push_message_only>
+        <recipient_fields>approver</recipient_fields>
+        <recipient_groups/>
+        <recipient_users/>
+        <reply_to/>
+        <send_self>true</send_self>
+        <sms_alternate/>
+        <style/>
+        <subcenter_managed>false</subcenter_managed>
+        <subject/>
+        <subscribable>false</subscribable>
+        <sys_class_name>sysevent_email_action</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-29 22:38:34</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>5bf8bcf913df67802ea1b2566144b0b4</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Requested Item Approval Request</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sysevent_email_action_5bf8bcf913df67802ea1b2566144b0b4</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-30 17:15:37</sys_updated_on>
+        <sys_version>2</sys_version>
+        <template display_value="reqitem.factory.approve.role">d24af07d13df67802ea1b2566144b06d</template>
+        <type>email</type>
+        <weight>0</weight>
+    </sysevent_email_action>
+</record_update>

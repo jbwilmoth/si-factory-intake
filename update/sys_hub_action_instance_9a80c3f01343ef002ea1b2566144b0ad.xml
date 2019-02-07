@@ -8,14 +8,14 @@
         <compiled_snapshot display_value="Send Email">716281160b100300d97d8bf637673ac7</compiled_snapshot>
         <display_text/>
         <flow display_value="SI Factory - Intake Flow">9022f61213ad27004b063192e144b0f4</flow>
-        <order>4.1</order>
+        <order>5.1</order>
         <parent_ui_id>2490e060-e504-43e7-bafc-2eb206d63f0f</parent_ui_id>
         <sys_class_name>sys_hub_action_instance</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2019-01-14 19:41:10</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9a80c3f01343ef002ea1b2566144b0ad</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name/>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
@@ -23,10 +23,24 @@
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
         <sys_update_name>sys_hub_action_instance_9a80c3f01343ef002ea1b2566144b0ad</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-14 19:59:56</sys_updated_on>
+        <sys_updated_on>2019-02-07 21:26:02</sys_updated_on>
         <ui_id>b8950c91-6ac1-4973-b00c-9e7993c1134f</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=9a80c3f01343ef002ea1b2566144b0ad"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>9a80c3f01343ef002ea1b2566144b0ad</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-07 21:25:59</sys_created_on>
+        <sys_id>77aebeac136baf00ca3db1676144b0af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-07 21:25:59</sys_updated_on>
+        <value>jon.adlum@servicenow.com, gregg.aldana@servicenow.com</value>
+        <variable display_value="">8e6281160b100300d97d8bf637673aee</variable>
+    </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_hub_action_instance</document>
         <document_key>9a80c3f01343ef002ea1b2566144b0ad</document_key>
@@ -49,12 +63,12 @@
         <sys_created_by>joe.wilmoth</sys_created_by>
         <sys_created_on>2019-01-14 19:41:10</sys_created_on>
         <sys_id>de80c3f01343ef002ea1b2566144b0b3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-14 19:41:10</sys_updated_on>
+        <sys_updated_on>2019-01-19 01:48:23</sys_updated_on>
         <value>&lt;p class="MsoNormal"&gt;&lt;span style="font-family: 'Calibri Light',sans-serif; mso-ascii-theme-font: major-latin; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Calibri Light'; mso-bidi-theme-font: major-latin;"&gt;Unfortunately, your request was not approved by our team.&lt;/span&gt;&lt;/p&gt;
 &lt;p class="MsoNormal"&gt;&lt;span style="font-family: 'Calibri Light',sans-serif; mso-ascii-theme-font: major-latin; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Calibri Light'; mso-bidi-theme-font: major-latin;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
-&lt;p class="MsoNormal"&gt;&lt;span style="font-family: 'Calibri Light',sans-serif; mso-ascii-theme-font: major-latin; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Calibri Light'; mso-bidi-theme-font: major-latin;"&gt;We suggest that you submit a practice request with the Solution Innovation team instead.&lt;span style="mso-spacerun: yes;"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="MsoNormal"&gt;&lt;span style="font-family: 'Calibri Light',sans-serif; mso-ascii-theme-font: major-latin; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Calibri Light'; mso-bidi-theme-font: major-latin;"&gt;We suggest that you &lt;a title="submit a practice request" href="https://sc.service-now.com/snplatform"&gt;submit a practice request&lt;/a&gt; with the Solution Innovation team instead.&lt;span style="mso-spacerun: yes;"&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p class="MsoNormal"&gt;&lt;span style="font-family: 'Calibri Light',sans-serif; mso-ascii-theme-font: major-latin; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Calibri Light'; mso-bidi-theme-font: major-latin;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
 &lt;p class="MsoNormal"&gt;&lt;span style="font-family: 'Calibri Light',sans-serif; mso-ascii-theme-font: major-latin; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Calibri Light'; mso-bidi-theme-font: major-latin;"&gt;Thanks, &lt;/span&gt;&lt;/p&gt;
 &lt;p data-tinymcerootblock=""&gt;&lt;!-- [if gte mso 9]&gt;&lt;xml&gt;
@@ -726,6 +740,18 @@ table.MsoNormalTable
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
         <sys_updated_on>2019-01-14 19:41:10</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_cc</field>
+        <id>9a80c3f01343ef002ea1b2566144b0ad</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-07 21:25:59</sys_created_on>
+        <sys_id>f3aebeac136baf00ca3db1676144b0af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-07 21:25:59</sys_updated_on>
         <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
         <value/>
     </sys_element_mapping>

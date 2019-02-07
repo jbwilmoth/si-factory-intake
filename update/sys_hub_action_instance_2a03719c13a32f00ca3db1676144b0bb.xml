@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_hub_action_instance">
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Email">716281160b100300d97d8bf637673ac7</action_type>
+        <action_type_parent/>
+        <comment/>
+        <compiled_snapshot display_value="Send Email">716281160b100300d97d8bf637673ac7</compiled_snapshot>
+        <display_text/>
+        <flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2a03719c13a32f00ca3db1676144b0bb</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sys_hub_action_instance_2a03719c13a32f00ca3db1676144b0bb</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-07 21:26:07</sys_updated_on>
+        <ui_id>b5db4ec7-e01b-4ba1-9e80-07eb8a396710</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=2a03719c13a32f00ca3db1676144b0bb"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2a03719c13a32f00ca3db1676144b0bb</document_key>
+        <order>4</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:22</sys_created_on>
+        <sys_id>0423f19c13a32f00ca3db1676144b0cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:22</sys_updated_on>
+        <value>&lt;p data-tinymcerootblock=""&gt;A recently submitted Solution Innovation Factory request requires approval. View your active Approvals &lt;a href="https://sc.service-now.com/sysapproval_approver_list.do?sysparm_query=state%3Drequested%5EapproverDYNAMIC90d1921e5f510100a9ad2572f2b477fe&amp;amp;sysparm_list_mode=grid"&gt;here&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;</value>
+        <variable display_value="">4e62c1160b100300d97d8bf637673a10</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2a03719c13a32f00ca3db1676144b0bb</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:00</sys_created_on>
+        <sys_id>2e03719c13a32f00ca3db1676144b0c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:00</sys_updated_on>
+        <value>Approval Needed for Factory Request</value>
+        <variable display_value="">b21241160b100300d97d8bf637673a4a</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2a03719c13a32f00ca3db1676144b0bb</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-07 19:45:36</sys_created_on>
+        <sys_id>65b722e813e3af00ca3db1676144b0cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-07 19:45:36</sys_updated_on>
+        <value>jon.adlum@servicenow.com, gregg.aldana@servicenow.com</value>
+        <variable display_value="">8e6281160b100300d97d8bf637673aee</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2a03719c13a32f00ca3db1676144b0bb</document_key>
+        <order>4</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:00</sys_created_on>
+        <sys_id>a203719c13a32f00ca3db1676144b0c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:00</sys_updated_on>
+        <value>&lt;p data-tinymcerootblock=""&gt;A recently submitted Solution Innovation Factory request requires approval. View your active Approvals &lt;a href="https://sc.service-now.com/sysapproval_approver_list.do?sysparm_query=state%3Drequested%5EapproverDYNAMIC90d1921e5f510100a9ad2572f2b477fe&amp;amp;sysparm_list_mode=grid"&gt;here&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;</value>
+        <variable display_value="">c71241160b100300d97d8bf637673a55</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>2a03719c13a32f00ca3db1676144b0bb</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:22</sys_created_on>
+        <sys_id>c423f19c13a32f00ca3db1676144b0cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:22</sys_updated_on>
+        <value>Approval Needed for Factory Request</value>
+        <variable display_value="">0a62c1160b100300d97d8bf637673a05</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=2a03719c13a32f00ca3db1676144b0bb"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_body</field>
+        <id>2a03719c13a32f00ca3db1676144b0bb</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:00</sys_created_on>
+        <sys_id>2203719c13a32f00ca3db1676144b0c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:00</sys_updated_on>
+        <table>var__m_sys_hub_action_input_98c181d20b100300d97d8bf637673ab5</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_body</field>
+        <id>2a03719c13a32f00ca3db1676144b0bb</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:22</sys_created_on>
+        <sys_id>8023f19c13a32f00ca3db1676144b0cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:22</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_cc</field>
+        <id>2a03719c13a32f00ca3db1676144b0bb</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-07 19:45:36</sys_created_on>
+        <sys_id>e1b722e813e3af00ca3db1676144b0cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-07 19:45:36</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>2a03719c13a32f00ca3db1676144b0bb</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:00</sys_created_on>
+        <sys_id>6e03719c13a32f00ca3db1676144b0c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:00</sys_updated_on>
+        <table>var__m_sys_hub_action_input_98c181d20b100300d97d8bf637673ab5</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>2a03719c13a32f00ca3db1676144b0bb</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:22</sys_created_on>
+        <sys_id>cc23f19c13a32f00ca3db1676144b0cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:22</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>2a03719c13a32f00ca3db1676144b0bb</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:22</sys_created_on>
+        <sys_id>0c23f19c13a32f00ca3db1676144b0cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:22</sys_updated_on>
+        <table>var__m_sys_hub_action_input_716281160b100300d97d8bf637673ac7</table>
+        <value>{{Service Catalog_1.request_item.assignment_group}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>2a03719c13a32f00ca3db1676144b0bb</id>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-02-06 21:17:00</sys_created_on>
+        <sys_id>2603719c13a32f00ca3db1676144b0c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-02-06 21:17:00</sys_updated_on>
+        <table>var__m_sys_hub_action_input_98c181d20b100300d97d8bf637673ab5</table>
+        <value>{{Service Catalog_1.request_item.assignment_group}}</value>
+    </sys_element_mapping>
+</record_update>

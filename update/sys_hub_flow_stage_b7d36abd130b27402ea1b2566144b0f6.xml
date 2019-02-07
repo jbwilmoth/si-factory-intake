@@ -3,28 +3,28 @@
         <always_show>true</always_show>
         <ancestor_component_id/>
         <ancestor_stage_id/>
-        <component_indexes>1</component_indexes>
-        <duration>1970-01-02 00:00:00</duration>
+        <component_indexes>9</component_indexes>
+        <duration>1970-01-01 00:00:00</duration>
         <flow display_value="SI Factory - Intake Flow">ae51b6de136d27004b063192e144b0c6</flow>
-        <label>In Review</label>
-        <order>1</order>
-        <stage_id>54f45783-532d-4059-b402-1ca45ecd0fac</stage_id>
+        <label>In Development</label>
+        <order>0</order>
+        <stage_id>99a9cec2-1d5d-48a7-8b0e-8f3efff9fe41</stage_id>
         <states>{"pending":"Pending - has not started","inprogress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
         <sys_class_name>sys_hub_flow_stage</sys_class_name>
         <sys_created_by>joe.wilmoth</sys_created_by>
-        <sys_created_on>2018-12-21 15:02:43</sys_created_on>
+        <sys_created_on>2019-01-17 20:09:51</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>a1aa9e4d136a6380ca3db1676144b0f4</sys_id>
+        <sys_id>b7d36abd130b27402ea1b2566144b0f6</sys_id>
         <sys_mod_count>3</sys_mod_count>
-        <sys_name>In Review</sys_name>
+        <sys_name>In Development</sys_name>
         <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
-        <sys_update_name>sys_hub_flow_stage_a1aa9e4d136a6380ca3db1676144b0f4</sys_update_name>
+        <sys_update_name>sys_hub_flow_stage_b7d36abd130b27402ea1b2566144b0f6</sys_update_name>
         <sys_updated_by>joe.wilmoth</sys_updated_by>
-        <sys_updated_on>2019-01-14 18:52:29</sys_updated_on>
+        <sys_updated_on>2019-02-06 21:17:01</sys_updated_on>
         <type>standard</type>
-        <value>in_review</value>
+        <value>development</value>
     </sys_hub_flow_stage>
 </record_update>

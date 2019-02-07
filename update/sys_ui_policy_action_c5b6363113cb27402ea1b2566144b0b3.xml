@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>x_snc_intake_in_development</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>joe.wilmoth</sys_created_by>
+        <sys_created_on>2019-01-17 21:32:20</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c5b6363113cb27402ea1b2566144b0b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_intake_in_development</sys_name>
+        <sys_package display_value="SI Factory - Intake" source="x_snc_intake">40e1969e132d27004b063192e144b031</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SI Factory - Intake">40e1969e132d27004b063192e144b031</sys_scope>
+        <sys_update_name>sys_ui_policy_action_c5b6363113cb27402ea1b2566144b0b3</sys_update_name>
+        <sys_updated_by>joe.wilmoth</sys_updated_by>
+        <sys_updated_on>2019-01-17 21:32:20</sys_updated_on>
+        <table>sc_req_item</table>
+        <ui_policy display_value="Make In Development READ ONLY">dd86723113cb27402ea1b2566144b07c</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>
